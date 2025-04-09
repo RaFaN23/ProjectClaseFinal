@@ -1,0 +1,15 @@
+{% extends 'basehtml.html' %}
+{% load static %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/home_css.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h1>Bienvenido a la página de inicio</h1>
+    <p>Este es el contenido de la home.</p>
+{% endblock %}
