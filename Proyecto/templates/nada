@@ -1,0 +1,30 @@
+<nav class="navbar nav-custom ">
+  <div class="container-fluid ">
+    <div class="navbar-cosas">
+        <a class="navbar-brand Logo_nombre" href="{% url 'home' %}">
+            <img src="{% static 'img/Trangoni.png' %} " width="50px" height="50px">
+            <h4>TrangoniPepperoni</h4>
+
+        </a>
+        <div class="botones_inicio">
+             <a class="inicio enlaces" href="{% url 'home' %}">
+            <h5>Inicio</h5>
+        </a>
+        <a class=" menu enlaces" href="{% url 'home' %}">
+            <h5>Menú</h5>
+        </a>
+        <a class=" nosotros enlaces" href="{% url 'home' %}">
+            <h5>Nosotros</h5>
+        </a>
+        <a class=" carrito enlaces" href="{% url 'home' %}">
+            <h5>Carrito</h5>
+        </a>
+        </div>
+        <div class="div_botones">
+            <a class="btn btn-primary" href="#" role="button">Inicio Sesion</a>
+            <a class="btn btn-primary" href="#" role="button">Registrar</a>
+        </div>
+
+    </div>
+  </div>
+</nav>
