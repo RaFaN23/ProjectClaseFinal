@@ -3,5 +3,8 @@ body {
 }
 .cuerpo_footer{
     background-color: #F65047;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
