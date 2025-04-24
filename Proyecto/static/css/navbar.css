@@ -149,7 +149,7 @@ a:hover{
 
 .navbar .nav-link.cambio:hover {
     margin-bottom: 15px !important;
-    transform: translateY(-5px);
+
 }
 
 .collapse ,.navbar-collapse{
