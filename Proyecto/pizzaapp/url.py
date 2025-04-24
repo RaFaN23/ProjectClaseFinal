@@ -8,4 +8,5 @@ urlpatterns = [
     path('',go_home,name='home_vacio'),
     path('home/',go_home,name='home'),
     path('registro_tarjerta/',go_registro,name='registro')
+    
 ]

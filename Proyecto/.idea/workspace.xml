@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f9d35b31-1aa9-431d-8f1a-a75a3629ff72" name="Changes" comment="" />
+    <list default="true" id="f9d35b31-1aa9-431d-8f1a-a75a3629ff72" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pizzaapp/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/pizzaapp/url.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/Formulario.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/Formulario.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registro_tarjeta.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registro_tarjeta.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,9 +57,10 @@
     "Python.wsgi.executor": "Run",
     "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "RamaMassi",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/damda/PycharmProjects/ProjectClaseFinal/Proyecto",
+    "last_opened_file_path": "C:/Users/damda/OneDrive/Documentos/GitHub/ProjectClaseFinal/Proyecto/static/img",
+    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",

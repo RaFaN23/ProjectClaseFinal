@@ -14,28 +14,24 @@
 
 
 {% block content %}
-    <Formulario>
-        <body>
-            <div class="contenedor" >
-                <strong><h1>Registro de Tarjeta</h1></strong>
-                <p>Nombre del propietario de la tarjeta <input type="text" name="numero" size="30" required></p>
+    <div class="contenedor">
+        <h1><strong>Registro de Tarjeta</strong></h1>
+        <div class="Respuestas">
+            <p>Nombre del propietario de la tarjeta <input type="text" name="nombre" size="30" required></p>
 
-                <p>Num De Tarjeta <input type="text" name="numero" size="30" required></p>
+            <p>Num De Tarjeta <input type="text" name="numero" size="30" required></p>
 
-                <p>Fecha De Caducidad <input type="text" name="Fecha_Caducidad" size="30" required></p>
+            <p>Fecha De Caducidad <input type="text" name="Fecha_Caducidad" size="30" required></p>
 
-                <p>CCV <input type="text" name="CCV" size="3" required></p>
-                <p>
-                        <input type="submit" value="Enviar">
+            <p>CCV <input type="text" name="CCV" size="3" required></p>
 
-
-
-
-                        <input type="reset" value="Borrar">
-                    </p>
-            </div>
-        </body>
-    </Formulario>
+            <p>
+                <input type="submit" value="Enviar">
+                <input type="reset" value="Borrar">
+            </p>
+        </div>
+    </div>
 {% endblock %}
+
 
 
