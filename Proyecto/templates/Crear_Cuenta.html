@@ -1,0 +1,44 @@
+{% extends 'basehtml.html' %}
+{% load static %}
+
+
+{% block title %}Registro De Tarjeta{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/home_css.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Formulario.css' %}">
+
+{% endblock %}
+
+
+{% block content %}
+    <Formulario>
+        <body>
+            <div class="Caja" >
+                <strong><h1>Crear una cuenta</h1></strong>
+                <strong><h3>REGISTRATE PARA REALIZAR PEDIDOS Y ACCEDER A OFERTAS EXCLUSIVAS</h3></strong>
+
+                <p>Nombre<input type="text" name="Nombre" size="20" required></p>
+                <p>Apellidos<input type="text" name="Apellidos" size="20" required></p>
+
+                <p>Correo Electronico<input type="text" name="Correo electronico" size="30" required></p>
+
+                <p>Teléfono<input type="text" name="Teléfono" size="30" required></p>
+                <p>Contraseña<input type="text" name="Teléfono" size="30" required></p>
+                <p>Confirmar Contraseña<input type="text" name="Teléfono" size="30" required></p>
+
+                <p>CCV <input type="text" name="CCV" size="3" required></p>
+                <p>
+                        <input type="submit" value="Enviar">
+
+
+
+
+                        <input type="reset" value="Borrar">
+                    </p>
+            </div>
+        </body>
+    </Formulario>
+{% endblock %}
