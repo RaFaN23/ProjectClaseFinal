@@ -1,1 +1,1 @@
-Esta carpeta esta reservada a las cosas de redes
+Esta carpeta esta reservada para las cosas de redes
