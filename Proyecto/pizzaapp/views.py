@@ -16,3 +16,6 @@ def go_crearCuenta(request):
 
 def go_iniciarSesion(request):
     return render(request, 'InicioSesion.html')
+
+def go_carrito(request):
+    return render(request, 'carrito.html')

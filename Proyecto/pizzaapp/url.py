@@ -10,4 +10,6 @@ urlpatterns = [
     path('registro_tarjerta/',go_registro,name='registro'),
     path('Crear_Cuenta/',go_crearCuenta,name='Crear_Cuenta'),
     path('InicioSesion/', go_iniciarSesion,name='InicioSesion'),
+    #path('Crear_Cuenta/',go_crearCuenta,name='Crear_Cuenta'),
+    path('carrito/',go_carrito, name='carrito'),
 ]
