@@ -10,3 +10,6 @@ def go_registro(request):
 
 def go_crearCuenta(request):
     return render(request, 'Crear_Cuenta.html')
+
+def go_iniciarSesion(request):
+    return render(request, 'InicioSesion.html')
