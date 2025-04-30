@@ -1,0 +1,40 @@
+{% extends 'basehtml.html' %}
+{% load static %}
+
+
+{% block title %}Registro De Tarjeta{% endblock %}
+
+{% block extra_css %}
+
+    <link rel="stylesheet" href="{% static 'css/home_css.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Formulario.css' %}">
+
+{% endblock %}
+
+
+{% block content %}
+    <div class="contenedor">
+        <h1><strong>Haga su pedido</strong></h1>
+        <div class="Respuestas">
+            <p>Codigo Postal <input type="number" name="nombre" size="30" required></p>
+            <p>Escalera <input type="number" name="nombre" size="30" required></p>
+            <p>Portal <input type="number" name="nombre" size="30" required></p>
+            <p>Puerta <input type="number" name="nombre" size="30" required></p>
+
+
+            <p>Calle <input type="text" name="calle" size="30" required></p>
+
+            <p>Teléfono <input type="text" name="telefono" size="30" required></p>
+
+            <p>
+                <input type="submit" value="Enviar">
+                <input type="reset" value="Borrar">
+            </p>
+        </div>
+    </div>
+{% endblock %}
+
+
+
