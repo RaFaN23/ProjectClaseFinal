@@ -11,3 +11,6 @@ def go_registro(request):
 
 def go_pedido(request):
     return render(request, 'hacer_pedido.html')
+
+def go_carrito(request):
+    return render(request, 'carrito.html')
