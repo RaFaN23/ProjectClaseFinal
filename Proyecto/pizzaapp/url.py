@@ -9,4 +9,6 @@ urlpatterns = [
     path('home/',go_home,name='home'),
     path('registro_tarjerta/',go_registro,name='registro'),
     path('Crear_Cuenta/',go_crearCuenta,name='Crear_Cuenta'),
+    path('hacer_pedido/',go_pedido,name='Hacer_Pedido'),
+
 ]
