@@ -1,0 +1,26 @@
+{% extends 'basehtml.html' %}
+{% load static %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/carrito.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+{% endblock %}
+
+{% block content %}
+
+  <div class="cuerpo_carrito">
+   <h2>Carrito</h2>
+   <div class="pedidos">
+       <h4>Pizzas Añadidas</h4>
+       <div class="cuerpo_del_pedido">
+
+       </div>
+   </div>
+  <button type="submit" class="btn btn-primary">Enviar</button>
+  </div>
+
+
+{% endblock %}

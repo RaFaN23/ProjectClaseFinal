@@ -1,0 +1,26 @@
+body{
+
+    background-image:url(../img/Pizza.png);
+
+
+   animation:mover 50s  linear infinite ;
+
+
+
+
+
+
+}
+
+@keyframes mover{
+    from { background-position: -40px -30px  ;}
+
+    to { background-position: 500px;}
+}
+
+.cuerpo_carrito{
+    border: 5px solid #F65047 !important;
+}
+.cuerpo_del_pedido{
+    border: 5px solid #F65047 !important;
+}

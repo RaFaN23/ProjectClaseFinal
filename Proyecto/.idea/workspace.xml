@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9d35b31-1aa9-431d-8f1a-a75a3629ff72" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/static/img/pngwing.com.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ProjectClaseFinal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProjectClaseFinal.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/carrito.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/carrito.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/static/css/InicioSesion.css" afterDir="false" />
@@ -20,6 +19,8 @@
       <change beforePath="$PROJECT_DIR$/static/css/Formulario.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/Formulario.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/hacer_pedido.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/hacer_pedido.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/registro_tarjeta.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registro_tarjeta.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pizzaapp/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/pizzaapp/url.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pizzaapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/pizzaapp/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

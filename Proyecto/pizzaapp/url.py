@@ -12,4 +12,6 @@ urlpatterns = [
     path('InicioSesion/', go_iniciarSesion,name='InicioSesion'),
     path('hacer_pedido/',go_pedido,name='Hacer_Pedido'),
 
+    #path('Crear_Cuenta/',go_crearCuenta,name='Crear_Cuenta'),
+    path('carrito/',go_carrito, name='carrito'),
 ]
