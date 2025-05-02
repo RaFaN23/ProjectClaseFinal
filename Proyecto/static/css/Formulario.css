@@ -34,7 +34,7 @@ body{
     margin: 100px auto;
     display: grid;
     place-items: center;
-    position: absolute;
+
 
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
