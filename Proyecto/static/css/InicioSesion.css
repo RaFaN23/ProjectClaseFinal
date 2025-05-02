@@ -60,7 +60,9 @@ body{
 .boton{
     margin-top: 2%;
     margin-bottom: 4%;
+    color: white;
     background-color: #F65047;
+    border-radius: 10px;
     padding-left: 17.5%;
     padding-right: 17.5%;
     padding-bottom: 0.5%;
