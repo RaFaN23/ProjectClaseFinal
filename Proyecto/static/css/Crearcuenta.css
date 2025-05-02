@@ -26,8 +26,7 @@ body{
     margin-top: 5%;
     margin-left: 25%;
     margin-bottom: 5%;
-    border: 10px solid #F65047;
-    border-radius: 35px;
+    border: 3px solid #2b2929;
     font-size: 20px;
     backdrop-filter: blur(30px);
     width: 50%;
@@ -53,3 +52,4 @@ body{
     margin-left: 5%;
 
 }
+
