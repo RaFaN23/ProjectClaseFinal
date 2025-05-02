@@ -26,6 +26,7 @@ body{
     margin-left: 21%;
     margin-bottom: 5%;
     border: 3px solid #2b2929;
+    border-radius: 10px;
     font-size: 20px;
     backdrop-filter: blur(30px);
     width: 60%;
