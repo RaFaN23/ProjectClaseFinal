@@ -1,0 +1,48 @@
+{% extends 'basehtml.html' %}
+{% load static %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/carrito.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+{% endblock %}
+
+{% block content %}
+
+  <div class="cuerpo_carrito">
+   <h2>Carrito</h2>
+   <div class="pedidos">
+       <br>
+       <h4>Pizzas Añadidas:</h4>
+       <div class="cuerpo_del_pedido">
+           <h5>Aqui va el pedido(BDD need)</h5>
+       </div>
+       <div class="datos">
+           <div class="cuenta">
+               <h6>Total de la Cuenta : </h6>
+               <h6>dinero</h6>
+           </div>
+           <div class="localizacion">
+               <h6>Elige Localizacion</h6>
+               <h6>seleccionar</h6>
+           </div>
+       </div>
+       <div class="boton">
+           <button type="submit" class="enviar">Enviar</button>
+       </div>
+       <div class="pagar">
+           <div class="pagado">
+                <h4>Pagar con :</h4>
+           </div>
+           <div class="eleccion">
+               <div>Tarjeta</div>
+               <div>Efectivo</div>
+           </div>
+       </div>
+   </div>
+  </div>
+
+
+{% endblock %}

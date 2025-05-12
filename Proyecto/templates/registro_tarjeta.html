@@ -5,9 +5,7 @@
 {% block title %}Registro De Tarjeta{% endblock %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'css/home_css.css' %}">
-    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
-    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+
     <link rel="stylesheet" href="{% static 'css/Formulario.css' %}">
 
 {% endblock %}
@@ -26,8 +24,8 @@
             <p>CCV <input type="text" name="CCV" size="3" required></p>
 
             <p>
-                <input type="submit" value="Enviar">
-                <input type="reset" value="Borrar">
+                <a class="btn btn-primary" href="#" role="button">Borrar</a>
+                <a class="btn btn-primary" href="#" role="button">Enviar</a>
             </p>
         </div>
     </div>
