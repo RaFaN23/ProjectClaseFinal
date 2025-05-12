@@ -19,8 +19,68 @@ body{
 }
 
 .cuerpo_carrito{
+    align-items: center!important;
     border: 5px solid #F65047 !important;
+    display: flex !important;
+    flex-direction: column!important;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: white;
+    border-radius: 22px;
+    width: 700px;
 }
 .cuerpo_del_pedido{
     border: 5px solid #F65047 !important;
+
+}
+
+.container{
+    display: flex !important;
+    flex-direction: column!important;
+    align-items: center!important;
+}
+
+.enviar{
+    background-color: #F65047 !important;
+    color: white !important;
+    margin-bottom: 7px;
+    border: none !important;
+    border-radius: 5px;
+    margin-top: 10px;
+    width:350px;
+    height: 30px;
+}
+.enviar:hover {
+    color: white !important;
+    background-color: #A62323 !important;
+    border: 2px solid #ffffff !important;
+}
+
+.boton{
+    display: flex;
+    justify-content: center;
+
+}
+
+
+.pagar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.eleccion{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.cuenta{
+    display: flex;
+    justify-content: space-between;
+}
+
+.localizacion{
+    display: flex;
+    justify-content: space-between;
 }
