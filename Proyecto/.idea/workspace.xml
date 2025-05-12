@@ -5,19 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9d35b31-1aa9-431d-8f1a-a75a3629ff72" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/static/css/carrito.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/carrito.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/InicioSesion.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/InicioSesion.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pizzaapp/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/pizzaapp/url.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pizzaapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/pizzaapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/Crearcuenta.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/Crearcuenta.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Crear_Cuenta.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Crear_Cuenta.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pizzaapp/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/pizzaapp/url.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pizzaapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/pizzaapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectClaseFinal/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectClaseFinal/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/nada" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,14 +16,6 @@
   </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="HTML File" />
-        <option value="CSS File" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -52,37 +34,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Django Server.Unnamed.executor": "Run",
-    "Python.__init__.executor": "Run",
-    "Python.admin.executor": "Run",
-    "Python.apps.executor": "Run",
-    "Python.models.executor": "Run",
-    "Python.url.executor": "Run",
-    "Python.urls.executor": "Run",
-    "Python.wsgi.executor": "Run",
-    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "RamaRafa",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/damda/PycharmProjects/ProjectClaseFinal/Proyecto/static/img",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Django Server.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;Python.__init__.executor&quot;: &quot;Run&quot;,
+    &quot;Python.admin.executor&quot;: &quot;Run&quot;,
+    &quot;Python.apps.executor&quot;: &quot;Run&quot;,
+    &quot;Python.models.executor&quot;: &quot;Run&quot;,
+    &quot;Python.url.executor&quot;: &quot;Run&quot;,
+    &quot;Python.urls.executor&quot;: &quot;Run&quot;,
+    &quot;Python.wsgi.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/damda/Downloads/ojdbc11.jar&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "oracle"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;oracle&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\damda\PycharmProjects\ProjectClaseFinal\Proyecto\static\img" />
@@ -123,8 +105,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PY-242.23339.19" />
-        <option value="bundled-python-sdk-0029f7779945-399fe30bd8c1-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.23339.19" />
+        <option value="bundled-python-sdk-9f73701ac511-399fe30bd8c1-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.26775.22" />
       </set>
     </attachedChunks>
   </component>
@@ -144,6 +125,11 @@
       <workItem from="1745418940278" duration="696000" />
       <workItem from="1746022372673" duration="192000" />
       <workItem from="1746022574827" duration="2439000" />
+      <workItem from="1747059167402" duration="1594000" />
+      <workItem from="1747061001242" duration="388000" />
+      <workItem from="1747061398391" duration="1228000" />
+      <workItem from="1747062652014" duration="108000" />
+      <workItem from="1747062765201" duration="873000" />
     </task>
     <servers />
   </component>
