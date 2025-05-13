@@ -93,3 +93,11 @@ class Usuario(AbstractUser, PermissionsMixin):
 
     def __str__(self):
         return self.email + "-" + self.nombre + "-" + self.rol
+
+class Contacto(models.Model):
+    nombre = models.CharField(max_length=100)
+    email = models.EmailField()
+    mensaje = models.TextField()
+
+    def __str__(self):
+        return self.nombre

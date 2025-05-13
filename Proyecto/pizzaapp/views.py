@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import render, redirect
-
+from django.shortcuts import render, redirect
+from .forms import PizzaForm
 # Create your views here.
 
 
@@ -23,3 +24,16 @@ def go_iniciarSesion(request):
 
 def go_carrito(request):
     return render(request, 'carrito.html')
+
+def go_contacto(request):
+    return render(request, 'contacto.html')
+def contacto_view(request):
+    if request.method == 'POST':
+        form = PizzaForm(request.POST)
+        if form.is_valid():
+            form.save()  # Guarda en la base de datos si es ModelForm
+            return redirect('gracias')
+    else:
+        form = PizzaForm()
+
+    return render(request, 'contacto.html', {'form': form})
