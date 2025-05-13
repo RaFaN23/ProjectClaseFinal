@@ -1,8 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import render, redirect
 from django.shortcuts import render, redirect
-from .forms import PizzaForm
-from django.contrib.auth.decorators import login_required
 from .forms import PizzaForm, RegistroFormulario
 
 
@@ -41,8 +39,6 @@ def contacto_view(request):
         form = PizzaForm()
 
     return render(request, 'contacto.html', {'form': form})
-
-
 
 def registrar_usuario(request):
     if request.method == 'POST':
