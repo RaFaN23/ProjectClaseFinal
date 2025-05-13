@@ -81,7 +81,7 @@ DATABASES = {
         "NAME": "xe",
         "USER": "C##PIZZERO",
         "PASSWORD": "12345",
-        "HOST": "localhost",
+        "HOST": "locahost",
         "PORT": "1521",
     }
 }
