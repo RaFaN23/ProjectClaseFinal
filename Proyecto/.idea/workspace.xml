@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="f9d35b31-1aa9-431d-8f1a-a75a3629ff72" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pizzaapp/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/pizzaapp/url.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pizzaapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/pizzaapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/navbar.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +83,7 @@
       <recent name="C:\Users\damda\OneDrive\Documentos\GitHub\ProjectClaseFinal\Proyecto\static\img" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.manage">
+  <component name="RunManager">
     <configuration name="manage" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="ProjectClaseFinal" />
       <option name="ENV_FILES" value="" />
@@ -184,7 +187,7 @@
     <SUITE FILE_PATH="coverage/Proyecto$apps.coverage" NAME="apps Coverage Results" MODIFIED="1744309474694" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pizzaapp" />
     <SUITE FILE_PATH="coverage/Proyecto$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1747144122139" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pizzaapp" />
     <SUITE FILE_PATH="coverage/Proyecto$settings.coverage" NAME="settings Coverage Results" MODIFIED="1747145630426" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ProjectClaseFinal" />
-    <SUITE FILE_PATH="coverage/Proyecto$manage.coverage" NAME="manage Coverage Results" MODIFIED="1747147898767" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Proyecto$manage.coverage" NAME="manage Coverage Results" MODIFIED="1747148020568" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Proyecto$urls.coverage" NAME="urls Coverage Results" MODIFIED="1747144729688" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ProjectClaseFinal" />
     <SUITE FILE_PATH="coverage/Proyecto$models.coverage" NAME="models Coverage Results" MODIFIED="1744309443170" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pizzaapp" />
     <SUITE FILE_PATH="coverage/Proyecto$url.coverage" NAME="url Coverage Results" MODIFIED="1747143162375" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pizzaapp" />

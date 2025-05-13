@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.shortcuts import render, redirect
 from django.shortcuts import render, redirect
 from .forms import PizzaForm
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
@@ -37,3 +38,8 @@ def contacto_view(request):
         form = PizzaForm()
 
     return render(request, 'contacto.html', {'form': form})
+
+
+
+
+
