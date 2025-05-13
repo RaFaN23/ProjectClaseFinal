@@ -25,8 +25,7 @@ def go_iniciarSesion(request):
 def go_carrito(request):
     return render(request, 'carrito.html')
 
-def go_contacto(request):
-    return render(request, 'contacto.html')
+
 def contacto_view(request):
     if request.method == 'POST':
         form = PizzaForm(request.POST)

@@ -7,7 +7,7 @@
     <h1>Contáctanos</h1>
     <form method="post">
         {% csrf_token %}
-        {{ forms.as_p }}
+        {{ form.as_p }}
         <button type="submit">Enviar</button>
     </form>
 </body>
