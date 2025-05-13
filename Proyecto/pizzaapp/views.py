@@ -3,6 +3,9 @@ from django.shortcuts import render, redirect
 from django.shortcuts import render, redirect
 from .forms import PizzaForm
 from django.contrib.auth.decorators import login_required
+from .forms import PizzaForm, RegistroFormulario
+
+
 # Create your views here.
 
 
@@ -41,5 +44,14 @@ def contacto_view(request):
 
 
 
+def registrar_usuario(request):
+    if request.method == 'POST':
+        form =RegistroFormulario(request.POST)
+        if form.is_valid():
+            form.save()  # Guarda en la base de datos si es ModelForm
+            return redirect('gracias')
+    else:
+        form = RegistroFormulario()
+    return render(request,"Crear_Cuenta.html",{'form': form})
 
 

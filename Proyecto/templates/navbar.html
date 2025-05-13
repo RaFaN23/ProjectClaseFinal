@@ -33,19 +33,19 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle cambio" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Nosotros</a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Carta</a></li>
+            <li><a class="dropdown-item" href="#">Conocenos</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">Reserva aqui</a></li>
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link cambio" href="{% url 'home' %}">Carrito</a>
+          <a class="nav-link cambio" href="{% url 'carrito' %}">Carrito</a>
         </li>
       </ul>
       <form class="d-flex" >
-        <a class="btn btn-primary" href="#" role="button">Inicio Sesion</a>
-        <a class="btn btn-primary" href="#" role="button">Registrar</a>
+        <a class="btn btn-primary" href="{% url 'InicioSesion' %}" role="button">Inicio Sesion</a>
+        <a class="btn btn-primary" href="{% url 'Crear_Cuenta' %}" role="button">Registrar </a>
         </form>
     </div>
   </div>
