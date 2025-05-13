@@ -37,17 +37,6 @@ body{
 
 
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    .btn{
-    background-color: white !important;
-    color: #A62323 !important;
-    margin-bottom: 7px;
-    border: none !important;
-}
-.btn:hover {
-    color: white !important;
-    background-color: #F65047 !important;
-    border: 2px solid #ffffff !important;
-}
 }
 
 
