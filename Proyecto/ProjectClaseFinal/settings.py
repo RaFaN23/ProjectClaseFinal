@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'pizzaapp'
 
 ]
 
@@ -81,7 +82,7 @@ DATABASES = {
         "NAME": "xe",
         "USER": "C##PIZZERO",
         "PASSWORD": "12345",
-        "HOST": "locahost",
+        "HOST": "localhost",
         "PORT": "1521",
     }
 }

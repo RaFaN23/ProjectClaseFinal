@@ -1,6 +1,7 @@
 from django import forms
+from .models import Contacto
 
-class PizzaForm(forms.Form):
-    nombre = forms.CharField(max_length=100, label="Tu nombre")
-    email = forms.CharField(max_length=100, label="Tu apellido")
-    mensaje = forms.CharField(widget=forms.Textarea, label="Mensaje")
+class PizzaForm(forms.ModelForm):
+    class Meta:
+        model = Contacto
+        fields = ['nombre', 'email', 'mensaje']
