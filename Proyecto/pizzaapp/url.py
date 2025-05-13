@@ -7,6 +7,7 @@ from pizzaapp.views import *
 urlpatterns = [
     path('',go_home,name='home_vacio'),
     path('home/',go_home,name='home'),
+    #LOGIN Y REGISTRO
     path('registro_tarjerta/',go_registro,name='registro'),
     path('Crear_Cuenta/',go_crearCuenta,name='Crear_Cuenta'),
     path('InicioSesion/', go_iniciarSesion,name='InicioSesion'),

@@ -37,4 +37,10 @@
             </div>
         </body>
     </Formulario>
+
+    <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="boton">Registrarse</button>
+    </form>
 {% endblock %}

@@ -1,0 +1,13 @@
+
+para ver las tablas de base de datos usa este comando
+▶️ Usa el shell de Django:
+bash
+
+py manage.py shell
+
+Una vez dentro, ejecuta lo siguiente para ver las tablas registradas por Django:
+
+from django.apps import apps
+
+for model in apps.get_models():
+    print(model._meta.db_table)
