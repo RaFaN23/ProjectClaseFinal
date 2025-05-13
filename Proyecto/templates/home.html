@@ -10,51 +10,61 @@
 {% endblock %}
 
 {% block content %}
-    <div class="cuerpo_entero">
+    <div class="hero_section">
+        <img class="imagen_pricipal" src="{% static 'img/ivan-torres-MQUqbmszGGM-unsplash.jpg' %}" alt="">
         <div class="parte_arriba">
-            <img class="imagen_pricipal" src="{% static 'img/slice-crispy-pizza-with-meat-cheese.jpg' %}">
             <h1>TrangoniPepperoni</h1>
             <h3>La mejor pizza de la ciudad</h3>
             <h3>Comienza tu pedido</h3>
             <a class="btn btn-primary" href="#" role="button">Ver menu</a>
         </div>
+    </div>
+    <div class="cuerpo_entero">
+
         <div class="parte_cards">
             <div class="card mb-3" style="width: 18rem;">
-                <div class="card-body">
-                    <img class="pngs" src="{% static 'img/pngwing.com.png' %}" width="40px" height="40px">
-                    <h5 class="card-title">Ingredientes frescos</h5>
-                    <p class="card-text">Utilizamos solos los ingredientes más frescos y de la mejor calidad para nuestras pizzas</p>
+                <div class="card-body cartas">
+                    <div class="orden">
+                        <img class="pngs" src="{% static 'img/pngwing.com.png' %}" width="40px" height="40px" alt="">
+                        <h5 class="card-title">Ingredientes frescos</h5>
+                        <p class="card-text">Utilizamos solos los ingredientes más frescos y de la mejor calidad para nuestras pizzas</p>
+                    </div>
                 </div>
             </div>
             <div class="card mb-3" style="width: 18rem;">
-                <div class="card-body">
-                    <img class="pngs" src="{% static 'img/pngwing.com.png' %}" width="40px" height="40px">
-                    <h5 class="card-title">Puntualidad de los pedidos</h5>
-                    <p class="card-text">No tardamos en tus pedidos</p>
+                <div class="card-body cartas">
+                    <div class="orden">
+                        <img class="pngs" src="{% static 'img/pngwing.com.png' %}" width="40px" height="40px" alt="">
+                        <h5 class="card-title">Puntualidad de los pedidos</h5>
+                        <p class="card-text">No tardamos en tus pedidos</p>
+                    </div>
                 </div>
             </div>
             <div class="card mb-3" style="width: 18rem;">
-                <div class="card-body">
-                    <img class="pngs" src="{% static 'img/pngwing.com.png' %}" width="40px" height="40px">
-                    <h5 class="card-title">Ingredientes frescos</h5>
-                    <p class="card-text">Utilizamos solos los ingredientes más frescos y de la mejor calidad para nuestras pizzas</p>
+                <div class="card-body cartas">
+                    <div class="orden">
+                        <img class="pngs" src="{% static 'img/pngwing.com.png' %}" width="40px" height="40px" alt="">
+                        <h5 class="card-title">Ingredientes frescos</h5>
+                        <p class="card-text">Utilizamos solos los ingredientes más frescos y de la mejor calidad para nuestras pizzas</p>
+                    </div>
                 </div>
             </div>
         </div>
-
         <div class="nuestra_historia">
             <div class="imagen_historia">
-
+                <img class="imagen_conocenos" src="{% static 'img/chef-de-vista-frontal-preparando-pizza.jpg' %}" alt="">
             </div>
             <div class="historia_escrita">
-                <h2>Nuestra Historia</h2>
-                <h4>En TrangoniPepperoni, vivimos la pasión por la pizza. Nuestra misión es ofrecer pizzas artesanales con ingredientes frescos, recetas únicas y un sabor inigualable.
+                <h3>Nuestra Historia</h3>
+                <br>
+                <h5 class="historia">En TrangoniPepperoni, vivimos la pasión por la pizza. Nuestra misión es ofrecer pizzas artesanales con ingredientes frescos, recetas únicas y un sabor inigualable.
                 Cada pizza es el resultado de dedicación y amor por la gastronomía italiana. Nos especializamos en combinaciones innovadoras sin olvidar los clásicos favoritos.
-                </h4>
+                </h5>
             </div>
         </div>
         <div class="reseñas">
-
+            <h2>Lo que dicen nuestros clientes</h2>
+            aqui tene que ir las reseñas que no se si las vamos ha hacer con base de datos o esteticas
         </div>
     </div>
 {% endblock %}
