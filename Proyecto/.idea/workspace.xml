@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9d35b31-1aa9-431d-8f1a-a75a3629ff72" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pizzaapp/migrations/0002_contacto.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ProjectClaseFinal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProjectClaseFinal.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectClaseFinal/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectClaseFinal/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pizzaapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/pizzaapp/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pizzaapp/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/pizzaapp/url.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pizzaapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/pizzaapp/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/contacto.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacto.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,7 +48,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Django Server.Unnamed.executor": "Debug",
+    "Django Server.Unnamed.executor": "Run",
     "Python.__init__.executor": "Run",
     "Python.admin.executor": "Run",
     "Python.apps.executor": "Run",
@@ -138,6 +135,7 @@
       <workItem from="1745418923080" duration="16000" />
       <workItem from="1745418940278" duration="696000" />
       <workItem from="1747146572264" duration="2939000" />
+      <workItem from="1747149821799" duration="4738000" />
     </task>
     <servers />
   </component>
