@@ -19,5 +19,6 @@ class RegistroFormulario(forms.ModelForm):
 
 class LoginFormulario(AuthenticationForm):
     username = forms.EmailField(label="Correo electronico")
-
-    fields = ['email', 'password']
+    class Meta:
+        model = Usuario
+        fields = ['email', 'password']

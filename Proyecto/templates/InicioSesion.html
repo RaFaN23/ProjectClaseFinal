@@ -12,27 +12,23 @@
 
 
 {% block content %}
-    <Formulario>
-        <body>
-            <div class="caja" >
-                <div class="titulo">
-                    <h1>Iniciar sesión</h1>
-                    <br>
-                    <h3>Ingresa tus credenciales para acceder a tu cuenta</h3>
-                    <br>
-                </div>
-                <div class="cosasCaj">
+    <div class="caja">
+        <div class="titulo">
+            <h1>Iniciar sesión</h1>
+            <br>
+            <h3>Ingresa tus credenciales para acceder a tu cuenta</h3>
+            <br>
+        </div>
+        <div class="cosasCaj">
 
-                    <form method="post">
-                        {% csrf_token %}
-                        {{ form.as_p }}
-                        <button type="submit" class="boton">Iniciar Sesion</button>
-                    </form>
-                </div>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="boton">Iniciar Sesion</button>
+            </form>
+        </div>
 
-            </div>
-        </body>
-    </Formulario>
+    </div>
 {% endblock %}
 
 
