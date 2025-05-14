@@ -23,24 +23,27 @@
                 </div>
                 <div class="cosasCaj">
                     <div class="nomb">
-                        <p>Nombre <br><input type="text" name="Nombre" size="12" required></p>
-                        <div class="nomb2">
-                            <p>Apellidos <br><input type="text" name="Apellidos" size="15" required></p>
-                        </div>
+                        <form method="post">
+                        {% csrf_token %}
+                        {% for field in form %}
+
+                            <p>
+                                {{ field.label_tag }} {{ field }}
+
+
+                            </p>
+                        {% endfor %}
+
+                        <button type="submit" class="boton">Registrarse</button>
+                        </form>
+
                     </div>
-                    <p>Correo Electronico <br><input type="text" name="Correo electronico" size="34" required></p>
-                    <p>Teléfono <br><input type="text" name="Teléfono" size="34" required></p>
-                    <p>Contraseña <br><input type="text" name="Teléfono" size="34" required></p>
-                    <p>Confirmar Contraseña <br><input type="text" name="Teléfono" size="34" required></p>
+
                 </div>
-                <button class="boton">Registrate</button>
+
             </div>
         </body>
     </Formulario>
 
-    <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="boton">Registrarse</button>
-    </form>
+
 {% endblock %}
