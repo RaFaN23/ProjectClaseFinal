@@ -1,26 +1,26 @@
-body{
+body {
 
-    background-image:url(../img/Pizza.png);
-
-
-   animation:mover 50s  linear infinite ;
+    background-image: url(../img/Pizza.png);
 
 
-
-
+    animation: mover 50s linear infinite;
 
 
 }
 
 
-@keyframes mover{
-    from { background-position: -40px -30px  ;}
+@keyframes mover {
+    from {
+        background-position: -40px -30px;
+    }
 
-    to { background-position: 500px;}
+    to {
+        background-position: 500px;
+    }
 }
 
 
-.caja{
+.caja {
     background-color: rgba(240, 254, 255, 0.5);
     margin-top: 3%;
     margin-left: 21%;
@@ -36,7 +36,7 @@ body{
 }
 
 
-.titulo{
+.titulo {
     text-align: center;
     margin-top: 3%;
     margin-left: 3%;
@@ -46,20 +46,20 @@ body{
 }
 
 
-.nomb{
+.nomb {
     display: flex;
     justify-content: space-evenly;
 
 }
 
 
-.nomb2{
+.nomb2 {
     margin-left: 5%;
 
 }
 
 
-.boton{
+.boton {
     margin-top: 2%;
     margin-bottom: 4%;
     color: white;
