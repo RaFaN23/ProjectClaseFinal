@@ -6,8 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="f9d35b31-1aa9-431d-8f1a-a75a3629ff72" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/footer.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pizzaapp/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/pizzaapp/url.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/Crearcuenta.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/Crearcuenta.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/Formulario.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/Formulario.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Crear_Cuenta.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Crear_Cuenta.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/InicioSesion.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/InicioSesion.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/hacer_pedido.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/hacer_pedido.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

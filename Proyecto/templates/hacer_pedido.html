@@ -15,26 +15,43 @@
 
 
 {% block content %}
-    <div class="contenedor">
-        <h1><strong>Haga su pedido</strong></h1>
-        <div class="Respuestas">
-            <p>Codigo Postal <input type="text" name="nombre" size="20" required></p>
-            <p>Escalera <input type="text" name="nombre" size="20" required></p>
-            <p>Portal <input type="text" name="nombre" size="20" required></p>
-            <p>Puerta <input type="text" name="nombre" size="20" required></p>
-
-
-            <p>Calle <input type="text" name="calle" size="20" required></p>
-
-            <p>Teléfono <input type="text" name="telefono" size="20" required></p>
-
-            <p>
-                <a class="btn btn-primary" href="#" role="button">Borrar</a>
-                <a class="btn btn-primary" href="#" role="button">Enviar</a>
-            </p>
+        <div class="contenedor">
+            <h1><strong>Haga su pedido</strong></h1>
+            <form method="post">
+                {% csrf_token %}
+                <div class="Respuestas">
+                    <p>
+                        <label>Código Postal</label><br>
+                        <input type="text" name="codigo_postal" size="20" required>
+                    </p>
+                    <p>
+                        <label>Escalera</label><br>
+                        <input type="text" name="escalera" size="20" required>
+                    </p>
+                    <p>
+                        <label>Portal</label><br>
+                        <input type="text" name="portal" size="20" required>
+                    </p>
+                    <p>
+                        <label>Puerta</label><br>
+                        <input type="text" name="puerta" size="20" required>
+                    </p>
+                    <p>
+                        <label>Calle</label><br>
+                        <input type="text" name="calle" size="20" required>
+                    </p>
+                    <p>
+                        <label>Teléfono</label><br>
+                        <input type="text" name="telefono" size="20" required>
+                    </p>
+                    <p>
+                        <button type="reset" class="btn btn-primary">Borrar</button>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </p>
+                </div>
+            </form>
         </div>
-    </div>
-{% endblock %}
+    {% endblock %}
 
 
 
