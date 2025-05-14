@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render
 from django.shortcuts import render, redirect
 from django.shortcuts import render, redirect
@@ -8,8 +8,14 @@ from .forms import *
 # Create your views here.
 
 
+from django.shortcuts import render
+from django.http import HttpResponse
+
 def go_home(request):
-    return render(request, 'home.html')
+    response = render(request, 'home.html')
+    response['Cache-Control'] = 'no-store'
+    return response
+
 
 
 def go_crearCuenta(request):
@@ -82,3 +88,7 @@ def login_usuario(request):
 
     return render(request, 'InicioSesion.html', {'form': form})
 
+
+def logout_usuario(request):
+    logout(request)
+    return redirect('InicioSesion')
