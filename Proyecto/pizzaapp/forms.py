@@ -13,7 +13,7 @@ class RegistroFormulario(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
     class Meta:
         model = Usuario
-        fields = ['email', 'nombre','apellidos', 'Telefono', 'password']
+        fields = ['email', 'nombre','apellidos','rol', 'password']
 
 
 
@@ -32,3 +32,6 @@ class LoginFormulario(AuthenticationForm):
         help_texts = {
             'email': 'Usa un correo válido como nombre@ejemplo.com',
         }
+    class Meta:
+        model = Usuario
+        fields = ['email', 'password']

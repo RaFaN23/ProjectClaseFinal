@@ -12,38 +12,37 @@
 
 
 {% block content %}
-    <Formulario>
-        <body>
-            <div class="caja" >
-                <div class="titulo">
-                    <strong><h1>Crear una cuenta</h1></strong>
-                    <br>
-                    <strong><h3>Registrate para realizar pedidos y acceder a ofertas exclusivas</h3></strong>
-                    <br>
-                </div>
-                <div class="cosasCaj">
-                    <div class="nomb">
-                        <form method="post">
-                        {% csrf_token %}
-                        {% for field in form %}
 
-                            <p>
-                                {{ field.label_tag }} {{ field }}
+    <body>
+    <div class="caja">
+        <div class="titulo">
+            <strong><h1>Crear una cuenta</h1></strong>
+            <br>
+            <strong><h3>Registrate para realizar pedidos y acceder a ofertas exclusivas</h3></strong>
+            <br>
+        </div>
+        <div class="cosasCaj">
+            <div class="nomb">
+                <form method="post">
+                    {% csrf_token %}
+                    {% for field in form %}
+
+                        <p>
+                            {{ field.label_tag }} {{ field }}
 
 
-                            </p>
-                        {% endfor %}
+                        </p>
+                    {% endfor %}
 
-                        <button type="submit" class="boton">Registrarse</button>
-                        </form>
-
-                    </div>
-
-                </div>
+                    <button type="submit" class="boton">Registrarse</button>
+                </form>
 
             </div>
-        </body>
-    </Formulario>
+
+        </div>
+
+    </div>
+    </body>
 
 
 {% endblock %}

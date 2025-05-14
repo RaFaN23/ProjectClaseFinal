@@ -7,16 +7,11 @@
     <list default="true" id="f9d35b31-1aa9-431d-8f1a-a75a3629ff72" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pizzaapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/pizzaapp/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pizzaapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/pizzaapp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pizzaapp/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/pizzaapp/url.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Crear_Cuenta.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Crear_Cuenta.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pizzaapp/migrations/0002_contacto.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ProjectClaseFinal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProjectClaseFinal.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pizzaapp/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/pizzaapp/url.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pizzaapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/pizzaapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contacto.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacto.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Crear_Cuenta.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Crear_Cuenta.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/InicioSesion.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/InicioSesion.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/footer.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/navbar.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,40 +42,13 @@
   &quot;associatedIndex&quot;: 2
 }</component>
   <component name="ProjectId" id="2vY4pRaeSn6HjhHaBA5Vh7GcISh" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Django Server.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;Python.__init__.executor&quot;: &quot;Run&quot;,
-    &quot;Python.admin.executor&quot;: &quot;Run&quot;,
-    &quot;Python.apps.executor&quot;: &quot;Run&quot;,
-    &quot;Python.models.executor&quot;: &quot;Run&quot;,
-    &quot;Python.url.executor&quot;: &quot;Run&quot;,
-    &quot;Python.urls.executor&quot;: &quot;Run&quot;,
-    &quot;Python.wsgi.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;RamaMassi&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/damda/PycharmProjects/ProjectClaseFinal/Proyecto&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
     "Django Server.Unnamed.executor": "Run",
     "Python.__init__.executor": "Run",
     "Python.admin.executor": "Run",
@@ -90,9 +58,11 @@
     "Python.urls.executor": "Run",
     "Python.wsgi.executor": "Run",
     "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "RamaJavi",
+    "git-widget-placeholder": "RamaMassi",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/damda/PycharmProjects/ProjectClaseFinal/Proyecto",
     "list.type.of.created.stylesheet": "CSS",
@@ -101,15 +71,15 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "settings.editor.selected.configurable": "preferences.keymap",
     "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;oracle&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "oracle"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\damda\OneDrive\Documentos\GitHub\ProjectClaseFinal\Proyecto\static\img" />
@@ -148,8 +118,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PY-241.19072.16" />
-        <option value="bundled-python-sdk-8336bb23522e-2767605e8bc2-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.19072.16" />
+        <option value="bundled-python-sdk-c69650fc56ca-b11f5e8da5ad-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.15619.17" />
       </set>
     </attachedChunks>
   </component>
@@ -167,8 +136,9 @@
       <workItem from="1745413547256" duration="1672000" />
       <workItem from="1745418923080" duration="16000" />
       <workItem from="1745418940278" duration="696000" />
-      <workItem from="1747146572264" duration="2939000" />
-      <workItem from="1747149821799" duration="4738000" />
+      <workItem from="1747160044355" duration="58000" />
+      <workItem from="1747232397737" duration="26000" />
+      <workItem from="1747232434205" duration="8179000" />
     </task>
     <servers />
   </component>
@@ -176,20 +146,18 @@
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Proyecto$apps.coverage" NAME="apps Coverage Results" MODIFIED="1744309474694" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pizzaapp" />
+    <SUITE FILE_PATH="coverage/Proyecto$urls.coverage" NAME="urls Coverage Results" MODIFIED="1745420899692" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ProjectClaseFinal" />
     <SUITE FILE_PATH="coverage/Proyecto$models.coverage" NAME="models Coverage Results" MODIFIED="1744309443170" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pizzaapp" />
     <SUITE FILE_PATH="coverage/Proyecto$wsgi.coverage" NAME="wsgi Coverage Results" MODIFIED="1744309594247" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ProjectClaseFinal" />
-    <SUITE FILE_PATH="coverage/Proyecto$views.coverage" NAME="views Coverage Results" MODIFIED="1747144974438" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pizzaapp" />
     <SUITE FILE_PATH="coverage/Proyecto$url.coverage" NAME="url Coverage Results" MODIFIED="1744309242635" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pizzaapp" />
-    <SUITE FILE_PATH="coverage/Proyecto$apps.coverage" NAME="apps Coverage Results" MODIFIED="1744309474694" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pizzaapp" />
     <SUITE FILE_PATH="coverage/Proyecto$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1744309159308" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pizzaapp" />
     <SUITE FILE_PATH="coverage/Proyecto$admin.coverage" NAME="admin Coverage Results" MODIFIED="1744309153714" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pizzaapp" />
-    <SUITE FILE_PATH="coverage/Proyecto$urls.coverage" NAME="urls Coverage Results" MODIFIED="1745420899692" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ProjectClaseFinal" />
   </component>
 </project>
