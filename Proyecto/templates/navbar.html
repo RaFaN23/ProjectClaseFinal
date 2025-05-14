@@ -52,18 +52,18 @@
             </ul>
             <form class="d-flex">
                 {% if user.is_authenticated %}
-                    <!-- Botones visibles solo si el usuario está logueado -->
-                    <button >Mi cuenta</button>
-                    <button >Cerrar Sesion</button>
-                    <!--<form method="post" action="">
+                    <a class="btn btn-primary me-2" href="#">Mi cuenta</a>
 
-                        <button type="submit">Cerrar sesión</button>
-                    </form>-->
+                    <form method="post" action="{% url 'cerrarSesion' %}" style="display: inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Cerrar Sesión</button>
+                    </form>
+
                 {% else %}
-                    <!-- Botones visibles solo si el usuario NO está logueado -->
-                    <a class="btn btn-primary" href="{% url 'InicioSesion' %}" role="button">Iniciar sesión</a>
-                    <a class="btn btn-primary" href="{% url 'Crear_Cuenta' %}" role="button">Registrarse</a>
+                    <a class="btn btn-primary me-2" href="{% url 'InicioSesion' %}">Iniciar sesión</a>
+                    <a class="btn btn-secondary" href="{% url 'Crear_Cuenta' %}">Registrarse</a>
                 {% endif %}
+
             </form>
         </div>
     </div>
