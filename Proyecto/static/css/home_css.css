@@ -87,6 +87,7 @@ body, html {
 
 .nuestra_historia {
     margin-top: 3em;
+    margin-bottom: 3em;
     display: flex;
     justify-content: space-between;
     background-color: #F65047;
