@@ -90,5 +90,5 @@ def login_usuario(request):
 
 
 def logout_usuario(request):
-    logout(request)
+    logout_usuario()
     return redirect('InicioSesion')

@@ -54,9 +54,10 @@
                 {% if user.is_authenticated %}
                     <a class="btn btn-primary me-2" href="#">Mi cuenta</a>
 
-                    <form method="post" action="{% url 'cerrarSesion' %}" style="display: inline;">
+                    <form method="post" action="{% url 'cerrarsesion' %}" style="display: inline;">
                         {% csrf_token %}
-                        <button type="submit" class="btn btn-danger">Cerrar Sesión</button>
+                        <a class="nav-link special-text" href="{% url 'cerrarsesion' %}"></a>
+                    <a class="btn btn-secondary" href="{% url 'cerrarsesion' %}">cerrar sesion</a>
                     </form>
 
                 {% else %}
