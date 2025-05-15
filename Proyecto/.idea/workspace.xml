@@ -15,6 +15,7 @@
       <change beforePath="$PROJECT_DIR$/templates/InicioSesion.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/InicioSesion.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/hacer_pedido.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/hacer_pedido.html" afterDir="false" />
     </list>
+    <list default="true" id="f9d35b31-1aa9-431d-8f1a-a75a3629ff72" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -78,6 +79,9 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "Django Server.Unnamed.executor": "Run",
     "Python.__init__.executor": "Run",
     "Python.admin.executor": "Run",
@@ -92,6 +96,9 @@
     "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "RamaJavi",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "RamaRafa",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/damda/PycharmProjects/ProjectClaseFinal/Proyecto",
     "list.type.of.created.stylesheet": "CSS",
@@ -101,14 +108,15 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.keymap",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
     "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;oracle&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "oracle"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\damda\OneDrive\Documentos\GitHub\ProjectClaseFinal\Proyecto\static\img" />
@@ -148,6 +156,8 @@
     <attachedChunks>
       <set>
         <option value="bundled-python-sdk-c69650fc56ca-b11f5e8da5ad-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.15619.17" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PY-241.19072.16" />
+        <option value="bundled-python-sdk-8336bb23522e-2767605e8bc2-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.19072.16" />
       </set>
     </attachedChunks>
   </component>
@@ -170,6 +180,8 @@
       <workItem from="1747232434205" duration="12362000" />
       <workItem from="1747247002514" duration="694000" />
       <workItem from="1747248089238" duration="397000" />
+      <workItem from="1747181140657" duration="11000" />
+      <workItem from="1747313616076" duration="19304000" />
     </task>
     <servers />
   </component>

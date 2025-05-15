@@ -18,4 +18,11 @@ urlpatterns = [
     #path('Crear_Cuenta/',go_crearCuenta,name='Crear_Cuenta'),
     path('carrito/',go_carrito, name='carrito'),
     path('contacto/',contacto_view, name='contacto'),
+    path('contacto/',go_contacto, name='contacto'),
+
+
+    #Esto es para la carta
+    path('carta/',go_carta, name='carta'),
+    path('formulario_carta/nuevo/<int:id>',go_formulario_carta, name='formulario_carta'),
+    path('formulario_carta/borrar/<int:id>',eliminar_carta, name='eliminar_carta'),
 ]
