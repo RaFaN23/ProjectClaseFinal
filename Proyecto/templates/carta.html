@@ -24,13 +24,21 @@
                                 <p class="card-text">{{ c.ingredientes }}</p>
                                 <p class="card-text fw-bold">{{ c.precio }} €</p>
                             </div>
+                            <div class="botonescosas">
+                                <button class="editar_eliminar">
+                                    <a class="enlace_formulario_carta" href="{% url 'formulario_carta' id=c.id %}">Editar</a>
+                                </button>
+                                <button class="editar_eliminar">
+                                    <a class="enlace_formulario_carta" href="{% url 'eliminar_carta' id=c.id %}">eliminar</a>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 {% endfor %}
             </div>
 
             <button class="boton-añadir">
-                <a class="enlace_formulario_carta" href="{% url 'formulario_carta' %}">Añadir</a>
+                <a class="enlace_formulario_carta" href="{% url 'formulario_carta' id=0 %}">Añadir</a>
             </button>
 
         </div>

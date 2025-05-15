@@ -20,5 +20,6 @@ urlpatterns = [
 
     #Esto es para la carta
     path('carta/',go_carta, name='carta'),
-    path('formulario_carta/',go_formulario_carta, name='formulario_carta'),
+    path('formulario_carta/nuevo/<int:id>',go_formulario_carta, name='formulario_carta'),
+    path('formulario_carta/borrar/<int:id>',eliminar_carta, name='eliminar_carta'),
 ]

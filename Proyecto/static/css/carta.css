@@ -54,3 +54,20 @@ body{
 }
 
 
+
+
+
+.editar_eliminar{
+    background-color: #F65047 !important;
+    color: white;  !important;
+    margin-bottom: 7px;
+    border: none !important;
+    border-radius: 8px;
+}
+.editar_eliminar:hover {
+    color: #F65047 !important;
+    background-color: white !important;
+    border: 2px solid #F65047 !important;
+    border-radius: 8px;
+
+}

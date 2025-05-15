@@ -59,9 +59,17 @@ def go_carta(request):
     lista_carta = cartao.objects.all()
     return render(request, 'carta.html', {'carta': lista_carta})
 
-def go_formulario_carta(request):
-    if request.method == 'POST':
+def go_formulario_carta(request,id):
+
+    plato = cartao.objects.filter(id=id)
+
+    if len(plato) == 0:
         nuevo_plato = cartao()
+    else:
+        nuevo_plato=plato[0]
+
+    if request.method == 'POST':
+
         nuevo_plato.nombre = request.POST['nombre']
         nuevo_plato.ingredientes = request.POST['ingredientes']
         nuevo_plato.precio = request.POST['precio']
@@ -71,5 +79,12 @@ def go_formulario_carta(request):
         return redirect('carta')
 
     else:
-        return render(request, 'formularioCarta.html')
+        return render(request, 'formularioCarta.html',{'plato': nuevo_plato})
 
+
+
+def eliminar_carta(request,id):
+    plato_eliminar = cartao.objects.filter(id=id)
+    if len(plato_eliminar) != 0:
+        plato_eliminar[0].delete()
+        return redirect('carta')
