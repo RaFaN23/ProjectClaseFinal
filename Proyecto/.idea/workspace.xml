@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f9d35b31-1aa9-431d-8f1a-a75a3629ff72" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pizzaapp/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/pizzaapp/url.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pizzaapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/pizzaapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/carta.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/carta.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/carta.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/carta.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/formularioCarta.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/formularioCarta.html" afterDir="false" />
-    </list>
+    <list default="true" id="f9d35b31-1aa9-431d-8f1a-a75a3629ff72" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -137,7 +130,7 @@
       <workItem from="1745418923080" duration="16000" />
       <workItem from="1745418940278" duration="696000" />
       <workItem from="1747181140657" duration="11000" />
-      <workItem from="1747313616076" duration="18955000" />
+      <workItem from="1747313616076" duration="19304000" />
     </task>
     <servers />
   </component>
