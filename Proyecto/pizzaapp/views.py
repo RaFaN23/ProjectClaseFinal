@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.shortcuts import render, redirect
 from django.shortcuts import render, redirect
 from .forms import PizzaForm, RegistroFormulario
+from .models import cartao
 
 
 # Create your views here.
@@ -50,4 +51,25 @@ def registrar_usuario(request):
         form = RegistroFormulario()
     return render(request,"Crear_Cuenta.html",{'form': form})
 
+
+
+
+
+def go_carta(request):
+    lista_carta = cartao.objects.all()
+    return render(request, 'carta.html', {'carta': lista_carta})
+
+def go_formulario_carta(request):
+    if request.method == 'POST':
+        nuevo_plato = cartao()
+        nuevo_plato.nombre = request.POST['nombre']
+        nuevo_plato.ingredientes = request.POST['ingredientes']
+        nuevo_plato.precio = request.POST['precio']
+        nuevo_plato.imagen = request.POST['imagen']
+
+        nuevo_plato.save()
+        return redirect('carta')
+
+    else:
+        return render(request, 'formularioCarta.html')
 
