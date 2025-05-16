@@ -1,0 +1,73 @@
+body{
+
+    background-image:url(../img/Pizza.png);
+
+
+   animation:mover 50s  linear infinite ;
+
+
+
+
+
+
+}
+@keyframes mover{
+    from { background-position: -40px -30px  ;}
+
+    to { background-position: 500px;}
+}
+.cuerpo_carta{
+    background-color: #F65047;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    padding-top: 1%;
+}
+
+.titulo_carta{
+    display: flex;
+    justify-content: center;
+    margin-top: 1%;
+}
+
+
+.boton-añadir{
+    background-color: white !important;
+    color:#F65047  !important;
+    margin-bottom: 7px;
+    border: none !important;
+    border-radius: 8px;
+}
+.boton-añadir:hover {
+    color: white !important;
+    background-color: #F65047 !important;
+    border: 2px solid white !important;
+    border-radius: 8px;
+
+}
+
+.enlace_formulario_carta:visited {
+    color: inherit;
+    text-decoration: none;
+}
+.enlace_formulario_carta {
+    text-decoration: none;
+}
+
+
+
+
+
+.editar_eliminar{
+    background-color: #F65047 !important;
+    color: white;  !important;
+    margin-bottom: 7px;
+    border: none !important;
+    border-radius: 8px;
+}
+.editar_eliminar:hover {
+    color: #F65047 !important;
+    background-color: white !important;
+    border: 2px solid #F65047 !important;
+    border-radius: 8px;
+
+}

@@ -18,6 +18,25 @@ class RegistroFormulario(forms.ModelForm):
 
 
 class LoginFormulario(AuthenticationForm):
+    username = forms.EmailField(label="Correo electronico")
+    widgets = {
+        'mensaje': forms.Textarea(attrs={'rows': 4, 'cols': 40, 'placeholder': 'Escribe tu mensaje aquí...'}),
+    }
+
+    labels = {
+        'nombre': 'Nombre completo',
+        'email': 'Correo electrónico',
+        'mensaje': 'Mensaje',
+    }
+
+    help_texts = {
+        'email': 'Usa un correo válido como nombre@ejemplo.com',
+    }
+
+
+class Meta:
+    model = Usuario
+    fields = ['email', 'password']
     username = forms.EmailField(label="Correo electrónico")
 
     class Meta:

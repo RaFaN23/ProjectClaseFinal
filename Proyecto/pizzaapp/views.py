@@ -1,15 +1,23 @@
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render
 from django.shortcuts import render, redirect
 from django.shortcuts import render, redirect
 from .forms import *
+from .forms import PizzaForm, RegistroFormulario
+from .models import cartao
 
 
 # Create your views here.
 
 
+from django.shortcuts import render
+from django.http import HttpResponse
+
 def go_home(request):
-    return render(request, 'home.html')
+    response = render(request, 'home.html')
+    response['Cache-Control'] = 'no-store'
+    return response
+
 
 
 def go_crearCuenta(request):
@@ -82,3 +90,43 @@ def login_usuario(request):
 
     return render(request, 'InicioSesion.html', {'form': form})
 
+
+def logout_usuario(request):
+    logout_usuario()
+    return redirect('InicioSesion')
+
+
+
+def go_carta(request):
+    lista_carta = cartao.objects.all()
+    return render(request, 'carta.html', {'carta': lista_carta})
+
+def go_formulario_carta(request,id):
+
+    plato = cartao.objects.filter(id=id)
+
+    if len(plato) == 0:
+        nuevo_plato = cartao()
+    else:
+        nuevo_plato=plato[0]
+
+    if request.method == 'POST':
+
+        nuevo_plato.nombre = request.POST['nombre']
+        nuevo_plato.ingredientes = request.POST['ingredientes']
+        nuevo_plato.precio = request.POST['precio']
+        nuevo_plato.imagen = request.POST['imagen']
+
+        nuevo_plato.save()
+        return redirect('carta')
+
+    else:
+        return render(request, 'formularioCarta.html',{'plato': nuevo_plato})
+
+
+
+def eliminar_carta(request,id):
+    plato_eliminar = cartao.objects.filter(id=id)
+    if len(plato_eliminar) != 0:
+        plato_eliminar[0].delete()
+        return redirect('carta')
