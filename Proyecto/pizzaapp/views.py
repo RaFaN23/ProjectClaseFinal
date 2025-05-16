@@ -138,6 +138,8 @@ def mostrar_mesas(request):
     mesas = Mesa.objects.all().order_by('numero')
     return render(request, 'Mesas.html', {'mesas': mesas})
 
+
+
 def asignar_mesa(request, mesa_id):
     mesa = get_object_or_404(Mesa, id=mesa_id)
     if mesa.disponible:
