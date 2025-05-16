@@ -1,0 +1,40 @@
+{% extends 'basehtml.html' %}
+{% load static %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/formulario_carta.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+{% endblock %}
+{% block content %}
+<form  method="post" >
+    {% csrf_token %}
+    <div class="colorfondo">
+        <div class="mb-3">
+            <label for="inputNombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="inputNombre"
+                   name="nombre" placeholder="nombre" value="{{ plato.nombre | default:'' }}">
+        </div>
+        <div class="mb-3">
+            <label for="inputIngredientes" class="form-label">Ingredientes</label>
+            <input type="text" class="form-control" id="inputIngredientes"
+                    name="ingredientes" placeholder="Ingredientes" value="{{ plato.ingredientes | default:''  }}">
+        </div>
+        <div class="mb-3 ">
+            <label for="inputPrecio" class="form-label" >Precio</label>
+            <input type="number" class="form-control" id="inputPrecio"
+                    name="precio" placeholder="0.0" value="{{ plato.precio | default:''  }}">
+        </div>
+        <div class="mb-3 ">
+            <label for="inputImagen" class="form-label" >Imagen URL</label>
+            <input type="text" class="form-control" id="inputImagen"
+                    name="imagen" placeholder="1000 Caracteres maximos" value="{{ plato.imagen | default:''  }}">
+        </div>
+        <div class="botonposi">
+            <button class="boton-añadir">Añadir</button>
+        </div>
+        </div>
+</form>
+{% endblock %}
