@@ -1,4 +1,4 @@
-body{
+    body{
 
     background-image:url(../img/Pizza.png);
 
@@ -69,5 +69,13 @@ body{
     background-color: white !important;
     border: 2px solid #F65047 !important;
     border-radius: 8px;
-
 }
+.editar_eliminar:visited{
+    color: inherit;
+    text-decoration: none;
+}
+
+.colorboton{
+    color: white;
+}
+

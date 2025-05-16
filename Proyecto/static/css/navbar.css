@@ -56,7 +56,7 @@ nav {
 .enlaces:hover{
      text-decoration: none;
 
-    margin-bottom: 10px;
+
     color: white;
 }
 a:hover{
@@ -106,9 +106,9 @@ a:hover{
     color: white;
 }
 .enlaces:hover{
-     text-decoration: none;
+    text-decoration: none;
 
-    margin-bottom: 10px;
+
     color: white;
 }
 a:hover{
@@ -147,10 +147,7 @@ a:hover{
     background-color: #F65047 !important;
 }
 
-.navbar .nav-link.cambio:hover {
-    margin-bottom: 15px !important;
 
-}
 
 .collapse ,.navbar-collapse{
     margin-left: 50px;
