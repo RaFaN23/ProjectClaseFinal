@@ -135,3 +135,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #Ususarios para el sistema
 AUTH_USER_MODEL = 'pizzaapp.Usuario'
+
+#Redireccion despues de cerrar sesion
+LOGOUT_REDIRECT_URL = 'InicioSesion'
+

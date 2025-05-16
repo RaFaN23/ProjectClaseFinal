@@ -12,23 +12,34 @@
 
 
 {% block content %}
-    <Formulario>
-        <body>
-            <div class="caja" >
-                <div class="titulo">
-                    <h1>Iniciar sesión</h1>
-                    <br>
-                    <h3>Ingresa tus credenciales para acceder a tu cuenta</h3>
-                    <br>
+    <div class="caja">
+        <div class="titulo">
+            <h1>Iniciar sesión</h1>
+            <br>
+            <h3>Ingresa tus credenciales para acceder a tu cuenta</h3>
+            <br>
+        </div>
+        <div class="cosasCaj">
+
+            <form method="post">
+                {% csrf_token %}
+                <div class="nomb2">
+                    {% for field in form %}
+                        <p>
+                            {{ field.label_tag }}<br>
+                            {{ field }}
+                            {% if field.errors %}
+                                <br><span style="color: red;">{{ field.errors }}</span>
+                            {% endif %}
+                        </p>
+                    {% endfor %}
+                    <button type="submit" class="boton">Iniciar Sesión</button>
                 </div>
-                <div class="cosasCaj">
-                    <p>Correo Electronico <br><input type="text" name="Correo electronico" size="34" required></p>
-                    <p>Contraseña <br><input type="text" name="Teléfono" size="34" required></p>
-                </div>
-                <button class="boton">Iniciar sesión</button>
-            </div>
-        </body>
-    </Formulario>
+            </form>
+
+        </div>
+
+    </div>
 {% endblock %}
 
 

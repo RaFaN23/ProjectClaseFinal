@@ -1,28 +1,27 @@
-body{
+body {
 
-    background-image:url(../img/Pizza.png);
+    background-image: url(../img/Pizza.png);
 
 
-   animation:mover 50s  linear infinite ;
+    animation: mover 50s linear infinite;
     margin: 0;
     padding: 0;
 
 
-
-
-
 }
 
 
+@keyframes mover {
+    from {
+        background-position: -40px -30px;
+    }
 
-
-@keyframes mover{
-    from { background-position: -40px -30px  ;}
-
-    to { background-position: 500px;}
+    to {
+        background-position: 500px;
+    }
 }
 
-.contenedor{
+.contenedor {
     background-color: rgba(240, 254, 255, 0.5);
     border: 5px solid #bd1818;
     border-radius: 35px;
@@ -37,17 +36,38 @@ body{
 
 
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    .btn{
+}
+
+.btn {
     background-color: white !important;
     color: #A62323 !important;
     margin-bottom: 7px;
     border: none !important;
 }
+
 .btn:hover {
     color: white !important;
     background-color: #F65047 !important;
     border: 2px solid #ffffff !important;
 }
+
+
+.fila {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.fila label {
+    width: 150px; /* Ajusta según lo largo de tus textos */
+    font-weight: bold;
+}
+
+.fila input {
+    flex: 1;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 

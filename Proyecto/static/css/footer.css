@@ -1,10 +1,15 @@
 body {
     font-family: 'Holtwood One SC', serif;
 }
-.cuerpo_footer{
+.cuerpo_footer {
     background-color: #F65047;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center; /* Centra los bloques */
+    gap: 20px; /* Reduce el espacio entre los bloques */
 }
 
+.bloque {
+    display: inline-block;
+    margin: 0 30px; /* Agrega un margen pequeño entre los bloques */
+}
