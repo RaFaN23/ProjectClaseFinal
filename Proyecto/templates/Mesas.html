@@ -1,0 +1,42 @@
+{% extends 'basehtml.html' %}
+{% load static %}
+
+
+{% block title %}Registro De Tarjeta{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/Mesas.css' %}">
+
+
+{% endblock %}
+
+
+{% block content %}
+
+    <body>
+        <div class="container">
+            <div class="grid">
+                {% for mesa in mesas %}
+                    <form method="POST" action="{% url 'asignar_mesa' mesa.id %}">
+                        {% csrf_token %}
+                        <button class="mesa {{ 'disponible' if mesa.disponible else 'ocupada' }}"
+                                {% if not mesa.disponible %}disabled{% endif %}>
+                            MESA {{ mesa.numero }}<br>{{ 'DISPONIBLE' if mesa.disponible else 'OCUPADA' }}
+                        </button>
+                    </form>
+                {% endfor %}
+            </div>
+
+            <div class="botones">
+                <button disabled>ASIGNAR MESA</button>
+                <button disabled>HISTORIAL DE PEDIDOS</button>
+                <button disabled>HACER PEDIDO</button>
+            </div>
+        </div>
+    </body>
+
+
+{% endblock %}
+
+
+

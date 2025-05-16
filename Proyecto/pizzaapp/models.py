@@ -68,6 +68,14 @@ class Contacto(models.Model):
 
 
 
+class Mesa(models.Model):
+    numero = models.IntegerField(unique=True)
+    disponible = models.BooleanField(default=True)
+
+    def __str__(self):
+        return f"Mesa {self.numero} - {'Disponible' if self.disponible else 'Ocupada'}"
+
+
 
 
 
