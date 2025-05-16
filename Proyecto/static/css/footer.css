@@ -1,15 +1,28 @@
-body {
-    font-family: 'Holtwood One SC', serif;
+html, body {
+
+    margin: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
+
+main {
+    flex: 1;
+    padding: 20px; /* Opcional: para separar contenido */
+}
+
 .cuerpo_footer {
     background-color: #F65047;
     display: flex;
     flex-direction: row;
-    justify-content: center; /* Centra los bloques */
-    gap: 20px; /* Reduce el espacio entre los bloques */
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    padding: 20px 0;
 }
 
 .bloque {
     display: inline-block;
-    margin: 0 30px; /* Agrega un margen pequeño entre los bloques */
+    margin: 0 30px;
 }
+

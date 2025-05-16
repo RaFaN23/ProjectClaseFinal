@@ -24,14 +24,18 @@
                                 <p class="card-text">{{ c.ingredientes }}</p>
                                 <p class="card-text fw-bold">{{ c.precio }} €</p>
                             </div>
-                            <div class="botonescosas">
-                                <button class="editar_eliminar">
-                                    <a class="enlace_formulario_carta" href="{% url 'formulario_carta' id=c.id %}">Editar</a>
-                                </button>
-                                <button class="editar_eliminar">
-                                    <a class="enlace_formulario_carta" href="{% url 'eliminar_carta' id=c.id %}">eliminar</a>
-                                </button>
-                            </div>
+                            {% if user.rol == 'admin' %}
+                                <div class="botonescosas">
+                                    <button class="editar_eliminar">
+                                        <a class="enlace_formulario_carta colorboton"
+                                           href="{% url 'formulario_carta' id=c.id %}">Editar</a>
+                                    </button>
+                                    <button class="editar_eliminar">
+                                        <a class="enlace_formulario_carta colorboton"
+                                           href="{% url 'eliminar_carta' id=c.id %}">eliminar</a>
+                                    </button>
+                                </div>
+                            {% endif %}
                         </div>
                     </div>
                 {% endfor %}
