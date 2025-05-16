@@ -19,9 +19,10 @@
                 {% for mesa in mesas %}
                     <form method="POST" action="{% url 'asignar_mesa' mesa.id %}">
                         {% csrf_token %}
-                        <button class="mesa {{ 'disponible' if mesa.disponible else 'ocupada' }}"
+                        <button type="submit" class="mesa {% if mesa.disponible %}disponible{% else %}ocupada{% endif %}"
                                 {% if not mesa.disponible %}disabled{% endif %}>
-                            MESA {{ mesa.numero }}<br>{{ 'DISPONIBLE' if mesa.disponible else 'OCUPADA' }}
+                                MESA {{ mesa.numero }}<br>
+                                {% if mesa.disponible %}DISPONIBLE{% else %}OCUPADA{% endif %}
                         </button>
                     </form>
                 {% endfor %}
