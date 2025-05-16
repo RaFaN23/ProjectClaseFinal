@@ -5,7 +5,8 @@ from django.shortcuts import render, redirect
 from .forms import *
 from .forms import PizzaForm, RegistroFormulario
 from .models import cartao
-
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import Mesa
 
 # Create your views here.
 
@@ -130,3 +131,16 @@ def eliminar_carta(request,id):
     if len(plato_eliminar) != 0:
         plato_eliminar[0].delete()
         return redirect('carta')
+
+
+
+def mostrar_mesas(request):
+    mesas = Mesa.objects.all().order_by('numero')
+    return render(request, 'Mesas.html', {'mesas': mesas})
+
+def asignar_mesa(request, mesa_id):
+    mesa = get_object_or_404(Mesa, id=mesa_id)
+    if mesa.disponible:
+        mesa.disponible = False
+        mesa.save()
+    return redirect('mostrar_mesas')

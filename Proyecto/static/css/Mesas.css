@@ -1,0 +1,50 @@
+body {
+    font-family: 'Arial Black', sans-serif;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+
+.container {
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 40px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.mesa {
+    width: 100px;
+    height: 100px;
+    border: none;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.disponible {
+    background-color: #a86f35;
+    color: black;
+}
+
+.ocupada {
+    background-color: #8c8c8c;
+    color: black;
+    cursor: not-allowed;
+}
+
+.botones button {
+    background-color: #f04d3d;
+    color: white;
+    font-weight: bold;
+    margin: 0 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: not-allowed;
+}
