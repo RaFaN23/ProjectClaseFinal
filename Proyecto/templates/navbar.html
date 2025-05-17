@@ -10,22 +10,19 @@
             integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
             crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Holtwood+One+SC&display=swap" rel="stylesheet">
-
-
 </head>
 <body>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
-
     <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'home' %}">
-            <img src="{% static 'img/Trangoni.png' %} " width="50px" height="50px">
+            <img src="{% static 'img/Trangoni.png' %}" width="50px" height="50px">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
@@ -40,35 +37,41 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{% url 'carta' %}">Carta</a></li>
                         <li><a class="dropdown-item" href="{% url 'contacto' %}">Conocenos</a></li>
+                        <li><a class="dropdown-item" href="#">Carta</a></li>
+                        <li><a class="dropdown-item" href="#">Conócenos</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Reserva aqui</a></li>
+                        <li><a class="dropdown-item" href="#">Reserva aquí</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link cambio" href="{% url 'carrito' %}">Carrito</a>
                 </li>
             </ul>
-            <form class="d-flex">
-                {% if user.is_authenticated %}
-                    <a class="btn btn-primary me-2" href="#">Mi cuenta</a>
 
                     <form method="post" action="{% url 'cerrarsesion' %}" style="display: inline;">
                         {% csrf_token %}
                         <a class="nav-link special-text" href="{% url 'cerrarsesion' %}"></a>
                     <a class="btn btn-secondary" href="{% url 'cerrarsesion' %}">cerrar sesion</a>
                     </form>
+            <!-- Sección de usuario -->
+            {% if user.is_authenticated %}
+                <form id="logout-form" action="{% url 'cerrarSesion' %}" method="POST" style="display: none;">
+                    {% csrf_token %}
+                </form>
+                <a class="btn btn-primary me-2"
+                   href="{% url 'cerrarSesion' %}">
+                    <img src="{% static 'img/usuario.png' %}" width="24" height="24" class="me-2">
+                    <span class="text-white">Cerrar sesión</span>
+                </a>
 
-                {% else %}
-                    <a class="btn btn-primary me-2" href="{% url 'InicioSesion' %}">Iniciar sesión</a>
-                    <a class="btn btn-secondary" href="{% url 'Crear_Cuenta' %}">Registrarse</a>
-                {% endif %}
-
-            </form>
+            {% else %}
+                <a class="btn btn-primary me-2" href="{% url 'InicioSesion' %}">Iniciar sesión</a>
+                <a class="btn btn-secondary" href="{% url 'Crear_Cuenta' %}">Registrarse</a>
+            {% endif %}
         </div>
     </div>
 </nav>
 </body>
 </html>
-

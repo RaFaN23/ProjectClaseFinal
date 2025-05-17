@@ -15,6 +15,7 @@ urlpatterns = [
     path('InicioSesion/', login_usuario,name='InicioSesion'),
 
     path('InicioSesion/', logout_usuario, name='cerrarsesion'),
+    path('cerrarSesion/', logout_usuario, name='cerrarSesion'),
 
     path('hacer_pedido/',go_pedido,name='Hacer_Pedido'),
     #path('Crear_Cuenta/',go_crearCuenta,name='Crear_Cuenta'),

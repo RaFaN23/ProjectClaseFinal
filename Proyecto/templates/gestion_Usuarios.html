@@ -1,0 +1,35 @@
+{% extends 'basehtml.html' %}
+{% load static %}
+
+
+{% block title %}Registro De Tarjeta{% endblock %}
+
+{% block extra_css %}
+
+    <link rel="stylesheet" href="{% static 'css/Formulario.css' %}">
+
+{% endblock %}
+
+
+{% block content %}
+    <div class="contenedor">
+        <h1><strong>Registro de Tarjeta</strong></h1>
+        <div class="Respuestas">
+            <p>Nombre del propietario de la tarjeta <input type="text" name="nombre" size="30" required></p>
+
+            <p>Num De Tarjeta <input type="text" name="numero" size="30" required></p>
+
+            <p>Fecha De Caducidad <input type="text" name="Fecha_Caducidad" size="30" required></p>
+
+            <p>CCV <input type="text" name="CCV" size="3" required></p>
+
+            <p>
+                <a class="btn btn-primary" href="#" role="button">Borrar</a>
+                <a class="btn btn-primary" href="#" role="button">Enviar</a>
+            </p>
+        </div>
+    </div>
+{% endblock %}
+
+
+
