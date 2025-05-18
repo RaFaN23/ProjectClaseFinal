@@ -36,15 +36,19 @@
                                     </button>
                                 </div>
                             {% endif %}
+                            <button class="editar_eliminar">
+                                <a class="enlace_formulario_carta colorboton"
+                                    href="{% url 'add_carrito' id=c.id %}">Añadir Carrito</a>
+                            </button>
                         </div>
                     </div>
                 {% endfor %}
             </div>
-
-            <button class="boton-añadir">
-                <a class="enlace_formulario_carta" href="{% url 'formulario_carta' id=0 %}">Añadir</a>
-            </button>
-
+            {% if user.rol == 'admin' %}
+                <button class="boton-añadir">
+                    <a class="enlace_formulario_carta" href="{% url 'formulario_carta' id=0 %}">Añadir</a>
+                </button>
+            {% endif %}
         </div>
     </div>
 

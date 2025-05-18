@@ -1,10 +1,12 @@
+from datetime import datetime
+
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render
 from django.shortcuts import render, redirect
 from django.shortcuts import render, redirect
 from .forms import *
 from .forms import PizzaForm, RegistroFormulario
-from .models import cartao
+from .models import cartao, LineaPedido
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Mesa
 
@@ -42,8 +44,7 @@ def go_iniciarSesion(request):
     return render(request, 'InicioSesion.html', {'form': form})
 
 
-def go_carrito(request):
-    return render(request, 'carrito.html')
+
 
 
 def go_contacto(request):
@@ -144,3 +145,100 @@ def asignar_mesa(request, mesa_id):
         mesa.disponible = False
         mesa.save()
     return redirect('mostrar_mesas')
+
+
+def add_carrito(request,id):
+    carrito = request.session.get('carrito', {})
+    producto_en_carrito = carrito.get(str(id),0)
+
+    if producto_en_carrito == 0:
+
+        carrito[str(id)] = 1
+
+    else:
+       carrito[str(id)] += 1
+
+    request.session['carrito'] = carrito
+
+    return redirect('carta')
+
+
+
+
+
+
+def go_carrito(request):
+    carrito = {}
+    total = 0.0
+    carrito_session = request.session.get('carrito', {})
+    #recuperar productos
+    for k, v in carrito_session.items():
+        producto = cartao.objects.get(id=k)
+        carrito[producto] = v
+        total += producto.precio * v
+
+    return render(request, 'carrito.html', {'carrito': carrito, 'total': total})
+
+
+
+
+
+def restar_carrito(request, id):
+    carrito = request.session.get('carrito', {})
+    producto_id = str(id)
+
+    if producto_id in carrito:
+        if carrito[producto_id] > 1:
+            carrito[producto_id] -= 1
+        else:
+            del carrito[producto_id]
+
+    request.session['carrito'] = carrito
+    return redirect('ver_carrito')
+
+
+def sumar_carrito(request, id):
+    carrito = request.session.get('carrito', {})
+    producto_id = str(id)
+
+    carrito[producto_id] = carrito.get(producto_id, 0) + 1
+
+    request.session['carrito'] = carrito
+    return redirect('ver_carrito')
+
+
+def quitar_de_carrito(request, id):
+    carrito = request.session.get('carrito', {})
+    producto_id = str(id)
+
+    del carrito[producto_id]
+
+    request.session['carrito'] = carrito
+    return redirect('ver_carrito')
+
+
+def comprar(request):
+    nuevo_pedido = cartao()
+    nuevo_pedido.codigo = 'CP0001'
+    nuevo_pedido.fecha = datetime.now()
+    nuevo_pedido.hermano = request.user
+
+    carrito_session = request.session.get('carrito', {})
+
+    for k, v in carrito_session.items():
+        linea_pedido = LineaPedido()
+        producto = cartao.objects.get(id=k)
+        linea_pedido.producto = producto
+        linea_pedido.precio = producto.precio
+        linea_pedido.cantidad = v
+        linea_pedido.pedido = nuevo_pedido
+        linea_pedido.save()
+
+    nuevo_pedido.save()
+
+
+def limpiar(request):
+    if 'carrito' in request.session:
+        del request.session['carrito']
+    request.session.modified = True
+    return redirect('ver_carrito')

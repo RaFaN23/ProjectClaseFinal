@@ -93,3 +93,29 @@ class cartao(models.Model):
 
     def __str__(self):
         return self.nombre
+
+
+class Pedido(models.Model):
+    codigo = models.CharField(max_length=50)
+    fecha = models.DateTimeField()
+    usuario = models.ForeignKey(
+        'Usuario',  # modelo al que se relaciona
+        on_delete=models.DO_NOTHING,  # qué hacer si se borra el titular
+        related_name= 'pedidos'  # nombre para acceder desde el lado de usuario
+    )
+
+
+    def __str__(self):
+        return self.codigo
+
+
+
+
+class LineaPedido(models.Model):
+    pedido = models.ForeignKey(Pedido, on_delete= models.CASCADE)
+    producto = models.ForeignKey(cartao, on_delete= models.DO_NOTHING)
+    cantidad = models.IntegerField()
+    precio = models.FloatField()
+
+    def __str__(self):
+        return self.producto.nombre + "-" + self.precio

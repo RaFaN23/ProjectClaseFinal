@@ -11,3 +11,7 @@ from django.apps import apps
 
 for model in apps.get_models():
     print(model._meta.db_table)
+
+
+
+    pip install django-bootstrap-icons esos son iconos

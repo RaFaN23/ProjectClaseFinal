@@ -1,6 +1,5 @@
 {% extends 'basehtml.html' %}
 {% load static %}
-
 {% block title %}Inicio{% endblock %}
 
 {% block extra_css %}
@@ -10,39 +9,77 @@
 {% endblock %}
 
 {% block content %}
+<div class="tabla_carrito">
+    <h1 class="titulo_carrito">Carrito de la Compra</h1>
 
-  <div class="cuerpo_carrito">
-   <h2>Carrito</h2>
-   <div class="pedidos">
-       <br>
-       <h4>Pizzas Añadidas:</h4>
-       <div class="cuerpo_del_pedido">
-           <h5>Aqui va el pedido(BDD need)</h5>
-       </div>
-       <div class="datos">
-           <div class="cuenta">
-               <h6>Total de la Cuenta : </h6>
-               <h6>dinero</h6>
-           </div>
-           <div class="localizacion">
-               <h6>Elige Localizacion</h6>
-               <h6>seleccionar</h6>
-           </div>
-       </div>
-       <div class="boton">
-           <button type="submit" class="enviar">Enviar</button>
-       </div>
-       <div class="pagar">
-           <div class="pagado">
-                <h4>Pagar con :</h4>
-           </div>
-           <div class="eleccion">
-               <div>Tarjeta</div>
-               <div>Efectivo</div>
-           </div>
-       </div>
-   </div>
-  </div>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col"></th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Precio Ud</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for k,v in carrito.items %}
+            <tr>
+
+                <th>{{ k.nombre }}</th>
+                <th></th>
+                <th>
+
+
+                    <a href="{% url 'restar_carrito' k.id %}">
+                        <button class="botonescarrito" type="button">
+                            <img class="png" src="{% static 'img/restar.png' %}" alt="">
+                        </button>
+                    </a>
+
+                    {{ v }}
+
+                    <a href="{% url 'sumar_carrito' k.id %}">
+                        <button class="botonescarrito" type="button">
+                            <img class="png" src="{% static 'img/mas.png' %}" alt="">
+                        </button>
+                    </a>
+
+                    </th>
+                    <th>{{ k.ingredientes }}</th>
+                    <th>
+                        {{ k.precio }} €
+                        <a href="{% url 'quitar_de_carrito' k.id %}">
+                            <button class="botonescarrito" type="button">
+                                <img class="png" src="{% static 'img/compartimiento.png' %}" alt="">
+                            </button>
+                        </a>
+                    </th>
+
+            </tr>
+
+        {% endfor %}
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th><b>TOTAL DE LA COMPRA</b></th>
+            <th>{{ total }} €</th>
+        </tr>
+
+
+        </tbody>
+    </table>
+    <a href="{% url 'limpiar' %}">
+        <button class="boton_carrito_pedir">
+            <i class="bi bi-clipboard-plus"></i> Completar Compra
+        </button>
+    </a>
+</div>
+
+
 
 
 {% endblock %}
