@@ -36,6 +36,10 @@
                                     </button>
                                 </div>
                             {% endif %}
+                            <button class="editar_eliminar">
+                                <a class="enlace_formulario_carta colorboton"
+                                    href="{% url 'add_carrito' id=c.id %}">Añadir Carrito</a>
+                            </button>
                         </div>
                     </div>
                 {% endfor %}
