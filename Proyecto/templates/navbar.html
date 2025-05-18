@@ -50,22 +50,22 @@
                     <a class="nav-link cambio" href="{% url 'carrito' %}">Carrito</a>
                 </li>
             </ul>
-            <form class="d-flex">
-                {% if user.is_authenticated %}
-                    <a class="btn btn-primary me-2" href="#">Mi cuenta</a>
+            {% if user.is_authenticated %}
+                <form id="logout-form" action="{% url 'cerrarSesion' %}" method="POST" style="display: none;">
+                    {% csrf_token %}
+                </form>
+                <a class="btn btn-primary me-2"
+                   href="{% url 'cerrarSesion' %}">
+                    <img src="{% static 'img/usuario.png' %}" width="24" height="24" class="me-2">
+                    <span class="text-white">Cerrar sesión</span>
+                </a>
 
-                    <form method="post" action="{% url 'cerrarsesion' %}" style="display: inline;">
-                        {% csrf_token %}
-                        <a class="nav-link special-text" href="{% url 'cerrarsesion' %}"></a>
-                    <a class="btn btn-secondary" href="{% url 'cerrarsesion' %}">cerrar sesion</a>
-                    </form>
+            {% else %}
+                <a class="btn btn-primary me-2" href="{% url 'InicioSesion' %}">Iniciar sesión</a>
+                <a class="btn btn-secondary" href="{% url 'Crear_Cuenta' %}">Registrarse</a>
+            {% endif %}
 
-                {% else %}
-                    <a class="btn btn-primary me-2" href="{% url 'InicioSesion' %}">Iniciar sesión</a>
-                    <a class="btn btn-secondary" href="{% url 'Crear_Cuenta' %}">Registrarse</a>
-                {% endif %}
 
-            </form>
         </div>
     </div>
 </nav>
