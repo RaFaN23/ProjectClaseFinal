@@ -31,6 +31,11 @@
                 <li class="nav-item">
                     <a class="nav-link active cambio" aria-current="page" href="{% url 'home' %}">Inicio</a>
                 </li>
+                {% if user.is_authenticated and user.rol == "admin" %}
+                    <li class="nav-item">
+                        <a class="nav-link cambio" href="{% url 'Usuarios' %}">Gestión de Usuarios</a>
+                    </li>
+                {% endif %}
                 <li class="nav-item">
                     <a class="nav-link cambio" href="{% url 'carta' %}">Menú</a>
                 </li>
@@ -40,6 +45,8 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{% url 'carta' %}">Carta</a></li>
                         <li><a class="dropdown-item" href="{% url 'contacto' %}">Conocenos</a></li>
+
+
                         <li>
                             <hr class="dropdown-divider">
                         </li>
@@ -54,10 +61,10 @@
                 <form id="logout-form" action="{% url 'cerrarSesion' %}" method="POST" style="display: none;">
                     {% csrf_token %}
                 </form>
-                <a class="btn btn-primary me-2"
+                <a class="btn btn-secondary"
                    href="{% url 'cerrarSesion' %}">
-                    <img src="{% static 'img/usuario.png' %}" width="24" height="24" class="me-2">
-                    <span class="text-white">Cerrar sesión</span>
+                    
+                    <span class="">Cerrar sesión</span>
                 </a>
 
             {% else %}

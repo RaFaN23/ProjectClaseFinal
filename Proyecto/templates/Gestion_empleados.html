@@ -1,0 +1,44 @@
+{% extends 'basehtml.html' %}
+{% load static %}
+
+{% block title %}Gestión de Empleados{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/InicioSesion.css' %}">
+{% endblock %}
+
+{% block content %}
+   
+
+    <div class="container mt-4">
+        <h3><strong>GESTIÓN DE EMPLEADOS:</strong></h3>
+   
+        <table class="table table-bordered tabla-empleados mt-4">
+            <thead class="bg-dark text-white">
+            <tr>
+                <th>ID</th>
+                <th>NOMBRE</th>
+                <th>ROL</th>
+                <th>CORREO</th>
+                
+                <th>ACCIONES</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for emp in empleados %}
+                <tr>
+                    <td>{{ emp.id }}</td>
+                    <td class="text-uppercase"><strong>{{ emp.nombre }}</strong></td>
+                    <td class="text-uppercase"><strong>{{ emp.rol }}</strong></td>
+                    <td>{{ emp.email     }}</td>
+                    
+                    <td class="acciones">
+                        <a href="{% url 'editar_empleado' emp.id %}" class="btn btn-warning btn-sm">Editar</a>
+                        <a href="{% url 'borrar_empleado' emp.id %}" class="btn btn-danger btn-sm">Borrar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
