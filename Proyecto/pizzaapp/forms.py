@@ -33,6 +33,11 @@ class LoginFormulario(AuthenticationForm):
         'email': 'Usa un correo válido como nombre@ejemplo.com',
     }
 
+class EmpleadoForm(forms.ModelForm):
+    class Meta:
+        model = Usuario
+        fields = ['nombre', 'apellidos', 'rol', 'password']
+
 
 class Meta:
     model = Usuario

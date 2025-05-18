@@ -4,23 +4,28 @@ from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render
 from django.shortcuts import render, redirect
 from django.shortcuts import render, redirect
+
 from .forms import *
 from .forms import PizzaForm, RegistroFormulario
 from .models import cartao, LineaPedido
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Mesa
-
+from django.shortcuts import render
+from .models import Usuario
 # Create your views here.
-
-
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.contrib.auth.decorators import user_passes_test
+
+
+def solo_admin(view_func):
+    return user_passes_test(lambda u: u.is_authenticated and u.rol == 'admin')(view_func)
+
 
 def go_home(request):
     response = render(request, 'home.html')
     response['Cache-Control'] = 'no-store'
     return response
-
 
 
 def go_crearCuenta(request):
@@ -94,23 +99,22 @@ def login_usuario(request):
 
 
 def logout_usuario(request):
-    logout_usuario()
+    logout(request)
     return redirect('InicioSesion')
-
 
 
 def go_carta(request):
     lista_carta = cartao.objects.all()
     return render(request, 'carta.html', {'carta': lista_carta})
 
-def go_formulario_carta(request,id):
 
+def go_formulario_carta(request, id):
     plato = cartao.objects.filter(id=id)
 
     if len(plato) == 0:
         nuevo_plato = cartao()
     else:
-        nuevo_plato=plato[0]
+        nuevo_plato = plato[0]
 
     if request.method == 'POST':
 
@@ -123,21 +127,20 @@ def go_formulario_carta(request,id):
         return redirect('carta')
 
     else:
-        return render(request, 'formularioCarta.html',{'plato': nuevo_plato})
+        return render(request, 'formularioCarta.html', {'plato': nuevo_plato})
 
 
-
-def eliminar_carta(request,id):
+def eliminar_carta(request, id):
     plato_eliminar = cartao.objects.filter(id=id)
     if len(plato_eliminar) != 0:
         plato_eliminar[0].delete()
         return redirect('carta')
 
 
-
 def mostrar_mesas(request):
     mesas = Mesa.objects.all().order_by('numero')
     return render(request, 'Mesas.html', {'mesas': mesas})
+
 
 def asignar_mesa(request, mesa_id):
     mesa = get_object_or_404(Mesa, id=mesa_id)
@@ -242,3 +245,27 @@ def limpiar(request):
         del request.session['carrito']
     request.session.modified = True
     return redirect('ver_carrito')
+@solo_admin
+@solo_admin
+def lista_empleados(request):
+    empleados = Usuario.objects.all()  # o filtra solo clientes: .filter(rol='cliente')
+    return render(request, 'Gestion_empleados.html', {'empleados': empleados})
+
+
+@solo_admin
+def editar_empleado(request, pk):
+    empleado = get_object_or_404(Usuario, pk=pk)
+    form = EmpleadoForm(request.POST or None, instance=empleado)
+    if request.method == 'POST' and form.is_valid():
+        form.save()
+        return redirect('Usuarios')
+    return render(request, 'editar_empleado.html', {'form': form})
+
+
+@solo_admin
+def borrar_empleado(request, pk):
+    empleado = get_object_or_404(Usuario, pk=pk)
+    if request.method == 'POST':
+        empleado.delete()
+        return redirect('Usuarios')
+    return render(request, 'confirmar_borrado.html', {'empleado': empleado})
