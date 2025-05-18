@@ -18,69 +18,55 @@ body{
     to { background-position: 500px;}
 }
 
-.cuerpo_carrito{
-    align-items: center!important;
-    border: 5px solid #F65047 !important;
-    display: flex !important;
-    flex-direction: column!important;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    background-color: white;
-    border-radius: 22px;
-    width: 700px;
-}
-.cuerpo_del_pedido{
-    border: 5px solid #F65047 !important;
 
-}
 
 .container{
-    display: flex !important;
-    flex-direction: column!important;
-    align-items: center!important;
-}
-
-.enviar{
-    background-color: #F65047 !important;
-    color: white !important;
-    margin-bottom: 7px;
-    border: none !important;
-    border-radius: 5px;
-    margin-top: 10px;
-    width:350px;
-    height: 30px;
-}
-.enviar:hover {
-    color: white !important;
-    background-color: #A62323 !important;
-    border: 2px solid #ffffff !important;
-}
-
-.boton{
     display: flex;
     justify-content: center;
-
 }
-
-
-.pagar{
+.tabla_carrito{
+    max-width: 90%;
+    width: 80%;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.eleccion{
-    display: flex;
+    justify-content: center;
     flex-direction: column;
-    gap: 5px;
+    align-items: center;
+    background-color: #F65047;
+    gap: 8%;
+    border-radius: 22px;
 }
 
-.cuenta{
-    display: flex;
-    justify-content: space-between;
+.titulo_carrito{
+    color: white;
 }
 
-.localizacion{
-    display: flex;
-    justify-content: space-between;
+.boton_carrito_pedir{
+    background-color: white !important;
+    color: #F65047;  !important;
+    margin-bottom: 7px;
+    border: none !important;
+    border-radius: 8px;
+    padding: 2%;
+}
+.boton_carrito_pedir:hover {
+    color: white !important;
+    background-color: #F65047 !important;
+    border: 2px solid white !important;
+    border-radius: 8px;
+}
+.boton_carrito_pedir:visited{
+    color: inherit;
+    text-decoration: none;
+}
+
+
+.png{
+    max-width: 20px;
+    background-color: transparent;
+}
+
+
+.botonescarrito{
+    background-color: transparent;
+    border: none;
 }

@@ -235,3 +235,10 @@ def comprar(request):
         linea_pedido.save()
 
     nuevo_pedido.save()
+
+
+def limpiar(request):
+    if 'carrito' in request.session:
+        del request.session['carrito']
+    request.session.modified = True
+    return redirect('ver_carrito')

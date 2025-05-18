@@ -9,8 +9,8 @@
 {% endblock %}
 
 {% block content %}
-
-    <h1>Carrito de la Compra</h1>
+<div class="tabla_carrito">
+    <h1 class="titulo_carrito">Carrito de la Compra</h1>
 
 
     <table class="table">
@@ -35,7 +35,7 @@
 
                     <a href="{% url 'restar_carrito' k.id %}">
                         <button class="botonescarrito" type="button">
-                            <i class="bi bi-dash-circle"></i>
+                            <img class="png" src="{% static 'img/restar.png' %}" alt="">
                         </button>
                     </a>
 
@@ -43,7 +43,7 @@
 
                     <a href="{% url 'sumar_carrito' k.id %}">
                         <button class="botonescarrito" type="button">
-                            <i class="bi bi-plus-circle"></i>
+                            <img class="png" src="{% static 'img/mas.png' %}" alt="">
                         </button>
                     </a>
 
@@ -53,7 +53,7 @@
                         {{ k.precio }} €
                         <a href="{% url 'quitar_de_carrito' k.id %}">
                             <button class="botonescarrito" type="button">
-                                <i class="bi bi-x-circle"></i>
+                                <img class="png" src="{% static 'img/compartimiento.png' %}" alt="">
                             </button>
                         </a>
                     </th>
@@ -72,18 +72,12 @@
 
         </tbody>
     </table>
-
-
-    <a href="#">
-        <button class="btn-amargura">
+    <a href="{% url 'limpiar' %}">
+        <button class="boton_carrito_pedir">
             <i class="bi bi-clipboard-plus"></i> Completar Compra
         </button>
     </a>
-
-
-
-
-
+</div>
 
 
 
