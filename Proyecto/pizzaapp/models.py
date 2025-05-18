@@ -40,7 +40,6 @@ class Usuario(AbstractUser, PermissionsMixin):
     email = models.EmailField(max_length=500, unique=True)
     nombre = models.CharField(max_length=250)
     apellidos = models.CharField(max_length=250)
-    Telefono = models.CharField(max_length=15, null=True, blank=True)
     rol = models.CharField(max_length=25, choices=ROLES, default='cliente')
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
@@ -100,3 +99,29 @@ class cartao(models.Model):
 
     def __str__(self):
         return self.nombre
+
+
+class Pedido(models.Model):
+    codigo = models.CharField(max_length=50)
+    fecha = models.DateTimeField()
+    usuario = models.ForeignKey(
+        'Usuario',  # modelo al que se relaciona
+        on_delete=models.DO_NOTHING,  # qué hacer si se borra el titular
+        related_name= 'pedidos'  # nombre para acceder desde el lado de usuario
+    )
+
+
+    def __str__(self):
+        return self.codigo
+
+
+
+
+class LineaPedido(models.Model):
+    pedido = models.ForeignKey(Pedido, on_delete= models.CASCADE)
+    producto = models.ForeignKey(cartao, on_delete= models.DO_NOTHING)
+    cantidad = models.IntegerField()
+    precio = models.FloatField()
+
+    def __str__(self):
+        return self.producto.nombre + "-" + self.precio

@@ -1,24 +1,31 @@
+from datetime import datetime
+
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render
 from django.shortcuts import render, redirect
 from django.shortcuts import render, redirect
+
 from .forms import *
 from .forms import PizzaForm, RegistroFormulario
-from .models import cartao
+from .models import cartao, LineaPedido
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Mesa
-
+from django.shortcuts import render
+from .models import Usuario
 # Create your views here.
-
-
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.contrib.auth.decorators import user_passes_test
+
+
+def solo_admin(view_func):
+    return user_passes_test(lambda u: u.is_authenticated and u.rol == 'admin')(view_func)
+
 
 def go_home(request):
     response = render(request, 'home.html')
     response['Cache-Control'] = 'no-store'
     return response
-
 
 
 def go_crearCuenta(request):
@@ -42,8 +49,7 @@ def go_iniciarSesion(request):
     return render(request, 'InicioSesion.html', {'form': form})
 
 
-def go_carrito(request):
-    return render(request, 'carrito.html')
+
 
 
 def go_contacto(request):
@@ -93,23 +99,22 @@ def login_usuario(request):
 
 
 def logout_usuario(request):
-    logout_usuario()
+    logout(request)
     return redirect('InicioSesion')
-
 
 
 def go_carta(request):
     lista_carta = cartao.objects.all()
     return render(request, 'carta.html', {'carta': lista_carta})
 
-def go_formulario_carta(request,id):
 
+def go_formulario_carta(request, id):
     plato = cartao.objects.filter(id=id)
 
     if len(plato) == 0:
         nuevo_plato = cartao()
     else:
-        nuevo_plato=plato[0]
+        nuevo_plato = plato[0]
 
     if request.method == 'POST':
 
@@ -122,16 +127,14 @@ def go_formulario_carta(request,id):
         return redirect('carta')
 
     else:
-        return render(request, 'formularioCarta.html',{'plato': nuevo_plato})
+        return render(request, 'formularioCarta.html', {'plato': nuevo_plato})
 
 
-
-def eliminar_carta(request,id):
+def eliminar_carta(request, id):
     plato_eliminar = cartao.objects.filter(id=id)
     if len(plato_eliminar) != 0:
         plato_eliminar[0].delete()
         return redirect('carta')
-
 
 
 def mostrar_mesas(request):
@@ -146,3 +149,124 @@ def asignar_mesa(request, mesa_id):
         mesa.disponible = False
         mesa.save()
     return redirect('mostrar_mesas')
+
+
+def add_carrito(request,id):
+    carrito = request.session.get('carrito', {})
+    producto_en_carrito = carrito.get(str(id),0)
+
+    if producto_en_carrito == 0:
+
+        carrito[str(id)] = 1
+
+    else:
+       carrito[str(id)] += 1
+
+    request.session['carrito'] = carrito
+
+    return redirect('carta')
+
+
+
+
+
+
+def go_carrito(request):
+    carrito = {}
+    total = 0.0
+    carrito_session = request.session.get('carrito', {})
+    #recuperar productos
+    for k, v in carrito_session.items():
+        producto = cartao.objects.get(id=k)
+        carrito[producto] = v
+        total += producto.precio * v
+
+    return render(request, 'carrito.html', {'carrito': carrito, 'total': total})
+
+
+
+
+
+def restar_carrito(request, id):
+    carrito = request.session.get('carrito', {})
+    producto_id = str(id)
+
+    if producto_id in carrito:
+        if carrito[producto_id] > 1:
+            carrito[producto_id] -= 1
+        else:
+            del carrito[producto_id]
+
+    request.session['carrito'] = carrito
+    return redirect('ver_carrito')
+
+
+def sumar_carrito(request, id):
+    carrito = request.session.get('carrito', {})
+    producto_id = str(id)
+
+    carrito[producto_id] = carrito.get(producto_id, 0) + 1
+
+    request.session['carrito'] = carrito
+    return redirect('ver_carrito')
+
+
+def quitar_de_carrito(request, id):
+    carrito = request.session.get('carrito', {})
+    producto_id = str(id)
+
+    del carrito[producto_id]
+
+    request.session['carrito'] = carrito
+    return redirect('ver_carrito')
+
+
+def comprar(request):
+    nuevo_pedido = cartao()
+    nuevo_pedido.codigo = 'CP0001'
+    nuevo_pedido.fecha = datetime.now()
+    nuevo_pedido.hermano = request.user
+
+    carrito_session = request.session.get('carrito', {})
+
+    for k, v in carrito_session.items():
+        linea_pedido = LineaPedido()
+        producto = cartao.objects.get(id=k)
+        linea_pedido.producto = producto
+        linea_pedido.precio = producto.precio
+        linea_pedido.cantidad = v
+        linea_pedido.pedido = nuevo_pedido
+        linea_pedido.save()
+
+    nuevo_pedido.save()
+
+
+def limpiar(request):
+    if 'carrito' in request.session:
+        del request.session['carrito']
+    request.session.modified = True
+    return redirect('ver_carrito')
+@solo_admin
+@solo_admin
+def lista_empleados(request):
+    empleados = Usuario.objects.all()  # o filtra solo clientes: .filter(rol='cliente')
+    return render(request, 'Gestion_empleados.html', {'empleados': empleados})
+
+
+@solo_admin
+def editar_empleado(request, pk):
+    empleado = get_object_or_404(Usuario, pk=pk)
+    form = EmpleadoForm(request.POST or None, instance=empleado)
+    if request.method == 'POST' and form.is_valid():
+        form.save()
+        return redirect('Usuarios')
+    return render(request, 'editar_empleado.html', {'form': form})
+
+
+@solo_admin
+def borrar_empleado(request, pk):
+    empleado = get_object_or_404(Usuario, pk=pk)
+    if request.method == 'POST':
+        empleado.delete()
+        return redirect('Usuarios')
+    return render(request, 'confirmar_borrado.html', {'empleado': empleado})

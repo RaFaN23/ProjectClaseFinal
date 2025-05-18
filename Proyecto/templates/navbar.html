@@ -31,6 +31,11 @@
                 <li class="nav-item">
                     <a class="nav-link active cambio" aria-current="page" href="{% url 'home' %}">Inicio</a>
                 </li>
+                {% if user.is_authenticated and user.rol == "admin" %}
+                    <li class="nav-item">
+                        <a class="nav-link cambio" href="{% url 'Usuarios' %}">Gestión de Usuarios</a>
+                    </li>
+                {% endif %}
                 <li class="nav-item">
                     <a class="nav-link cambio" href="{% url 'carta' %}">Menú</a>
                 </li>
@@ -40,6 +45,8 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{% url 'carta' %}">Carta</a></li>
                         <li><a class="dropdown-item" href="{% url 'contacto' %}">Conocenos</a></li>
+
+
                         <li>
                             <hr class="dropdown-divider">
                         </li>
@@ -47,25 +54,25 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link cambio" href="{% url 'carrito' %}">Carrito</a>
+                    <a class="nav-link cambio" href="{% url 'ver_carrito' %}">Carrito</a>
                 </li>
             </ul>
-            <form class="d-flex">
-                {% if user.is_authenticated %}
-                    <a class="btn btn-primary me-2" href="#">Mi cuenta</a>
+            {% if user.is_authenticated %}
+                <form id="logout-form" action="{% url 'cerrarSesion' %}" method="POST" style="display: none;">
+                    {% csrf_token %}
+                </form>
+                <a class="btn btn-secondary"
+                   href="{% url 'cerrarSesion' %}">
+                    
+                    <span class="">Cerrar sesión</span>
+                </a>
 
-                    <form method="post" action="{% url 'cerrarsesion' %}" style="display: inline;">
-                        {% csrf_token %}
-                        <a class="nav-link special-text" href="{% url 'cerrarsesion' %}"></a>
-                    <a class="btn btn-secondary" href="{% url 'cerrarsesion' %}">cerrar sesion</a>
-                    </form>
+            {% else %}
+                <a class="btn btn-primary me-2" href="{% url 'InicioSesion' %}">Iniciar sesión</a>
+                <a class="btn btn-secondary" href="{% url 'Crear_Cuenta' %}">Registrarse</a>
+            {% endif %}
 
-                {% else %}
-                    <a class="btn btn-primary me-2" href="{% url 'InicioSesion' %}">Iniciar sesión</a>
-                    <a class="btn btn-secondary" href="{% url 'Crear_Cuenta' %}">Registrarse</a>
-                {% endif %}
 
-            </form>
         </div>
     </div>
 </nav>
