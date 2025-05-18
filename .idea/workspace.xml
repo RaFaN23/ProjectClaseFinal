@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6300454-35ea-4f74-81eb-b0dd0fe99bd2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Proyecto/templates/gestion_Usuarios.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ProjectClaseFinal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProjectClaseFinal.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4e454884-a524-4715-87c5-9be6bb140d2f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4e454884-a524-4715-87c5-9be6bb140d2f.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/pizzaapp/url.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/navbar.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +33,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "javi9234"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/RaFaN23/ProjectClaseFinal.git",
+    "accountId": "0000970a-105e-45ad-a370-5424ac2519d3"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -51,14 +61,14 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "django.template.preview.state": "SHOW_EDITOR_AND_PREVIEW",
-    "git-widget-placeholder": "RamaMassi",
+    "git-widget-placeholder": "master",
     "last_opened_file_path": "C:/Users/maxtr/Documents/GitHub/ProjectClaseFinal0",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.keymap",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
