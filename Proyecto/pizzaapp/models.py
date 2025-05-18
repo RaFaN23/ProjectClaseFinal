@@ -43,6 +43,8 @@ class Usuario(AbstractUser, PermissionsMixin):
     rol = models.CharField(max_length=25, choices=ROLES, default='cliente')
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
+    fecha_creacion = models.DateTimeField(auto_now_add=True)
+    fecha_modificacion = models.DateTimeField(auto_now=True)
 
     objects = UserManager()
 
@@ -73,6 +75,7 @@ class Mesa(models.Model):
 
     def __str__(self):
         return f"Mesa {self.numero} - {'Disponible' if self.disponible else 'Ocupada'}"
+
 
 
 

@@ -149,7 +149,7 @@ def asignar_mesa(request, mesa_id):
     return redirect('mostrar_mesas')
 
 
-@solo_admin
+
 @solo_admin
 def lista_empleados(request):
     empleados = Usuario.objects.all()  # o filtra solo clientes: .filter(rol='cliente')
