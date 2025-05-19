@@ -16,7 +16,7 @@ from .models import Usuario
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.decorators import user_passes_test
-from .models import Mesa, estadoMesa
+from .models import Mesa, EstadoMesa
 
 
 
@@ -147,8 +147,8 @@ def mostrar_mesas(request):
 
 def asignar_mesa(request, mesa_id):
     mesa = Mesa.objects.get(id=mesa_id)
-    if mesa.estado == estadoMesa.LIBRE:
-        mesa.estado = estadoMesa.OCUPADO
+    if mesa.estado == EstadoMesa.LIBRE:
+        mesa.estado = EstadoMesa.OCUPADO
         mesa.save()
     return redirect('mostrar_mesas')
 

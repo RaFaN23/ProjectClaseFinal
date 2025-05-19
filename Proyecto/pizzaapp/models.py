@@ -64,7 +64,7 @@ class Contacto(models.Model):
 
 
 
-class estadoMesa(models.TextChoices):
+class EstadoMesa(models.TextChoices):
     OCUPADO = 'OCUPADO', 'Ocupado'
     LIBRE = 'LIBRE', 'Libre'
     RESERVADO = 'RESERVADO', 'Reservado'
@@ -74,8 +74,8 @@ class Mesa(models.Model):
     numero = models.IntegerField(unique=True)
     estado = models.CharField(
         max_length=10,
-        choices=estadoMesa.choices,
-        default=estadoMesa.LIBRE
+        choices=EstadoMesa.choices,
+        default=EstadoMesa.LIBRE
     )
 
     def __str__(self):
