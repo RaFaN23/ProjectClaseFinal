@@ -16,7 +16,10 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/.venv" />
     </content>
+<<<<<<< HEAD
     <orderEntry type="jdk" jdkName="Python 3.12 (PruebaDjango)" jdkType="Python SDK" />
+=======
+>>>>>>> 207282297c78c0199bd959acde79e017b4c15ce6
     <orderEntry type="jdk" jdkName="Python 3.12 (pythonProject)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="bootstrap-icons" level="application" />
