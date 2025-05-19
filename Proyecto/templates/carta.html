@@ -34,6 +34,10 @@
                                         <a class="enlace_formulario_carta colorboton"
                                            href="{% url 'eliminar_carta' id=c.id %}">eliminar</a>
                                     </button>
+                                    <button class="boton-añadir">
+                                        <a class="enlace_formulario_carta" href="{% url 'formulario_carta' id=0 %}">Añadir</a>
+                                    </button>
+
                                 </div>
                             {% endif %}
                         </div>
@@ -41,9 +45,6 @@
                 {% endfor %}
             </div>
 
-            <button class="boton-añadir">
-                <a class="enlace_formulario_carta" href="{% url 'formulario_carta' id=0 %}">Añadir</a>
-            </button>
 
         </div>
     </div>
