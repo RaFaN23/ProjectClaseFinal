@@ -145,7 +145,7 @@ def mostrar_mesas(request):
     return render(request, 'Mesas.html', {'mesas': mesas})
 
 
-
+@solo_admin
 def asignar_mesa(request, mesa_id):
     mesa = get_object_or_404(Mesa, id=mesa_id)
 
