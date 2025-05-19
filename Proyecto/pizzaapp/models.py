@@ -95,7 +95,7 @@ class cartao(models.Model):
     nombre = models.CharField(max_length=250,null=False)
     ingredientes = models.TextField(max_length=250)
     precio = models.IntegerField(null=False)
-    imagen = models.CharField(max_length=1000,null=True, blank=True)
+    imagen = models.CharField(max_length=10000,null=True, blank=True)
 
     def __str__(self):
         return self.nombre
