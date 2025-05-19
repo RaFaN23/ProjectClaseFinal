@@ -16,6 +16,9 @@ from .models import Usuario
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.decorators import user_passes_test
+from .models import Mesa, EstadoMesa
+from django.shortcuts import get_object_or_404, redirect
+
 
 
 def solo_admin(view_func):
@@ -142,11 +145,16 @@ def mostrar_mesas(request):
     return render(request, 'Mesas.html', {'mesas': mesas})
 
 
+@solo_admin
 def asignar_mesa(request, mesa_id):
     mesa = get_object_or_404(Mesa, id=mesa_id)
-    if mesa.disponible:
-        mesa.disponible = False
-        mesa.save()
+
+    if mesa.estado == EstadoMesa.LIBRE:
+        mesa.estado = EstadoMesa.OCUPADO
+    elif mesa.estado == EstadoMesa.OCUPADO:
+        mesa.estado = EstadoMesa.LIBRE
+
+    mesa.save()
     return redirect('mostrar_mesas')
 
 

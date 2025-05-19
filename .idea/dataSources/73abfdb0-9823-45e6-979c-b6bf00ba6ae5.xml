@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="@localhost">
   <database-model serializer="dbm" dbms="ORACLE" family-id="ORACLE" format-version="4.53">
-    <root id="1">
-      <ServerVersion>21.0.0.0.0</ServerVersion>
-      <TablespacesHash>25456770534</TablespacesHash>
-      <TenantCategory>CDB</TenantCategory>
-    </root>
+    <root id="1"/>
     <schema id="2" parent="1" name="ANONYMOUS">
       <ObjectId>72</ObjectId>
     </schema>
@@ -59947,11 +59943,22 @@
       <StoredType>NUMBER(11)|0s</StoredType>
       <SequenceName>ISEQ$$_76617</SequenceName>
     </column>
-    <column id="7525" parent="94" name="NAME">
+    <column id="7525" parent="94" name="ID">
+      <DefaultOnNull>1</DefaultOnNull>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>NUMBER(11)|0s</StoredType>
+      <SequenceName>ISEQ$$_76617</SequenceName>
+    </column>
+    <column id="7526" parent="94" name="NAME">
       <Position>2</Position>
       <StoredType>NVARCHAR2(150)|0s</StoredType>
     </column>
-    <index id="7526" parent="94" name="SYS_C008324">
+    <column id="7527" parent="94" name="NAME">
+      <Position>2</Position>
+      <StoredType>NVARCHAR2(150)|0s</StoredType>
+    </column>
+    <index id="7528" parent="94" name="SYS_C008324">
       <ColNames>ID</ColNames>
       <CreatedTimestamp>2025-05-16.22:11:28</CreatedTimestamp>
       <ModifiedTimestamp>2025-05-16.22:11:28</ModifiedTimestamp>
@@ -59960,7 +59967,16 @@
       <Unique>1</Unique>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <index id="7527" parent="94" name="SYS_C008325">
+    <index id="7529" parent="94" name="SYS_C008324">
+      <ColNames>ID</ColNames>
+      <CreatedTimestamp>2025-05-16.22:11:28</CreatedTimestamp>
+      <ModifiedTimestamp>2025-05-16.22:11:28</ModifiedTimestamp>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>76619</ObjectId>
+      <Unique>1</Unique>
+      <TablespaceName>USERS</TablespaceName>
+    </index>
+    <index id="7530" parent="94" name="SYS_C008325">
       <ColNames>NAME</ColNames>
       <CreatedTimestamp>2025-05-16.22:11:28</CreatedTimestamp>
       <ModifiedTimestamp>2025-05-16.22:11:28</ModifiedTimestamp>
@@ -59969,37 +59985,76 @@
       <Unique>1</Unique>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <key id="7528" parent="94" name="SYS_C008324">
+    <index id="7531" parent="94" name="SYS_C008325">
+      <ColNames>NAME</ColNames>
+      <CreatedTimestamp>2025-05-16.22:11:28</CreatedTimestamp>
+      <ModifiedTimestamp>2025-05-16.22:11:28</ModifiedTimestamp>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>76620</ObjectId>
+      <Unique>1</Unique>
+      <TablespaceName>USERS</TablespaceName>
+    </index>
+    <key id="7532" parent="94" name="SYS_C008324">
       <InitiallyDeferred>1</InitiallyDeferred>
       <ModifiedTimestamp>2025-05-16.22:11:28</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>SYS_C008324</UnderlyingIndexName>
     </key>
-    <key id="7529" parent="94" name="SYS_C008325">
+    <key id="7533" parent="94" name="SYS_C008324">
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ModifiedTimestamp>2025-05-16.22:11:28</ModifiedTimestamp>
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>SYS_C008324</UnderlyingIndexName>
+    </key>
+    <key id="7534" parent="94" name="SYS_C008325">
       <InitiallyDeferred>1</InitiallyDeferred>
       <ModifiedTimestamp>2025-05-16.22:11:28</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <UnderlyingIndexName>SYS_C008325</UnderlyingIndexName>
     </key>
-    <column id="7530" parent="95" name="ID">
+    <key id="7535" parent="94" name="SYS_C008325">
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ModifiedTimestamp>2025-05-16.22:11:28</ModifiedTimestamp>
+      <NameSurrogate>1</NameSurrogate>
+      <UnderlyingIndexName>SYS_C008325</UnderlyingIndexName>
+    </key>
+    <column id="7536" parent="95" name="ID">
       <DefaultOnNull>1</DefaultOnNull>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>NUMBER(19)|0s</StoredType>
       <SequenceName>ISEQ$$_76621</SequenceName>
     </column>
-    <column id="7531" parent="95" name="GROUP_ID">
+    <column id="7537" parent="95" name="ID">
+      <DefaultOnNull>1</DefaultOnNull>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>NUMBER(19)|0s</StoredType>
+      <SequenceName>ISEQ$$_76621</SequenceName>
+    </column>
+    <column id="7538" parent="95" name="GROUP_ID">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>NUMBER(11)|0s</StoredType>
     </column>
-    <column id="7532" parent="95" name="PERMISSION_ID">
+    <column id="7539" parent="95" name="GROUP_ID">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>NUMBER(11)|0s</StoredType>
+    </column>
+    <column id="7540" parent="95" name="PERMISSION_ID">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>NUMBER(11)|0s</StoredType>
     </column>
-    <foreign-key id="7533" parent="95" name="AUTH_GROU_GROUP_ID_B120CBF9_F">
+    <column id="7541" parent="95" name="PERMISSION_ID">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>NUMBER(11)|0s</StoredType>
+    </column>
+    <foreign-key id="7542" parent="95" name="AUTH_GROU_GROUP_ID_B120CBF9_F">
       <ColNames>GROUP_ID</ColNames>
       <Deferrable>1</Deferrable>
       <InitiallyDeferred>1</InitiallyDeferred>
@@ -60008,7 +60063,16 @@
       <RefKeyName>SYS_C008324</RefKeyName>
       <RefTableName>AUTH_GROUP</RefTableName>
     </foreign-key>
-    <foreign-key id="7534" parent="95" name="AUTH_GROU_PERMISSIO_84C5C92E_F">
+    <foreign-key id="7543" parent="95" name="AUTH_GROU_GROUP_ID_B120CBF9_F">
+      <ColNames>GROUP_ID</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ModifiedTimestamp>2025-05-16.22:11:28</ModifiedTimestamp>
+      <OnDelete>restrict</OnDelete>
+      <RefKeyName>SYS_C008324</RefKeyName>
+      <RefTableName>AUTH_GROUP</RefTableName>
+    </foreign-key>
+    <foreign-key id="7544" parent="95" name="AUTH_GROU_PERMISSIO_84C5C92E_F">
       <ColNames>PERMISSION_ID</ColNames>
       <Deferrable>1</Deferrable>
       <InitiallyDeferred>1</InitiallyDeferred>
@@ -60017,7 +60081,16 @@
       <RefKeyName>SYS_C008322</RefKeyName>
       <RefTableName>AUTH_PERMISSION</RefTableName>
     </foreign-key>
-    <index id="7535" parent="95" name="SYS_C008329">
+    <foreign-key id="7545" parent="95" name="AUTH_GROU_PERMISSIO_84C5C92E_F">
+      <ColNames>PERMISSION_ID</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ModifiedTimestamp>2025-05-16.22:11:28</ModifiedTimestamp>
+      <OnDelete>restrict</OnDelete>
+      <RefKeyName>SYS_C008322</RefKeyName>
+      <RefTableName>AUTH_PERMISSION</RefTableName>
+    </foreign-key>
+    <index id="7546" parent="95" name="SYS_C008329">
       <ColNames>ID</ColNames>
       <CreatedTimestamp>2025-05-16.22:11:28</CreatedTimestamp>
       <ModifiedTimestamp>2025-05-16.22:11:28</ModifiedTimestamp>
@@ -60026,7 +60099,16 @@
       <Unique>1</Unique>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <index id="7536" parent="95" name="AUTH_GROU_GROUP_ID__0CD325B0_U">
+    <index id="7547" parent="95" name="SYS_C008329">
+      <ColNames>ID</ColNames>
+      <CreatedTimestamp>2025-05-16.22:11:28</CreatedTimestamp>
+      <ModifiedTimestamp>2025-05-16.22:11:28</ModifiedTimestamp>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>76623</ObjectId>
+      <Unique>1</Unique>
+      <TablespaceName>USERS</TablespaceName>
+    </index>
+    <index id="7548" parent="95" name="AUTH_GROU_GROUP_ID__0CD325B0_U">
       <ColNames>GROUP_ID
 PERMISSION_ID</ColNames>
       <CreatedTimestamp>2025-05-16.22:11:28</CreatedTimestamp>
@@ -60035,53 +60117,108 @@ PERMISSION_ID</ColNames>
       <Unique>1</Unique>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <index id="7537" parent="95" name="AUTH_GROUP_GROUP_ID_B120CBF9">
+    <index id="7549" parent="95" name="AUTH_GROU_GROUP_ID__0CD325B0_U">
+      <ColNames>GROUP_ID
+PERMISSION_ID</ColNames>
+      <CreatedTimestamp>2025-05-16.22:11:28</CreatedTimestamp>
+      <ModifiedTimestamp>2025-05-16.22:11:28</ModifiedTimestamp>
+      <ObjectId>76626</ObjectId>
+      <Unique>1</Unique>
+      <TablespaceName>USERS</TablespaceName>
+    </index>
+    <index id="7550" parent="95" name="AUTH_GROUP_GROUP_ID_B120CBF9">
       <ColNames>GROUP_ID</ColNames>
       <CreatedTimestamp>2025-05-16.22:11:28</CreatedTimestamp>
       <ModifiedTimestamp>2025-05-16.22:11:28</ModifiedTimestamp>
       <ObjectId>76627</ObjectId>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <index id="7538" parent="95" name="AUTH_GROUP_PERMISSION_84C5C92E">
+    <index id="7551" parent="95" name="AUTH_GROUP_GROUP_ID_B120CBF9">
+      <ColNames>GROUP_ID</ColNames>
+      <CreatedTimestamp>2025-05-16.22:11:28</CreatedTimestamp>
+      <ModifiedTimestamp>2025-05-16.22:11:28</ModifiedTimestamp>
+      <ObjectId>76627</ObjectId>
+      <TablespaceName>USERS</TablespaceName>
+    </index>
+    <index id="7552" parent="95" name="AUTH_GROUP_PERMISSION_84C5C92E">
       <ColNames>PERMISSION_ID</ColNames>
       <CreatedTimestamp>2025-05-16.22:11:28</CreatedTimestamp>
       <ModifiedTimestamp>2025-05-16.22:11:28</ModifiedTimestamp>
       <ObjectId>76628</ObjectId>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <key id="7539" parent="95" name="SYS_C008329">
+    <index id="7553" parent="95" name="AUTH_GROUP_PERMISSION_84C5C92E">
+      <ColNames>PERMISSION_ID</ColNames>
+      <CreatedTimestamp>2025-05-16.22:11:28</CreatedTimestamp>
+      <ModifiedTimestamp>2025-05-16.22:11:28</ModifiedTimestamp>
+      <ObjectId>76628</ObjectId>
+      <TablespaceName>USERS</TablespaceName>
+    </index>
+    <key id="7554" parent="95" name="SYS_C008329">
       <InitiallyDeferred>1</InitiallyDeferred>
       <ModifiedTimestamp>2025-05-16.22:11:28</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>SYS_C008329</UnderlyingIndexName>
     </key>
-    <key id="7540" parent="95" name="AUTH_GROU_GROUP_ID__0CD325B0_U">
+    <key id="7555" parent="95" name="SYS_C008329">
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ModifiedTimestamp>2025-05-16.22:11:28</ModifiedTimestamp>
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>SYS_C008329</UnderlyingIndexName>
+    </key>
+    <key id="7556" parent="95" name="AUTH_GROU_GROUP_ID__0CD325B0_U">
       <InitiallyDeferred>1</InitiallyDeferred>
       <ModifiedTimestamp>2025-05-16.22:11:28</ModifiedTimestamp>
       <UnderlyingIndexName>AUTH_GROU_GROUP_ID__0CD325B0_U</UnderlyingIndexName>
     </key>
-    <column id="7541" parent="96" name="ID">
+    <key id="7557" parent="95" name="AUTH_GROU_GROUP_ID__0CD325B0_U">
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ModifiedTimestamp>2025-05-16.22:11:28</ModifiedTimestamp>
+      <UnderlyingIndexName>AUTH_GROU_GROUP_ID__0CD325B0_U</UnderlyingIndexName>
+    </key>
+    <column id="7558" parent="96" name="ID">
       <DefaultOnNull>1</DefaultOnNull>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>NUMBER(11)|0s</StoredType>
       <SequenceName>ISEQ$$_76614</SequenceName>
     </column>
-    <column id="7542" parent="96" name="NAME">
+    <column id="7559" parent="96" name="ID">
+      <DefaultOnNull>1</DefaultOnNull>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>NUMBER(11)|0s</StoredType>
+      <SequenceName>ISEQ$$_76614</SequenceName>
+    </column>
+    <column id="7560" parent="96" name="NAME">
       <Position>2</Position>
       <StoredType>NVARCHAR2(255)|0s</StoredType>
     </column>
-    <column id="7543" parent="96" name="CONTENT_TYPE_ID">
+    <column id="7561" parent="96" name="NAME">
+      <Position>2</Position>
+      <StoredType>NVARCHAR2(255)|0s</StoredType>
+    </column>
+    <column id="7562" parent="96" name="CONTENT_TYPE_ID">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>NUMBER(11)|0s</StoredType>
     </column>
-    <column id="7544" parent="96" name="CODENAME">
+    <column id="7563" parent="96" name="CONTENT_TYPE_ID">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>NUMBER(11)|0s</StoredType>
+    </column>
+    <column id="7564" parent="96" name="CODENAME">
       <Position>4</Position>
       <StoredType>NVARCHAR2(100)|0s</StoredType>
     </column>
-    <foreign-key id="7545" parent="96" name="AUTH_PERM_CONTENT_T_2F476E4B_F">
+    <column id="7565" parent="96" name="CODENAME">
+      <Position>4</Position>
+      <StoredType>NVARCHAR2(100)|0s</StoredType>
+    </column>
+    <foreign-key id="7566" parent="96" name="AUTH_PERM_CONTENT_T_2F476E4B_F">
       <ColNames>CONTENT_TYPE_ID</ColNames>
       <Deferrable>1</Deferrable>
       <InitiallyDeferred>1</InitiallyDeferred>
@@ -60090,7 +60227,7 @@ PERMISSION_ID</ColNames>
       <RefKeyName>SYS_C008318</RefKeyName>
       <RefTableName>DJANGO_CONTENT_TYPE</RefTableName>
     </foreign-key>
-    <index id="7546" parent="96" name="SYS_C008322">
+    <index id="7567" parent="96" name="SYS_C008322">
       <ColNames>ID</ColNames>
       <CreatedTimestamp>2025-05-16.22:11:28</CreatedTimestamp>
       <ModifiedTimestamp>2025-05-16.22:11:28</ModifiedTimestamp>
@@ -60099,7 +60236,7 @@ PERMISSION_ID</ColNames>
       <Unique>1</Unique>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <index id="7547" parent="96" name="AUTH_PERM_CONTENT_T_01AB375A_U">
+    <index id="7568" parent="96" name="AUTH_PERM_CONTENT_T_01AB375A_U">
       <ColNames>CONTENT_TYPE_ID
 CODENAME</ColNames>
       <CreatedTimestamp>2025-05-16.22:11:28</CreatedTimestamp>
@@ -60108,71 +60245,71 @@ CODENAME</ColNames>
       <Unique>1</Unique>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <index id="7548" parent="96" name="AUTH_PERMI_CONTENT_TY_2F476E4B">
+    <index id="7569" parent="96" name="AUTH_PERMI_CONTENT_TY_2F476E4B">
       <ColNames>CONTENT_TYPE_ID</ColNames>
       <CreatedTimestamp>2025-05-16.22:11:28</CreatedTimestamp>
       <ModifiedTimestamp>2025-05-16.22:11:28</ModifiedTimestamp>
       <ObjectId>76625</ObjectId>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <key id="7549" parent="96" name="SYS_C008322">
+    <key id="7570" parent="96" name="SYS_C008322">
       <InitiallyDeferred>1</InitiallyDeferred>
       <ModifiedTimestamp>2025-05-16.22:11:28</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>SYS_C008322</UnderlyingIndexName>
     </key>
-    <key id="7550" parent="96" name="AUTH_PERM_CONTENT_T_01AB375A_U">
+    <key id="7571" parent="96" name="AUTH_PERM_CONTENT_T_01AB375A_U">
       <InitiallyDeferred>1</InitiallyDeferred>
       <ModifiedTimestamp>2025-05-16.22:11:28</ModifiedTimestamp>
       <UnderlyingIndexName>AUTH_PERM_CONTENT_T_01AB375A_U</UnderlyingIndexName>
     </key>
-    <check id="7551" parent="97" name="SYS_C008364">
+    <check id="7572" parent="97" name="SYS_C008364">
       <ColNames>ACTION_FLAG</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <ModifiedTimestamp>2025-05-16.22:11:29</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <Predicate>&quot;ACTION_FLAG&quot; &gt;= 0</Predicate>
     </check>
-    <column id="7552" parent="97" name="ID">
+    <column id="7573" parent="97" name="ID">
       <DefaultOnNull>1</DefaultOnNull>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>NUMBER(11)|0s</StoredType>
       <SequenceName>ISEQ$$_76646</SequenceName>
     </column>
-    <column id="7553" parent="97" name="ACTION_TIME">
+    <column id="7574" parent="97" name="ACTION_TIME">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>TIMESTAMP(6)|0s</StoredType>
     </column>
-    <column id="7554" parent="97" name="OBJECT_ID">
+    <column id="7575" parent="97" name="OBJECT_ID">
       <Position>3</Position>
       <StoredType>NCLOB|0s</StoredType>
     </column>
-    <column id="7555" parent="97" name="OBJECT_REPR">
+    <column id="7576" parent="97" name="OBJECT_REPR">
       <Position>4</Position>
       <StoredType>NVARCHAR2(200)|0s</StoredType>
     </column>
-    <column id="7556" parent="97" name="ACTION_FLAG">
+    <column id="7577" parent="97" name="ACTION_FLAG">
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>NUMBER(11)|0s</StoredType>
     </column>
-    <column id="7557" parent="97" name="CHANGE_MESSAGE">
+    <column id="7578" parent="97" name="CHANGE_MESSAGE">
       <Position>6</Position>
       <StoredType>NCLOB|0s</StoredType>
     </column>
-    <column id="7558" parent="97" name="CONTENT_TYPE_ID">
+    <column id="7579" parent="97" name="CONTENT_TYPE_ID">
       <Position>7</Position>
       <StoredType>NUMBER(11)|0s</StoredType>
     </column>
-    <column id="7559" parent="97" name="USER_ID">
+    <column id="7580" parent="97" name="USER_ID">
       <NotNull>1</NotNull>
       <Position>8</Position>
       <StoredType>NUMBER(19)|0s</StoredType>
     </column>
-    <foreign-key id="7560" parent="97" name="DJANGO_AD_CONTENT_T_C4BCE8EB_F">
+    <foreign-key id="7581" parent="97" name="DJANGO_AD_CONTENT_T_C4BCE8EB_F">
       <ColNames>CONTENT_TYPE_ID</ColNames>
       <Deferrable>1</Deferrable>
       <InitiallyDeferred>1</InitiallyDeferred>
@@ -60181,7 +60318,7 @@ CODENAME</ColNames>
       <RefKeyName>SYS_C008318</RefKeyName>
       <RefTableName>DJANGO_CONTENT_TYPE</RefTableName>
     </foreign-key>
-    <foreign-key id="7561" parent="97" name="DJANGO_AD_USER_ID_C564EBA6_F">
+    <foreign-key id="7582" parent="97" name="DJANGO_AD_USER_ID_C564EBA6_F">
       <ColNames>USER_ID</ColNames>
       <Deferrable>1</Deferrable>
       <InitiallyDeferred>1</InitiallyDeferred>
@@ -60190,7 +60327,7 @@ CODENAME</ColNames>
       <RefKeyName>SYS_C008343</RefKeyName>
       <RefTableName>PIZZAAPP_USUARIO</RefTableName>
     </foreign-key>
-    <index id="7562" parent="97" name="SYS_C008365">
+    <index id="7583" parent="97" name="SYS_C008365">
       <ColNames>ID</ColNames>
       <CreatedTimestamp>2025-05-16.22:11:29</CreatedTimestamp>
       <ModifiedTimestamp>2025-05-16.22:11:29</ModifiedTimestamp>
@@ -60199,43 +60336,43 @@ CODENAME</ColNames>
       <Unique>1</Unique>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <index id="7563" parent="97" name="DJANGO_ADM_CONTENT_TY_C4BCE8EB">
+    <index id="7584" parent="97" name="DJANGO_ADM_CONTENT_TY_C4BCE8EB">
       <ColNames>CONTENT_TYPE_ID</ColNames>
       <CreatedTimestamp>2025-05-16.22:11:29</CreatedTimestamp>
       <ModifiedTimestamp>2025-05-16.22:11:29</ModifiedTimestamp>
       <ObjectId>76653</ObjectId>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <index id="7564" parent="97" name="DJANGO_ADM_USER_ID_C564EBA6">
+    <index id="7585" parent="97" name="DJANGO_ADM_USER_ID_C564EBA6">
       <ColNames>USER_ID</ColNames>
       <CreatedTimestamp>2025-05-16.22:11:29</CreatedTimestamp>
       <ModifiedTimestamp>2025-05-16.22:11:29</ModifiedTimestamp>
       <ObjectId>76654</ObjectId>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <key id="7565" parent="97" name="SYS_C008365">
+    <key id="7586" parent="97" name="SYS_C008365">
       <InitiallyDeferred>1</InitiallyDeferred>
       <ModifiedTimestamp>2025-05-16.22:11:29</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>SYS_C008365</UnderlyingIndexName>
     </key>
-    <column id="7566" parent="98" name="ID">
+    <column id="7587" parent="98" name="ID">
       <DefaultOnNull>1</DefaultOnNull>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>NUMBER(11)|0s</StoredType>
       <SequenceName>ISEQ$$_76610</SequenceName>
     </column>
-    <column id="7567" parent="98" name="APP_LABEL">
+    <column id="7588" parent="98" name="APP_LABEL">
       <Position>2</Position>
       <StoredType>NVARCHAR2(100)|0s</StoredType>
     </column>
-    <column id="7568" parent="98" name="MODEL">
+    <column id="7589" parent="98" name="MODEL">
       <Position>3</Position>
       <StoredType>NVARCHAR2(100)|0s</StoredType>
     </column>
-    <index id="7569" parent="98" name="SYS_C008318">
+    <index id="7590" parent="98" name="SYS_C008318">
       <ColNames>ID</ColNames>
       <CreatedTimestamp>2025-05-16.22:11:27</CreatedTimestamp>
       <ModifiedTimestamp>2025-05-16.22:11:27</ModifiedTimestamp>
@@ -60244,7 +60381,7 @@ CODENAME</ColNames>
       <Unique>1</Unique>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <index id="7570" parent="98" name="DJANGO_CO_APP_LABEL_76BD3D3B_U">
+    <index id="7591" parent="98" name="DJANGO_CO_APP_LABEL_76BD3D3B_U">
       <ColNames>APP_LABEL
 MODEL</ColNames>
       <CreatedTimestamp>2025-05-16.22:11:27</CreatedTimestamp>
@@ -60253,39 +60390,39 @@ MODEL</ColNames>
       <Unique>1</Unique>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <key id="7571" parent="98" name="SYS_C008318">
+    <key id="7592" parent="98" name="SYS_C008318">
       <InitiallyDeferred>1</InitiallyDeferred>
       <ModifiedTimestamp>2025-05-16.22:11:27</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>SYS_C008318</UnderlyingIndexName>
     </key>
-    <key id="7572" parent="98" name="DJANGO_CO_APP_LABEL_76BD3D3B_U">
+    <key id="7593" parent="98" name="DJANGO_CO_APP_LABEL_76BD3D3B_U">
       <InitiallyDeferred>1</InitiallyDeferred>
       <ModifiedTimestamp>2025-05-16.22:11:27</ModifiedTimestamp>
       <UnderlyingIndexName>DJANGO_CO_APP_LABEL_76BD3D3B_U</UnderlyingIndexName>
     </key>
-    <column id="7573" parent="99" name="ID">
+    <column id="7594" parent="99" name="ID">
       <DefaultOnNull>1</DefaultOnNull>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>NUMBER(19)|0s</StoredType>
       <SequenceName>ISEQ$$_76607</SequenceName>
     </column>
-    <column id="7574" parent="99" name="APP">
+    <column id="7595" parent="99" name="APP">
       <Position>2</Position>
       <StoredType>NVARCHAR2(255)|0s</StoredType>
     </column>
-    <column id="7575" parent="99" name="NAME">
+    <column id="7596" parent="99" name="NAME">
       <Position>3</Position>
       <StoredType>NVARCHAR2(255)|0s</StoredType>
     </column>
-    <column id="7576" parent="99" name="APPLIED">
+    <column id="7597" parent="99" name="APPLIED">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>TIMESTAMP(6)|0s</StoredType>
     </column>
-    <index id="7577" parent="99" name="SYS_C008316">
+    <index id="7598" parent="99" name="SYS_C008316">
       <ColNames>ID</ColNames>
       <CreatedTimestamp>2025-05-16.22:11:27</CreatedTimestamp>
       <ModifiedTimestamp>2025-05-16.22:11:27</ModifiedTimestamp>
@@ -60294,28 +60431,28 @@ MODEL</ColNames>
       <Unique>1</Unique>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <key id="7578" parent="99" name="SYS_C008316">
+    <key id="7599" parent="99" name="SYS_C008316">
       <InitiallyDeferred>1</InitiallyDeferred>
       <ModifiedTimestamp>2025-05-16.22:11:27</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>SYS_C008316</UnderlyingIndexName>
     </key>
-    <column id="7579" parent="100" name="SESSION_KEY">
+    <column id="7600" parent="100" name="SESSION_KEY">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>NVARCHAR2(40)|0s</StoredType>
     </column>
-    <column id="7580" parent="100" name="SESSION_DATA">
+    <column id="7601" parent="100" name="SESSION_DATA">
       <Position>2</Position>
       <StoredType>NCLOB|0s</StoredType>
     </column>
-    <column id="7581" parent="100" name="EXPIRE_DATE">
+    <column id="7602" parent="100" name="EXPIRE_DATE">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>TIMESTAMP(6)|0s</StoredType>
     </column>
-    <index id="7582" parent="100" name="SYS_C008372">
+    <index id="7603" parent="100" name="SYS_C008372">
       <ColNames>SESSION_KEY</ColNames>
       <CreatedTimestamp>2025-05-16.22:11:29</CreatedTimestamp>
       <ModifiedTimestamp>2025-05-16.22:11:29</ModifiedTimestamp>
@@ -60324,40 +60461,40 @@ MODEL</ColNames>
       <Unique>1</Unique>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <index id="7583" parent="100" name="DJANGO_SES_EXPIRE_DAT_A5C62663">
+    <index id="7604" parent="100" name="DJANGO_SES_EXPIRE_DAT_A5C62663">
       <ColNames>EXPIRE_DATE</ColNames>
       <CreatedTimestamp>2025-05-16.22:11:29</CreatedTimestamp>
       <ModifiedTimestamp>2025-05-16.22:11:29</ModifiedTimestamp>
       <ObjectId>76664</ObjectId>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <key id="7584" parent="100" name="SYS_C008372">
+    <key id="7605" parent="100" name="SYS_C008372">
       <InitiallyDeferred>1</InitiallyDeferred>
       <ModifiedTimestamp>2025-05-16.22:11:29</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>SYS_C008372</UnderlyingIndexName>
     </key>
-    <column id="7585" parent="101" name="ID">
+    <column id="7606" parent="101" name="ID">
       <DefaultOnNull>1</DefaultOnNull>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>NUMBER(19)|0s</StoredType>
       <SequenceName>ISEQ$$_76655</SequenceName>
     </column>
-    <column id="7586" parent="101" name="NOMBRE">
+    <column id="7607" parent="101" name="NOMBRE">
       <Position>2</Position>
       <StoredType>NVARCHAR2(100)|0s</StoredType>
     </column>
-    <column id="7587" parent="101" name="EMAIL">
+    <column id="7608" parent="101" name="EMAIL">
       <Position>3</Position>
       <StoredType>NVARCHAR2(254)|0s</StoredType>
     </column>
-    <column id="7588" parent="101" name="MENSAJE">
+    <column id="7609" parent="101" name="MENSAJE">
       <Position>4</Position>
       <StoredType>NCLOB|0s</StoredType>
     </column>
-    <index id="7589" parent="101" name="SYS_C008369">
+    <index id="7610" parent="101" name="SYS_C008369">
       <ColNames>ID</ColNames>
       <CreatedTimestamp>2025-05-16.22:11:29</CreatedTimestamp>
       <ModifiedTimestamp>2025-05-16.22:11:29</ModifiedTimestamp>
@@ -60366,98 +60503,98 @@ MODEL</ColNames>
       <Unique>1</Unique>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <key id="7590" parent="101" name="SYS_C008369">
+    <key id="7611" parent="101" name="SYS_C008369">
       <InitiallyDeferred>1</InitiallyDeferred>
       <ModifiedTimestamp>2025-05-16.22:11:29</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>SYS_C008369</UnderlyingIndexName>
     </key>
-    <check id="7591" parent="102" name="SYS_C008341">
+    <check id="7612" parent="102" name="SYS_C008341">
       <ColNames>IS_ACTIVE</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <ModifiedTimestamp>2025-05-16.22:11:28</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <Predicate>&quot;IS_ACTIVE&quot; IN (0,1)</Predicate>
     </check>
-    <check id="7592" parent="102" name="SYS_C008342">
+    <check id="7613" parent="102" name="SYS_C008342">
       <ColNames>IS_STAFF</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <ModifiedTimestamp>2025-05-16.22:11:28</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <Predicate>&quot;IS_STAFF&quot; IN (0,1)</Predicate>
     </check>
-    <check id="7593" parent="102" name="SYS_C008340">
+    <check id="7614" parent="102" name="SYS_C008340">
       <ColNames>IS_SUPERUSER</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <ModifiedTimestamp>2025-05-16.22:11:28</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <Predicate>&quot;IS_SUPERUSER&quot; IN (0,1)</Predicate>
     </check>
-    <column id="7594" parent="102" name="ID">
+    <column id="7615" parent="102" name="ID">
       <DefaultOnNull>1</DefaultOnNull>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>NUMBER(19)|0s</StoredType>
       <SequenceName>ISEQ$$_76629</SequenceName>
     </column>
-    <column id="7595" parent="102" name="PASSWORD">
+    <column id="7616" parent="102" name="PASSWORD">
       <Position>2</Position>
       <StoredType>NVARCHAR2(128)|0s</StoredType>
     </column>
-    <column id="7596" parent="102" name="LAST_LOGIN">
+    <column id="7617" parent="102" name="LAST_LOGIN">
       <Position>3</Position>
       <StoredType>TIMESTAMP(6)|0s</StoredType>
     </column>
-    <column id="7597" parent="102" name="IS_SUPERUSER">
+    <column id="7618" parent="102" name="IS_SUPERUSER">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>NUMBER(1)|0s</StoredType>
     </column>
-    <column id="7598" parent="102" name="USERNAME">
+    <column id="7619" parent="102" name="USERNAME">
       <Position>5</Position>
       <StoredType>NVARCHAR2(150)|0s</StoredType>
     </column>
-    <column id="7599" parent="102" name="FIRST_NAME">
+    <column id="7620" parent="102" name="FIRST_NAME">
       <Position>6</Position>
       <StoredType>NVARCHAR2(150)|0s</StoredType>
     </column>
-    <column id="7600" parent="102" name="LAST_NAME">
+    <column id="7621" parent="102" name="LAST_NAME">
       <Position>7</Position>
       <StoredType>NVARCHAR2(150)|0s</StoredType>
     </column>
-    <column id="7601" parent="102" name="DATE_JOINED">
+    <column id="7622" parent="102" name="DATE_JOINED">
       <NotNull>1</NotNull>
       <Position>8</Position>
       <StoredType>TIMESTAMP(6)|0s</StoredType>
     </column>
-    <column id="7602" parent="102" name="EMAIL">
+    <column id="7623" parent="102" name="EMAIL">
       <Position>9</Position>
       <StoredType>NVARCHAR2(500)|0s</StoredType>
     </column>
-    <column id="7603" parent="102" name="NOMBRE">
+    <column id="7624" parent="102" name="NOMBRE">
       <Position>10</Position>
       <StoredType>NVARCHAR2(250)|0s</StoredType>
     </column>
-    <column id="7604" parent="102" name="APELLIDOS">
+    <column id="7625" parent="102" name="APELLIDOS">
       <Position>11</Position>
       <StoredType>NVARCHAR2(250)|0s</StoredType>
     </column>
-    <column id="7605" parent="102" name="ROL">
+    <column id="7626" parent="102" name="ROL">
       <Position>12</Position>
       <StoredType>NVARCHAR2(25)|0s</StoredType>
     </column>
-    <column id="7606" parent="102" name="IS_ACTIVE">
+    <column id="7627" parent="102" name="IS_ACTIVE">
       <NotNull>1</NotNull>
       <Position>13</Position>
       <StoredType>NUMBER(1)|0s</StoredType>
     </column>
-    <column id="7607" parent="102" name="IS_STAFF">
+    <column id="7628" parent="102" name="IS_STAFF">
       <NotNull>1</NotNull>
       <Position>14</Position>
       <StoredType>NUMBER(1)|0s</StoredType>
     </column>
-    <index id="7608" parent="102" name="SYS_C008343">
+    <index id="7629" parent="102" name="SYS_C008343">
       <ColNames>ID</ColNames>
       <CreatedTimestamp>2025-05-16.22:11:28</CreatedTimestamp>
       <ModifiedTimestamp>2025-05-16.22:11:28</ModifiedTimestamp>
@@ -60466,7 +60603,7 @@ MODEL</ColNames>
       <Unique>1</Unique>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <index id="7609" parent="102" name="SYS_C008344">
+    <index id="7630" parent="102" name="SYS_C008344">
       <ColNames>USERNAME</ColNames>
       <CreatedTimestamp>2025-05-16.22:11:28</CreatedTimestamp>
       <ModifiedTimestamp>2025-05-16.22:11:28</ModifiedTimestamp>
@@ -60475,7 +60612,7 @@ MODEL</ColNames>
       <Unique>1</Unique>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <index id="7610" parent="102" name="SYS_C008345">
+    <index id="7631" parent="102" name="SYS_C008345">
       <ColNames>EMAIL</ColNames>
       <CreatedTimestamp>2025-05-16.22:11:28</CreatedTimestamp>
       <ModifiedTimestamp>2025-05-16.22:11:28</ModifiedTimestamp>
@@ -60484,43 +60621,43 @@ MODEL</ColNames>
       <Unique>1</Unique>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <key id="7611" parent="102" name="SYS_C008343">
+    <key id="7632" parent="102" name="SYS_C008343">
       <InitiallyDeferred>1</InitiallyDeferred>
       <ModifiedTimestamp>2025-05-16.22:11:28</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>SYS_C008343</UnderlyingIndexName>
     </key>
-    <key id="7612" parent="102" name="SYS_C008344">
+    <key id="7633" parent="102" name="SYS_C008344">
       <InitiallyDeferred>1</InitiallyDeferred>
       <ModifiedTimestamp>2025-05-16.22:11:28</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <UnderlyingIndexName>SYS_C008344</UnderlyingIndexName>
     </key>
-    <key id="7613" parent="102" name="SYS_C008345">
+    <key id="7634" parent="102" name="SYS_C008345">
       <InitiallyDeferred>1</InitiallyDeferred>
       <ModifiedTimestamp>2025-05-16.22:11:28</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <UnderlyingIndexName>SYS_C008345</UnderlyingIndexName>
     </key>
-    <column id="7614" parent="103" name="ID">
+    <column id="7635" parent="103" name="ID">
       <DefaultOnNull>1</DefaultOnNull>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>NUMBER(19)|0s</StoredType>
       <SequenceName>ISEQ$$_76634</SequenceName>
     </column>
-    <column id="7615" parent="103" name="USUARIO_ID">
+    <column id="7636" parent="103" name="USUARIO_ID">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>NUMBER(19)|0s</StoredType>
     </column>
-    <column id="7616" parent="103" name="GROUP_ID">
+    <column id="7637" parent="103" name="GROUP_ID">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>NUMBER(11)|0s</StoredType>
     </column>
-    <foreign-key id="7617" parent="103" name="PIZZAAPP__USUARIO_I_AD9E4EC8_F">
+    <foreign-key id="7638" parent="103" name="PIZZAAPP__USUARIO_I_AD9E4EC8_F">
       <ColNames>USUARIO_ID</ColNames>
       <Deferrable>1</Deferrable>
       <InitiallyDeferred>1</InitiallyDeferred>
@@ -60529,7 +60666,7 @@ MODEL</ColNames>
       <RefKeyName>SYS_C008343</RefKeyName>
       <RefTableName>PIZZAAPP_USUARIO</RefTableName>
     </foreign-key>
-    <foreign-key id="7618" parent="103" name="PIZZAAPP__GROUP_ID_45AE3219_F">
+    <foreign-key id="7639" parent="103" name="PIZZAAPP__GROUP_ID_45AE3219_F">
       <ColNames>GROUP_ID</ColNames>
       <Deferrable>1</Deferrable>
       <InitiallyDeferred>1</InitiallyDeferred>
@@ -60538,7 +60675,7 @@ MODEL</ColNames>
       <RefKeyName>SYS_C008324</RefKeyName>
       <RefTableName>AUTH_GROUP</RefTableName>
     </foreign-key>
-    <index id="7619" parent="103" name="SYS_C008349">
+    <index id="7640" parent="103" name="SYS_C008349">
       <ColNames>ID</ColNames>
       <CreatedTimestamp>2025-05-16.22:11:28</CreatedTimestamp>
       <ModifiedTimestamp>2025-05-16.22:11:28</ModifiedTimestamp>
@@ -60547,7 +60684,7 @@ MODEL</ColNames>
       <Unique>1</Unique>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <index id="7620" parent="103" name="PIZZAAPP__USUARIO_I_B9E8A956_U">
+    <index id="7641" parent="103" name="PIZZAAPP__USUARIO_I_B9E8A956_U">
       <ColNames>USUARIO_ID
 GROUP_ID</ColNames>
       <CreatedTimestamp>2025-05-16.22:11:28</CreatedTimestamp>
@@ -60556,50 +60693,50 @@ GROUP_ID</ColNames>
       <Unique>1</Unique>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <index id="7621" parent="103" name="PIZZAAPP_U_USUARIO_ID_AD9E4EC8">
+    <index id="7642" parent="103" name="PIZZAAPP_U_USUARIO_ID_AD9E4EC8">
       <ColNames>USUARIO_ID</ColNames>
       <CreatedTimestamp>2025-05-16.22:11:28</CreatedTimestamp>
       <ModifiedTimestamp>2025-05-16.22:11:28</ModifiedTimestamp>
       <ObjectId>76641</ObjectId>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <index id="7622" parent="103" name="PIZZAAPP_U_GROUP_ID_45AE3219">
+    <index id="7643" parent="103" name="PIZZAAPP_U_GROUP_ID_45AE3219">
       <ColNames>GROUP_ID</ColNames>
       <CreatedTimestamp>2025-05-16.22:11:28</CreatedTimestamp>
       <ModifiedTimestamp>2025-05-16.22:11:28</ModifiedTimestamp>
       <ObjectId>76642</ObjectId>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <key id="7623" parent="103" name="SYS_C008349">
+    <key id="7644" parent="103" name="SYS_C008349">
       <InitiallyDeferred>1</InitiallyDeferred>
       <ModifiedTimestamp>2025-05-16.22:11:28</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>SYS_C008349</UnderlyingIndexName>
     </key>
-    <key id="7624" parent="103" name="PIZZAAPP__USUARIO_I_B9E8A956_U">
+    <key id="7645" parent="103" name="PIZZAAPP__USUARIO_I_B9E8A956_U">
       <InitiallyDeferred>1</InitiallyDeferred>
       <ModifiedTimestamp>2025-05-16.22:11:28</ModifiedTimestamp>
       <UnderlyingIndexName>PIZZAAPP__USUARIO_I_B9E8A956_U</UnderlyingIndexName>
     </key>
-    <column id="7625" parent="104" name="ID">
+    <column id="7646" parent="104" name="ID">
       <DefaultOnNull>1</DefaultOnNull>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>NUMBER(19)|0s</StoredType>
       <SequenceName>ISEQ$$_76637</SequenceName>
     </column>
-    <column id="7626" parent="104" name="USUARIO_ID">
+    <column id="7647" parent="104" name="USUARIO_ID">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>NUMBER(19)|0s</StoredType>
     </column>
-    <column id="7627" parent="104" name="PERMISSION_ID">
+    <column id="7648" parent="104" name="PERMISSION_ID">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>NUMBER(11)|0s</StoredType>
     </column>
-    <foreign-key id="7628" parent="104" name="PIZZAAPP__USUARIO_I_FD8DE794_F">
+    <foreign-key id="7649" parent="104" name="PIZZAAPP__USUARIO_I_FD8DE794_F">
       <ColNames>USUARIO_ID</ColNames>
       <Deferrable>1</Deferrable>
       <InitiallyDeferred>1</InitiallyDeferred>
@@ -60608,7 +60745,7 @@ GROUP_ID</ColNames>
       <RefKeyName>SYS_C008343</RefKeyName>
       <RefTableName>PIZZAAPP_USUARIO</RefTableName>
     </foreign-key>
-    <foreign-key id="7629" parent="104" name="PIZZAAPP__PERMISSIO_2515BA15_F">
+    <foreign-key id="7650" parent="104" name="PIZZAAPP__PERMISSIO_2515BA15_F">
       <ColNames>PERMISSION_ID</ColNames>
       <Deferrable>1</Deferrable>
       <InitiallyDeferred>1</InitiallyDeferred>
@@ -60617,7 +60754,7 @@ GROUP_ID</ColNames>
       <RefKeyName>SYS_C008322</RefKeyName>
       <RefTableName>AUTH_PERMISSION</RefTableName>
     </foreign-key>
-    <index id="7630" parent="104" name="SYS_C008353">
+    <index id="7651" parent="104" name="SYS_C008353">
       <ColNames>ID</ColNames>
       <CreatedTimestamp>2025-05-16.22:11:28</CreatedTimestamp>
       <ModifiedTimestamp>2025-05-16.22:11:28</ModifiedTimestamp>
@@ -60626,7 +60763,7 @@ GROUP_ID</ColNames>
       <Unique>1</Unique>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <index id="7631" parent="104" name="PIZZAAPP__USUARIO_I_AD334E32_U">
+    <index id="7652" parent="104" name="PIZZAAPP__USUARIO_I_AD334E32_U">
       <ColNames>USUARIO_ID
 PERMISSION_ID</ColNames>
       <CreatedTimestamp>2025-05-16.22:11:29</CreatedTimestamp>
@@ -60635,28 +60772,28 @@ PERMISSION_ID</ColNames>
       <Unique>1</Unique>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <index id="7632" parent="104" name="PIZZAAPP_U_USUARIO_ID_FD8DE794">
+    <index id="7653" parent="104" name="PIZZAAPP_U_USUARIO_ID_FD8DE794">
       <ColNames>USUARIO_ID</ColNames>
       <CreatedTimestamp>2025-05-16.22:11:29</CreatedTimestamp>
       <ModifiedTimestamp>2025-05-16.22:11:29</ModifiedTimestamp>
       <ObjectId>76644</ObjectId>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <index id="7633" parent="104" name="PIZZAAPP_U_PERMISSION_2515BA15">
+    <index id="7654" parent="104" name="PIZZAAPP_U_PERMISSION_2515BA15">
       <ColNames>PERMISSION_ID</ColNames>
       <CreatedTimestamp>2025-05-16.22:11:29</CreatedTimestamp>
       <ModifiedTimestamp>2025-05-16.22:11:29</ModifiedTimestamp>
       <ObjectId>76645</ObjectId>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <key id="7634" parent="104" name="SYS_C008353">
+    <key id="7655" parent="104" name="SYS_C008353">
       <InitiallyDeferred>1</InitiallyDeferred>
       <ModifiedTimestamp>2025-05-16.22:11:28</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>SYS_C008353</UnderlyingIndexName>
     </key>
-    <key id="7635" parent="104" name="PIZZAAPP__USUARIO_I_AD334E32_U">
+    <key id="7656" parent="104" name="PIZZAAPP__USUARIO_I_AD334E32_U">
       <InitiallyDeferred>1</InitiallyDeferred>
       <ModifiedTimestamp>2025-05-16.22:11:29</ModifiedTimestamp>
       <UnderlyingIndexName>PIZZAAPP__USUARIO_I_AD334E32_U</UnderlyingIndexName>

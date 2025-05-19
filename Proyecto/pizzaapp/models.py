@@ -64,15 +64,22 @@ class Contacto(models.Model):
 
 
 
-
+class EstadoMesa(models.TextChoices):
+    OCUPADO = 'OCUPADO', 'Ocupado'
+    LIBRE = 'LIBRE', 'Libre'
+    RESERVADO = 'RESERVADO', 'Reservado'
 
 
 class Mesa(models.Model):
     numero = models.IntegerField(unique=True)
-    disponible = models.BooleanField(default=True)
+    estado = models.CharField(
+        max_length=10,
+        choices=EstadoMesa.choices,
+        default=EstadoMesa.LIBRE
+    )
 
     def __str__(self):
-        return f"Mesa {self.numero} - {'Disponible' if self.disponible else 'Ocupada'}"
+        return f"Mesa {self.numero} ({self.estado})"
 
 
 
