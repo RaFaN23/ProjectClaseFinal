@@ -50,11 +50,11 @@
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Reserva aqui</a></li>
+                        <li><a class="dropdown-item" href="{% url 'mostrar_mesas' %}">Reserva aqui</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link cambio" href="{% url 'carrito' %}">Carrito</a>
+                    <a class="nav-link cambio" href="{% url 'ver_carrito' %}">Carrito</a>
                 </li>
             </ul>
             {% if user.is_authenticated %}

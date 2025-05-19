@@ -12,19 +12,18 @@
 
 
 {% block content %}
-
-    <body>
+<body>
         <div class="container">
             <div class="grid">
                 {% for mesa in mesas %}
-                    <form method="POST" action="{% url 'asignar_mesa' mesa.id %}">
-                        {% csrf_token %}
-                        <button type="submit" class="mesa {% if mesa.disponible %}disponible{% else %}ocupada{% endif %}"
-                                {% if not mesa.disponible %}disabled{% endif %}>
-                                MESA {{ mesa.numero }}<br>
-                                {% if mesa.disponible %}DISPONIBLE{% else %}OCUPADA{% endif %}
-                        </button>
-                    </form>
+                <form method="post" action="{% url 'asignar_mesa' mesa.id %}">
+                    {% csrf_token %}
+                    <button type="submit"
+                            class="mesa {% if mesa.estado == 'LIBRE' %}disponible{% else %}ocupada{% endif %}">
+                        MESA {{ mesa.numero }}<br>
+                        {{ mesa.estado }}
+                    </button>
+                </form>
                 {% endfor %}
             </div>
 
@@ -34,7 +33,7 @@
                 <button disabled>HACER PEDIDO</button>
             </div>
         </div>
-    </body>
+</body>
 
 
 {% endblock %}

@@ -1,9 +1,27 @@
+body{
+
+    background-image:url(../img/Pizza.png);
+
+
+   animation:mover 50s  linear infinite ;
+
+
+
+
+
+
+}
+@keyframes mover{
+    from { background-position: -40px -30px  ;}
+
+    to { background-position: 500px;}
+}
+
 body {
     font-family: 'Arial Black', sans-serif;
-    background: #fff;
     display: flex;
     justify-content: center;
-    padding: 40px;
+
 }
 
 .container {

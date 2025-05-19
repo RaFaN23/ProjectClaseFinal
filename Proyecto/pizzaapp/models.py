@@ -66,15 +66,22 @@ class Contacto(models.Model):
 
 
 
-
+class EstadoMesa(models.TextChoices):
+    OCUPADO = 'OCUPADO', 'Ocupado'
+    LIBRE = 'LIBRE', 'Libre'
+    RESERVADO = 'RESERVADO', 'Reservado'
 
 
 class Mesa(models.Model):
     numero = models.IntegerField(unique=True)
-    disponible = models.BooleanField(default=True)
+    estado = models.CharField(
+        max_length=10,
+        choices=EstadoMesa.choices,
+        default=EstadoMesa.LIBRE
+    )
 
     def __str__(self):
-        return f"Mesa {self.numero} - {'Disponible' if self.disponible else 'Ocupada'}"
+        return f"Mesa {self.numero} ({self.estado})"
 
 
 
@@ -91,7 +98,33 @@ class cartao(models.Model):
     nombre = models.CharField(max_length=250,null=False)
     ingredientes = models.TextField(max_length=250)
     precio = models.IntegerField(null=False)
-    imagen = models.CharField(max_length=1000,null=True, blank=True)
+    imagen = models.CharField(max_length=10000,null=True, blank=True)
 
     def __str__(self):
         return self.nombre
+
+
+class Pedido(models.Model):
+    codigo = models.CharField(max_length=50)
+    fecha = models.DateTimeField()
+    usuario = models.ForeignKey(
+        'Usuario',  # modelo al que se relaciona
+        on_delete=models.DO_NOTHING,  # qué hacer si se borra el titular
+        related_name= 'pedidos'  # nombre para acceder desde el lado de usuario
+    )
+
+
+    def __str__(self):
+        return self.codigo
+
+
+
+
+class LineaPedido(models.Model):
+    pedido = models.ForeignKey(Pedido, on_delete= models.CASCADE)
+    producto = models.ForeignKey(cartao, on_delete= models.DO_NOTHING)
+    cantidad = models.IntegerField()
+    precio = models.FloatField()
+
+    def __str__(self):
+        return self.producto.nombre + "-" + self.precio
