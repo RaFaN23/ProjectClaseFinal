@@ -69,17 +69,16 @@ class EstadoMesa(models.TextChoices):
     LIBRE = 'LIBRE', 'Libre'
     RESERVADO = 'RESERVADO', 'Reservado'
 
-
 class Mesa(models.Model):
-    numero = models.IntegerField(unique=True)
+    numero = models.PositiveIntegerField(unique=True)
     estado = models.CharField(
         max_length=10,
         choices=EstadoMesa.choices,
-        default=EstadoMesa.LIBRE
+        default=EstadoMesa.LIBRE  # 👈 Esto es lo importante
     )
 
     def __str__(self):
-        return f"Mesa {self.numero} ({self.estado})"
+        return f"Mesa {self.numero} - {self.estado}"
 
 
 
