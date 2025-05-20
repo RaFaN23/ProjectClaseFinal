@@ -39,7 +39,7 @@ class Usuario(AbstractUser, PermissionsMixin):
 
     email = models.EmailField(max_length=500, unique=True)
     nombre = models.CharField(max_length=250)
-    apellidos = models.CharField(max_length=250)
+    apellidos = models.CharField(max_length=251)
     rol = models.CharField(max_length=25, choices=ROLES, default='cliente')
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
@@ -99,7 +99,7 @@ class cartao(models.Model):
     nombre = models.CharField(max_length=250,null=False)
     ingredientes = models.TextField(max_length=250)
     precio = models.IntegerField(null=False)
-    imagen = models.CharField(max_length=10000,null=True, blank=True)
+    imagen = models.TextField(max_length=400,null=True, blank=True)
 
     def __str__(self):
         return self.nombre

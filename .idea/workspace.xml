@@ -6,8 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="f6300454-35ea-4f74-81eb-b0dd0fe99bd2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/pizzaapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/ProjectClaseFinal/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/ProjectClaseFinal/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/migrations/0002_contacto.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/migrations/0003_cartao_usuario_telefono.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/migrations/0004_alter_cartao_imagen.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/migrations/0005_mesa.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/migrations/0006_pedido_lineapedido.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/migrations/0006_remove_mesa_disponible_mesa_estado.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/migrations/0006_remove_usuario_telefono_usuario_fecha_creacion_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/migrations/0007_merge_20250518_2243.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/migrations/0007_remove_usuario_telefono_alter_cartao_imagen.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/migrations/0008_merge_20250520_0034.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/pizzaapp/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
