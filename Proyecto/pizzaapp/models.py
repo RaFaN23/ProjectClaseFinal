@@ -83,7 +83,7 @@ class Mesa(models.Model):
     estado = models.CharField(
         max_length=10,
         choices=EstadoMesa.choices,
-        default=EstadoMesa.LIBRE  # 👈 Esto es lo importante
+        default=EstadoMesa.LIBRE  
     )
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     fecha_modificacion = models.DateTimeField(auto_now=True)
