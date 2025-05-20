@@ -74,7 +74,7 @@ class Mesa(models.Model):
     estado = models.CharField(
         max_length=10,
         choices=EstadoMesa.choices,
-        default=EstadoMesa.LIBRE  # 👈 Esto es lo importante
+        default=EstadoMesa.LIBRE  
     )
 
     def __str__(self):
