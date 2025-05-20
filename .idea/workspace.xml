@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6300454-35ea-4f74-81eb-b0dd0fe99bd2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Proyecto/templates/pagina_Error.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/ProjectClaseFinal/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/ProjectClaseFinal/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/pizzaapp/url.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/pizzaapp/views.py" afterDir="false" />
-    </list>
+    <list default="true" id="f6300454-35ea-4f74-81eb-b0dd0fe99bd2" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
