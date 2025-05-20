@@ -11,29 +11,43 @@
             crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Holtwood+One+SC&display=swap" rel="stylesheet">
-
-
 </head>
 <body>
-<div class="cuerpo_footer">
-    <div class="cuerpo_izq_footer">
+
+
+<footer class="cuerpo_footer">
+    <div class="bloque">
         <br>
-        <h2>Más sobre nosotros</h2>
-        <br>
-        <h3>Nuestras Redes Sociales</h3>
-        <br>
-        <h4>Intagram: @TrangoniPepperoni</h4>
-        <h4>Twitter : @TrangoniPepperoni</h4>
-        <h4>Correo : @TrangoniPepperoni</h4>
-        <h4>WhatApps: +34 123 445 643</h4>
-        <h4>FaceBook: @TrangoniPepperoni</h4>
+        <h5>Contáctanos</h5>
+        <p>Instagram: @TrangoniPepperoni</p>
+        <p>Twitter : @TrangoniPepperoni</p>
+        <p>WhatsApp: +34 123 445 643</p>
     </div>
-    <div class="cuerpo_der_footer">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6339.506145149855!2d-5.997576288219541!3d37.395671471966985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd126c0f47aac0dd%3A0x7820a55184f2c31a!2sSAFA.%20Fundaci%C3%B3n%20Escuelas%20Profesionales%20de%20la%20Sagrada%20Familia!5e0!3m2!1ses-419!2ses!4v1745517379064!5m2!1ses-419!2ses"
-                width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <h4>Calle Fresa 23</h4>
+    <div class="bloque">
+        <br>
+        <h5>Donde nos situamos</h5>
+        <button onclick="mostrarMapa()">Mostrar ubicación</button>
+
+        <div id="mapa" style="display: none; margin-top: 20px;">
+            <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6339.506145149855!2d-5.997576288219541!3d37.395671471966985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd126c0f47aac0dd%3A0x7820a55184f2c31a!2sSAFA.%20Fundaci%C3%B3n%20Escuelas%20Profesionales%20de%20la%20Sagrada%20Familia!5e0!3m2!1ses-419!2ses!4v1745517379064!5m2!1ses-419!2ses"
+                    width="100%"
+                    height="300"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
     </div>
-</div>
+</footer>
+
+<script>
+    function mostrarMapa() {
+        const mapa = document.getElementById("mapa");
+        mapa.style.display = mapa.style.display === "none" ? "block" : "none";
+    }
+</script>
+
 </body>
 </html>
