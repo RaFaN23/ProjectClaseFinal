@@ -4,7 +4,7 @@ from . import views
 from pizzaapp.views import *
 
 urlpatterns = [
-
+    path('admin/', admin.site.urls),
 
     # HOME
     path('', go_home, name='home_vacio'),
