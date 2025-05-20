@@ -2,10 +2,8 @@ from django.contrib import admin
 from django.urls import path
 from . import views
 from pizzaapp.views import *
-handler403 = 'pizzaapp.views.error'
-handler404 = 'pizzaapp.views.error'
-urlpatterns = [
 
+urlpatterns = [
 
     # HOME
     path('', go_home, name='home_vacio'),
@@ -24,7 +22,9 @@ urlpatterns = [
 
     # PEDIDOS
     path('hacer_pedido/', go_pedido, name='Hacer_Pedido'),
-
+    path('pedidos/', lista_pedidos, name='lista_pedidos'),
+    path('pedido/editar/<int:pk>/', editar_pedido, name='editar_pedido'),
+    path('pedido/borrar/<int:pk>/', borrar_pedido, name='borrar_pedido'),
     # CONTACTO
     path('contacto/', contacto_view, name='contacto'),
 
@@ -48,6 +48,5 @@ urlpatterns = [
     path('completar_compra/', comprar, name='comprar'),
 
     # Error
-    path('zona_restringida/', views.error, name='zona_restringida'),
 
 ]

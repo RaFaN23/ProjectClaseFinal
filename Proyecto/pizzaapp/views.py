@@ -7,7 +7,7 @@ from django.shortcuts import render, redirect
 
 from .forms import *
 from .forms import PizzaForm, RegistroFormulario
-from .models import cartao, LineaPedido
+from .models import cartao, LineaPedido, Pedido
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Mesa
 from django.shortcuts import render
@@ -247,9 +247,6 @@ def limpiar(request):
 
 @solo_admin
 def lista_empleados(request):
-    if not request.user.has_perm('pizzaapp.puede_acceder'):
-        return redirect('zona_restringida')  # Redirige a tu página personalizada
-
     empleados = Usuario.objects.all()
     return render(request, 'Gestion_empleados.html', {'empleados': empleados})
 
@@ -273,9 +270,23 @@ def borrar_empleado(request, pk):
     return render(request, 'confirmar_borrado.html', {'empleado': empleado})
 
 
-def error(request):
-    if not request.user.is_authenticated:
-        return redirect('InicioSesion')
+def lista_pedidos(request):
+    pedidos = Pedido.objects.all()
+    return render(request, 'Gestion_pedidos.html', {'pedidos': pedidos})
 
-    if not request.user.has_perm('pizzaapp.puede_acceder'):
-        return render(request, 'pagina_Error.html', status=403)
+
+def editar_pedido(request, pk):
+    pedido = get_object_or_404(Pedido, pk=pk)
+    form = PedidoForm(request.POST or None, instance=pedido)
+    if request.method == 'POST' and form.is_valid():
+        form.save()
+        return redirect('lista_pedidos')  # Asegúrate de usar el nombre correcto
+    return render(request, 'editar_pedido.html', {'form': form})
+
+
+def borrar_pedido(request, pk):
+    pedido = get_object_or_404(Pedido, pk=pk)
+    if request.method == 'POST':
+        pedido.delete()
+        return redirect('lista_pedidos')
+    return render(request, 'confirmar_borrado_pedido.html', {'pedido': pedido})

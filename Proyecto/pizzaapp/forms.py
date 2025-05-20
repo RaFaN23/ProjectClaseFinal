@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
-from .models import Contacto, Usuario
+from .models import Contacto, Usuario, Pedido
 
 
 class PizzaForm(forms.ModelForm):
@@ -14,7 +14,7 @@ class RegistroFormulario(forms.ModelForm):
 
     class Meta:
         model = Usuario
-        fields = ['email', 'nombre', 'apellidos',  'password']
+        fields = ['email', 'nombre', 'apellidos', 'password']
 
 
 class LoginFormulario(AuthenticationForm):
@@ -32,6 +32,7 @@ class LoginFormulario(AuthenticationForm):
     help_texts = {
         'email': 'Usa un correo válido como nombre@ejemplo.com',
     }
+
 
 class EmpleadoForm(forms.ModelForm):
     class Meta:
@@ -58,3 +59,9 @@ class Meta:
         help_texts = {
             'email': 'Usa un correo válido como nombre@ejemplo.com',
         }
+
+
+class PedidoForm(forms.ModelForm):
+    class Meta:
+        model = Pedido
+        fields = ['codigo', 'fecha', 'usuario']
