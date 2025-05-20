@@ -11,6 +11,25 @@ nav {
     gap: 30px;
 
 }
+
+body.modo-oscuro {
+    background-color: #121212;
+    color: #f0f0f0;
+}
+
+body.modo-oscuro .navbar {
+    background-color: #1c1c1c !important;
+}
+
+body.modo-oscuro .nav-link,
+body.modo-oscuro .dropdown-menu,
+body.modo-oscuro .btn {
+    background-color: #333 !important;
+    color: #fff !important;
+    border-color: #555 !important;
+}
+
+
 .Logo_nombre{
     display: flex;
     flex-wrap: nowrap;
