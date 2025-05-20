@@ -285,3 +285,5 @@ def borrar_empleado(request, pk):
 
 
 
+def ver_pedidos_antiguos(request):
+    return render(request,'pedidos_antiguos.html')
