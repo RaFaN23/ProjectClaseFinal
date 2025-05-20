@@ -1,0 +1,9 @@
+.contenedor_pedidos {
+    padding: 20px;
+}
+.pedido {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}

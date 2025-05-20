@@ -48,6 +48,8 @@ urlpatterns = [
     path('completar_compra/', comprar, name='comprar'),
 
     #pedidos antiguos
-    path('peidos_antiguos/',ver_pedidos_antiguos,name='pedidos_antiguos'),
 
+    path('peidos_antiguos/', pedidos_antiguos, name='pedidos_antiguos'),
+
+    path('crear_pedido/', crear_pedido, name='crear_pedido'),
 ]
