@@ -16,6 +16,8 @@ class UsuarioManager(BaseUserManager):
         usuario = self.model(email=email, nombre=nombre,rol=rol)
         usuario.set_password(password)
         usuario.save(using=self._db)
+        fecha_creacion = models.DateTimeField(auto_now_add=True)
+        fecha_modificacion = models.DateTimeField(auto_now=True)
         return usuario
 
 
@@ -24,6 +26,8 @@ class UsuarioManager(BaseUserManager):
         usuario.is_superuser = True
         usuario.is_staff = True
         usuario.save(using=self._db)
+        fecha_creacion = models.DateTimeField(auto_now_add=True)
+        fecha_modificacion = models.DateTimeField(auto_now=True)
         return usuario
 
 
@@ -60,6 +64,8 @@ class Contacto(models.Model):
     nombre = models.CharField(max_length=100)
     email = models.EmailField()
     mensaje = models.TextField()
+    fecha_creacion = models.DateTimeField(auto_now_add=True)
+    fecha_modificacion = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.nombre
@@ -79,6 +85,8 @@ class Mesa(models.Model):
         choices=EstadoMesa.choices,
         default=EstadoMesa.LIBRE
     )
+    fecha_creacion = models.DateTimeField(auto_now_add=True)
+    fecha_modificacion = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f"Mesa {self.numero} ({self.estado})"
@@ -99,6 +107,8 @@ class cartao(models.Model):
     ingredientes = models.TextField(max_length=250)
     precio = models.IntegerField(null=False)
     imagen = models.CharField(max_length=10000,null=True, blank=True)
+    fecha_creacion = models.DateTimeField(auto_now_add=True)
+    fecha_modificacion = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.nombre
@@ -112,6 +122,8 @@ class Pedido(models.Model):
         on_delete=models.DO_NOTHING,  # qué hacer si se borra el titular
         related_name= 'pedidos'  # nombre para acceder desde el lado de usuario
     )
+    fecha_creacion = models.DateTimeField(auto_now_add=True)
+    fecha_modificacion = models.DateTimeField(auto_now=True)
 
 
     def __str__(self):
@@ -125,6 +137,8 @@ class LineaPedido(models.Model):
     producto = models.ForeignKey(cartao, on_delete= models.DO_NOTHING)
     cantidad = models.IntegerField()
     precio = models.FloatField()
+    fecha_creacion = models.DateTimeField(auto_now_add=True)
+    fecha_modificacion = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.producto.nombre + "-" + self.precio
