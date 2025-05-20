@@ -12,7 +12,7 @@ urlpatterns = [
     path('Crear_Cuenta/',registrar_usuario,name='Crear_Cuenta'),
     path('InicioSesion/', login_usuario,name='InicioSesion'),
 
-    path('InicioSesion/', logout_usuario, name='cerrarSesion'),
+
 
     path('hacer_pedido/',go_pedido,name='Hacer_Pedido'),
     #path('Crear_Cuenta/',go_crearCuenta,name='Crear_Cuenta'),

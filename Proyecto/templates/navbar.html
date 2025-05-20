@@ -50,21 +50,21 @@
                     <a class="nav-link cambio" href="{% url 'carrito' %}">Carrito</a>
                 </li>
             </ul>
-            <form class="d-flex">
+
                 {% if user.is_authenticated %}
                     <a class="btn btn-primary me-2" href="#">Mi cuenta</a>
 
                     <form method="post" action="{% url 'cerrarSesion' %}" style="display: inline;">
                         {% csrf_token %}
-                        <button type="submit" class="btn btn-danger">Cerrar Sesión</button>
+                        <button type="submit" class="btn btn-danger">Cerrar sesión</button>
                     </form>
+
 
                 {% else %}
                     <a class="btn btn-primary me-2" href="{% url 'InicioSesion' %}">Iniciar sesión</a>
                     <a class="btn btn-secondary" href="{% url 'Crear_Cuenta' %}">Registrarse</a>
                 {% endif %}
 
-            </form>
         </div>
     </div>
 </nav>

@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f9d35b31-1aa9-431d-8f1a-a75a3629ff72" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectClaseFinal/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectClaseFinal/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pizzaapp/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/pizzaapp/url.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pizzaapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/pizzaapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/navbar.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -137,6 +134,7 @@
       <workItem from="1747160044355" duration="58000" />
       <workItem from="1747232397737" duration="26000" />
       <workItem from="1747232434205" duration="12141000" />
+      <workItem from="1747413669851" duration="1082000" />
     </task>
     <servers />
   </component>
