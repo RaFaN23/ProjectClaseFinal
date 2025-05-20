@@ -102,19 +102,15 @@ class Mesa(models.Model):
 
 
 #Carta
+
 class cartao(models.Model):
-    nombre = models.CharField(max_length=250,null=False)
-    ingredientes = models.TextField(max_length=255)
-    nombre = models.CharField(max_length=255,null=False)
+    nombre = models.CharField(max_length=210, null=False)
     ingredientes = models.TextField(max_length=250)
     precio = models.IntegerField(null=False)
-    imagen = models.TextField(max_length=400,null=True, blank=True)
+    imagen = models.CharField(max_length=400, null=True, blank=True)
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     fecha_modificacion = models.DateTimeField(auto_now=True)
-    nombre = models.CharField(max_length=210,null=False)
-    ingredientes = models.TextField(max_length=250)
-    precio = models.IntegerField(null=False)
-    imagen = models.CharField(max_length=400,null=True, blank=True)
+
 
     def __str__(self):
         return self.nombre
