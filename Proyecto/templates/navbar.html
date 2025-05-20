@@ -57,14 +57,17 @@
                     <a class="nav-link cambio" href="{% url 'ver_carrito' %}">Carrito</a>
                 </li>
             </ul>
+
+               
             <button id="modo-oscuro-toggle" class="btn btn-outline-dark me-2">🌙</button>
             {% if user.is_authenticated %}
+                <a class="btn btn-primary me-2" href="#">Mi cuenta</a>
                 <form id="logout-form" action="{% url 'cerrarSesion' %}" method="POST" style="display: none;">
                     {% csrf_token %}
                 </form>
                 <a class="btn btn-secondary"
                    href="{% url 'cerrarSesion' %}">
-                    
+
                     <span class="">Cerrar sesión</span>
                 </a>
 

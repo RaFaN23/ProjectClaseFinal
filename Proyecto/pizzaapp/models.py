@@ -67,6 +67,7 @@ class Contacto(models.Model):
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     fecha_modificacion = models.DateTimeField(auto_now=True)
 
+
     def __str__(self):
         return self.nombre
 
@@ -77,19 +78,18 @@ class EstadoMesa(models.TextChoices):
     LIBRE = 'LIBRE', 'Libre'
     RESERVADO = 'RESERVADO', 'Reservado'
 
-
 class Mesa(models.Model):
-    numero = models.IntegerField(unique=True)
+    numero = models.PositiveIntegerField(unique=True)
     estado = models.CharField(
         max_length=10,
         choices=EstadoMesa.choices,
-        default=EstadoMesa.LIBRE
+        default=EstadoMesa.LIBRE  # 👈 Esto es lo importante
     )
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     fecha_modificacion = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"Mesa {self.numero} ({self.estado})"
+        return f"Mesa {self.numero} - {self.estado}"
 
 
 
@@ -105,10 +105,16 @@ class Mesa(models.Model):
 class cartao(models.Model):
     nombre = models.CharField(max_length=250,null=False)
     ingredientes = models.TextField(max_length=255)
+    nombre = models.CharField(max_length=255,null=False)
+    ingredientes = models.TextField(max_length=250)
     precio = models.IntegerField(null=False)
     imagen = models.TextField(max_length=400,null=True, blank=True)
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     fecha_modificacion = models.DateTimeField(auto_now=True)
+    nombre = models.CharField(max_length=210,null=False)
+    ingredientes = models.TextField(max_length=250)
+    precio = models.IntegerField(null=False)
+    imagen = models.CharField(max_length=400,null=True, blank=True)
 
     def __str__(self):
         return self.nombre
