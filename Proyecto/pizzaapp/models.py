@@ -61,6 +61,7 @@ class Contacto(models.Model):
     email = models.EmailField()
     mensaje = models.TextField()
 
+
     def __str__(self):
         return self.nombre
 

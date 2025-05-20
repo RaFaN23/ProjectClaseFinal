@@ -34,16 +34,16 @@
                                         <a class="enlace_formulario_carta colorboton"
                                            href="{% url 'eliminar_carta' id=c.id %}">eliminar</a>
                                     </button>
-                                    <button class="boton-añadir">
-                                        <a class="enlace_formulario_carta" href="{% url 'formulario_carta' id=0 %}">Añadir</a>
-                                    </button>
+                                   
 
                                 </div>
                             {% endif %}
-                            <button class="editar_eliminar">
-                                <a class="enlace_formulario_carta colorboton"
-                                    href="{% url 'add_carrito' id=c.id %}">Añadir Carrito</a>
-                            </button>
+                            {% if user.rol == 'cliente' %}
+                                <button class="editar_eliminar">
+                                    <a class="enlace_formulario_carta colorboton"
+                                       href="{% url 'add_carrito' id=c.id %}">Añadir Carrito</a>
+                                </button>
+                            {% endif %}
                         </div>
                     </div>
                 {% endfor %}

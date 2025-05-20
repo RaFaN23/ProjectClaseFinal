@@ -14,7 +14,7 @@ class RegistroFormulario(forms.ModelForm):
 
     class Meta:
         model = Usuario
-        fields = ['email', 'nombre', 'apellidos', 'rol', 'password']
+        fields = ['email', 'nombre', 'apellidos',  'password']
 
 
 class LoginFormulario(AuthenticationForm):
