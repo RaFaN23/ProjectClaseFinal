@@ -5,20 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6300454-35ea-4f74-81eb-b0dd0fe99bd2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Proyecto/templates/pagina_Error.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/ProjectClaseFinal/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/ProjectClaseFinal/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/migrations/0002_contacto.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/migrations/0003_cartao_usuario_telefono.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/migrations/0004_alter_cartao_imagen.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/migrations/0005_mesa.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/migrations/0006_pedido_lineapedido.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/migrations/0006_remove_mesa_disponible_mesa_estado.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/migrations/0006_remove_usuario_telefono_usuario_fecha_creacion_and_more.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/migrations/0007_merge_20250518_2243.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/migrations/0007_remove_usuario_telefono_alter_cartao_imagen.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/migrations/0008_merge_20250520_0034.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/pizzaapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/ProjectClaseFinal/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/ProjectClaseFinal/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/pizzaapp/url.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/pizzaapp/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,12 +22,17 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{

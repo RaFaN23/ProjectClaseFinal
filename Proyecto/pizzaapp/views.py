@@ -14,11 +14,11 @@ from django.shortcuts import render
 from .models import Usuario
 # Create your views here.
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseForbidden
 from django.contrib.auth.decorators import user_passes_test
 from .models import Mesa, EstadoMesa
 from django.shortcuts import get_object_or_404, redirect
-
+from django.shortcuts import redirect, render
 
 
 def solo_admin(view_func):
@@ -50,9 +50,6 @@ def go_crearCuenta(request):
 def go_iniciarSesion(request):
     form = LoginFormulario()
     return render(request, 'InicioSesion.html', {'form': form})
-
-
-
 
 
 def go_contacto(request):
@@ -158,41 +155,33 @@ def asignar_mesa(request, mesa_id):
     return redirect('mostrar_mesas')
 
 
-
-def add_carrito(request,id):
+def add_carrito(request, id):
     carrito = request.session.get('carrito', {})
-    producto_en_carrito = carrito.get(str(id),0)
+    producto_en_carrito = carrito.get(str(id), 0)
 
     if producto_en_carrito == 0:
 
         carrito[str(id)] = 1
 
     else:
-       carrito[str(id)] += 1
+        carrito[str(id)] += 1
 
     request.session['carrito'] = carrito
 
     return redirect('carta')
 
 
-
-
-
-
 def go_carrito(request):
     carrito = {}
     total = 0.0
     carrito_session = request.session.get('carrito', {})
-    #recuperar productos
+    # recuperar productos
     for k, v in carrito_session.items():
         producto = cartao.objects.get(id=k)
         carrito[producto] = v
         total += producto.precio * v
 
     return render(request, 'carrito.html', {'carrito': carrito, 'total': total})
-
-
-
 
 
 def restar_carrito(request, id):
@@ -254,10 +243,14 @@ def limpiar(request):
         del request.session['carrito']
     request.session.modified = True
     return redirect('ver_carrito')
-@solo_admin
+
+
 @solo_admin
 def lista_empleados(request):
-    empleados = Usuario.objects.all()  # o filtra solo clientes: .filter(rol='cliente')
+    if not request.user.has_perm('pizzaapp.puede_acceder'):
+        return redirect('zona_restringida')  # Redirige a tu página personalizada
+
+    empleados = Usuario.objects.all()
     return render(request, 'Gestion_empleados.html', {'empleados': empleados})
 
 
@@ -280,5 +273,9 @@ def borrar_empleado(request, pk):
     return render(request, 'confirmar_borrado.html', {'empleado': empleado})
 
 
+def error(request):
+    if not request.user.is_authenticated:
+        return redirect('InicioSesion')
 
-
+    if not request.user.has_perm('pizzaapp.puede_acceder'):
+        return render(request, 'pagina_Error.html', status=403)
