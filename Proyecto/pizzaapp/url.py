@@ -5,7 +5,7 @@ from pizzaapp.views import *
 handler403 = 'pizzaapp.views.error'
 handler404 = 'pizzaapp.views.error'
 urlpatterns = [
-    path('admin/', admin.site.urls),
+
 
     # HOME
     path('', go_home, name='home_vacio'),
