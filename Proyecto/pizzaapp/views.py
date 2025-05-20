@@ -3,6 +3,7 @@ from datetime import datetime
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render
 from django.shortcuts import render, redirect
+<<<<<<< Updated upstream
 from django.shortcuts import render, redirect
 
 from .forms import *
@@ -12,6 +13,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Mesa
 from django.shortcuts import render
 from .models import Usuario
+=======
+>>>>>>> Stashed changes
 # Create your views here.
 from django.shortcuts import render
 from django.http import HttpResponse
@@ -59,6 +62,7 @@ def go_contacto(request):
     return render(request, 'contacto.html')
 
 
+<<<<<<< Updated upstream
 def contacto_view(request):
     if request.method == 'POST':
         form = PizzaForm(request.POST)
@@ -179,6 +183,8 @@ def add_carrito(request,id):
 
 
 
+=======
+>>>>>>> Stashed changes
 def go_carrito(request):
     carrito = {}
     total = 0.0
