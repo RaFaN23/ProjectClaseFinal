@@ -1,43 +1,34 @@
 {% extends 'basehtml.html' %}
 {% load static %}
 
-
 {% block title %}Registro De Tarjeta{% endblock %}
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'css/Mesas.css' %}">
-
-
 {% endblock %}
-
 
 {% block content %}
 <body>
-        <div class="container">
+    <div class="container">
+        <div class="grid">
+            {% for mesa in mesas %}
+            <div class="mesa-contenedor {% if mesa.estado == 'LIBRE' %}disponible{% else %}ocupada{% endif %}">
+                <div class="mesa-info">
+                    <p><strong>MESA {{ mesa.numero }}</strong></p>
+                    <p>Estado: {{ mesa.estado }}</p>
+                </div>
 
-            <div class="grid">
-                {% for mesa in mesas %}
-                <form method="post" action="{% url 'asignar_mesa' mesa.id %}">
-                    {% csrf_token %}
-                    <button type="submit"
-                            class="mesa {% if mesa.estado == 'LIBRE' %}disponible{% else %}ocupada{% endif %}">
-                        MESA {{ mesa.numero }}<br>
-                        {{ mesa.estado }}
-                    </button>
-                </form>
-                {% endfor %}
+                <div class="mesa-botones">
+                    <form method="post" action="{% url 'asignar_mesa' mesa.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn-asignar">Asignar Mesa</button>
+                    </form>
+                    <button class="btn-historial" disabled>Historial de Pedidos</button>
+                    <button class="btn-hacer-pedido" disabled>Hacer Pedido</button>
+                </div>
             </div>
-
-            <div class="botones">
-                <button disabled>ASIGNAR MESA</button>
-                <button disabled>HISTORIAL DE PEDIDOS</button>
-                <button disabled>HACER PEDIDO</button>
-            </div>
+            {% endfor %}
         </div>
+    </div>
 </body>
-
-
 {% endblock %}
-
-
-
