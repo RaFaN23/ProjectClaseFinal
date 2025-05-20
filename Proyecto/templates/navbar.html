@@ -61,7 +61,7 @@
                
             <button id="modo-oscuro-toggle" class="btn btn-outline-dark me-2">🌙</button>
             {% if user.is_authenticated %}
-                <a class="btn btn-primary me-2" href="#">Mi cuenta</a>
+
                 <form id="logout-form" action="{% url 'cerrarSesion' %}" method="POST" style="display: none;">
                     {% csrf_token %}
                 </form>
