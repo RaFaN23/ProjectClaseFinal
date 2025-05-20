@@ -58,27 +58,16 @@
                 </li>
             </ul>
 
-                {% if user.is_authenticated %}
-                    <a class="btn btn-primary me-2" href="#">Mi cuenta</a>
-
-                    <form method="post" action="{% url 'cerrarSesion' %}" style="display: inline;">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-danger">Cerrar sesión</button>
-                    </form>
-
-
-                {% else %}
-                    <a class="btn btn-primary me-2" href="{% url 'InicioSesion' %}">Iniciar sesión</a>
-                    <a class="btn btn-secondary" href="{% url 'Crear_Cuenta' %}">Registrarse</a>
-                {% endif %}
+               
             <button id="modo-oscuro-toggle" class="btn btn-outline-dark me-2">🌙</button>
             {% if user.is_authenticated %}
+                <a class="btn btn-primary me-2" href="#">Mi cuenta</a>
                 <form id="logout-form" action="{% url 'cerrarSesion' %}" method="POST" style="display: none;">
                     {% csrf_token %}
                 </form>
                 <a class="btn btn-secondary"
                    href="{% url 'cerrarSesion' %}">
-                    
+
                     <span class="">Cerrar sesión</span>
                 </a>
 

@@ -278,3 +278,7 @@ def borrar_empleado(request, pk):
         empleado.delete()
         return redirect('Usuarios')
     return render(request, 'confirmar_borrado.html', {'empleado': empleado})
+
+
+
+

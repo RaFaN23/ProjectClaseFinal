@@ -5,16 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6300454-35ea-4f74-81eb-b0dd0fe99bd2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/ProjectClaseFinal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProjectClaseFinal.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/pizzaapp/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/migrations/0008_remove_usuario_telefono.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/pizzaapp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/pizzaapp/url.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/Mesas.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/Mesas.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/carta.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/carta.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/pizzaapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/navbar.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,12 +34,12 @@
     &quot;assignee&quot;: &quot;massimo092&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/RaFaN23/ProjectClaseFinal.git",
-    "accountId": "6545fdfa-3c6e-469f-bd42-00922dc7b551"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/RaFaN23/ProjectClaseFinal.git&quot;,
+    &quot;accountId&quot;: &quot;6545fdfa-3c6e-469f-bd42-00922dc7b551&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -132,6 +125,7 @@
       <workItem from="1747666732134" duration="2156000" />
       <workItem from="1747600655117" duration="2937000" />
       <workItem from="1747694299172" duration="2132000" />
+      <workItem from="1747747602260" duration="1359000" />
     </task>
     <servers />
   </component>
