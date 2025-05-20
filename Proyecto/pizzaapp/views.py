@@ -24,6 +24,9 @@ from django.shortcuts import get_object_or_404, redirect
 def solo_admin(view_func):
     return user_passes_test(lambda u: u.is_authenticated and u.rol == 'admin')(view_func)
 
+def solo_camarero(view_func):
+    return user_passes_test(lambda u: u.is_authenticated and u.rol == 'camarero')(view_func)
+
 
 def go_home(request):
     response = render(request, 'home.html')
@@ -145,7 +148,7 @@ def mostrar_mesas(request):
     return render(request, 'Mesas.html', {'mesas': mesas})
 
 
-@solo_admin
+@solo_camarero
 def asignar_mesa(request, mesa_id):
     mesa = get_object_or_404(Mesa, id=mesa_id)
 
