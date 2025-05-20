@@ -18,8 +18,8 @@
                 {% for c in carta %}
                     <div class="col-md-4 mb-4">
                         <div class="card h-100">
-                            <img src="{{ c.imagen }}" class="card-img-top" alt="{{ c.nombre }}">
-                            <div class="card-body">
+                            <img src="{{ c.imagen }}" class="card-img-top ajustes_foto" alt="">
+                            <div class="editar_carta card-body">
                                 <h5 class="card-title">{{ c.nombre }}</h5>
                                 <p class="card-text">{{ c.ingredientes }}</p>
                                 <p class="card-text fw-bold">{{ c.precio }} €</p>
@@ -34,19 +34,29 @@
                                         <a class="enlace_formulario_carta colorboton"
                                            href="{% url 'eliminar_carta' id=c.id %}">eliminar</a>
                                     </button>
+                                   
+
                                 </div>
                             {% endif %}
-                            <button class="editar_eliminar">
-                                <a class="enlace_formulario_carta colorboton"
-                                    href="{% url 'add_carrito' id=c.id %}">Añadir Carrito</a>
-                            </button>
+                            {% if user.rol == 'cliente' %}
+                                <button class="editar_eliminar">
+                                    <a class="enlace_formulario_carta colorboton"
+                                       href="{% url 'add_carrito' id=c.id %}">Añadir Carrito</a>
+                                </button>
+                            {% endif %}
                         </div>
                     </div>
                 {% endfor %}
             </div>
+
             {% if user.rol == 'admin' %}
                 <button class="boton-añadir">
                     <a class="enlace_formulario_carta" href="{% url 'formulario_carta' id=0 %}">Añadir</a>
+                </button>
+            {% endif %}
+            {% if user.rol == 'cliente' %}
+                <button class="boton-añadir">
+                    <a class="enlace_formulario_carta" href="{% url 'carrito'  %}">Ver Carrito</a>
                 </button>
             {% endif %}
         </div>
