@@ -71,6 +71,7 @@
                     <a class="btn btn-primary me-2" href="{% url 'InicioSesion' %}">Iniciar sesión</a>
                     <a class="btn btn-secondary" href="{% url 'Crear_Cuenta' %}">Registrarse</a>
                 {% endif %}
+            <button id="modo-oscuro-toggle" class="btn btn-outline-dark me-2">🌙</button>
             {% if user.is_authenticated %}
                 <form id="logout-form" action="{% url 'cerrarSesion' %}" method="POST" style="display: none;">
                     {% csrf_token %}
@@ -90,6 +91,25 @@
         </div>
     </div>
 </nav>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const toggleBtn = document.getElementById('modo-oscuro-toggle');
+        const body = document.body;
+
+        // Restaurar el modo guardado
+        if (localStorage.getItem('modoOscuro') === 'true') {
+            body.classList.add('modo-oscuro');
+            toggleBtn.textContent = '☀️';
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            body.classList.toggle('modo-oscuro');
+            const activado = body.classList.contains('modo-oscuro');
+            localStorage.setItem('modoOscuro', activado);
+            toggleBtn.textContent = activado ? '☀️' : '🌙';
+        });
+    });
+</script>
 </body>
 </html>
 
