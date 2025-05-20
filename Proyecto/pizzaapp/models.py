@@ -103,7 +103,7 @@ class Mesa(models.Model):
 
 #Carta
 class cartao(models.Model):
-    nombre = models.CharField(max_length=250,null=False)
+    nombre = models.CharField(max_length=255,null=False)
     ingredientes = models.TextField(max_length=250)
     precio = models.IntegerField(null=False)
     imagen = models.CharField(max_length=10000,null=True, blank=True)
