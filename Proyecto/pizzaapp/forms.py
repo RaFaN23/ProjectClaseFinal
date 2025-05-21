@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
-from .models import Contacto, Usuario, Pedido
+from .models import Contacto, Usuario, Pedido, LineaPedido
 
 
 class PizzaForm(forms.ModelForm):
@@ -63,5 +63,5 @@ class Meta:
 
 class PedidoForm(forms.ModelForm):
     class Meta:
-        model = Pedido
-        fields = ['codigo', 'fecha', 'usuario']
+        model = LineaPedido
+        fields = ['pedido', 'producto', 'cantidad', 'precio']

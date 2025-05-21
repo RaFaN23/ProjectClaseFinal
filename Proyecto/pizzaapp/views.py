@@ -185,13 +185,17 @@ def go_carrito(request):
     carrito = {}
     total = 0.0
     carrito_session = request.session.get('carrito', {})
-    # recuperar productos
+
     for k, v in carrito_session.items():
-        producto = cartao.objects.get(id=k)
-        carrito[producto] = v
-        total += producto.precio * v
+        try:
+            producto = cartao.objects.get(id=int(k))
+            carrito[producto] = v
+            total += producto.precio * v
+        except cartao.DoesNotExist:
+            continue  # si el producto no existe, lo ignoramos
 
     return render(request, 'carrito.html', {'carrito': carrito, 'total': total})
+
 
 
 def restar_carrito(request, id):
@@ -207,6 +211,17 @@ def restar_carrito(request, id):
     request.session['carrito'] = carrito
     return redirect('ver_carrito')
 
+def restar_editar(request, id):
+    linea_pedido = get_object_or_404(LineaPedido, id=id)
+    pedido_id = linea_pedido.pedido.id
+
+    if linea_pedido.cantidad > 1:
+        linea_pedido.cantidad -= 1
+        linea_pedido.save()
+    else:
+        linea_pedido.delete()
+
+    return redirect('editar_pedido', pk=pedido_id)
 
 def sumar_carrito(request, id):
     carrito = request.session.get('carrito', {})
@@ -218,6 +233,22 @@ def sumar_carrito(request, id):
     return redirect('ver_carrito')
 
 
+
+
+
+def sumar_editar(request, id):
+    linea_pedido = get_object_or_404(LineaPedido, id=id)
+    pedido_id = linea_pedido.pedido.id
+
+    linea_pedido.cantidad += 1
+    linea_pedido.save()
+
+    return redirect('editar_pedido', pk=pedido_id)
+
+
+
+
+
 def quitar_de_carrito(request, id):
     carrito = request.session.get('carrito', {})
     producto_id = str(id)
@@ -226,6 +257,14 @@ def quitar_de_carrito(request, id):
 
     request.session['carrito'] = carrito
     return redirect('ver_carrito')
+
+def quitar_editar(request, id):
+    linea_pedido = get_object_or_404(LineaPedido, id=id)
+    pedido_id = linea_pedido.pedido.id
+
+    linea_pedido.delete()
+
+    return redirect('editar_pedido', pk=pedido_id)
 
 
 def comprar(request):
@@ -287,11 +326,30 @@ def lista_pedidos(request):
 
 def editar_pedido(request, pk):
     pedido = get_object_or_404(Pedido, pk=pk)
-    form = PedidoForm(request.POST or None, instance=pedido)
-    if request.method == 'POST' and form.is_valid():
-        form.save()
-        return redirect('lista_pedidos')  # Asegúrate de usar el nombre correcto
-    return render(request, 'editar_pedido.html', {'form': form})
+    lineas = LineaPedido.objects.filter(pedido=pedido).select_related('producto')
+
+    total = 0
+    for linea in lineas:
+        linea.subtotal = linea.cantidad * linea.precio
+        total += linea.subtotal
+
+    if request.method == 'POST':
+        form = PedidoForm(request.POST, instance=pedido)
+        if form.is_valid():
+            form.save()
+            return redirect('lista_pedidos')
+    else:
+        form = PedidoForm(instance=pedido)
+
+    context = {
+        'pedido': pedido,
+        'form': form,
+        'lineas': lineas,
+        'total': total,
+    }
+    return render(request, 'editar_pedido.html', context)
+
+
 
 
 def borrar_pedido(request, pk):

@@ -1,15 +1,45 @@
 {% extends 'basehtml.html' %}
+{% load static %}
 
-{% block title %}Editar Empleado{% endblock %}
+{% block title %}Editar Pedido{% endblock %}
 
 {% block content %}
-<div class="container mt-4">
-    <h3>Editar Empleado</h3>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Guardar cambios</button>
-        <a href="{% url 'Pedido' %}" class="btn btn-secondary">Cancelar</a>
-    </form>
+<div class="tabla_carrito">
+    <h1 class="titulo_carrito">Editar Pedido: {{ pedido.codigo }}</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Ingredientes</th>
+                <th scope="col">Precio Ud</th>
+                <th scope="col">Subtotal</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for linea in lineas %}
+            <tr>
+                <td>{{ linea.producto.nombre }}</td>
+                <td>{{ linea.cantidad }}</td>
+                <td>{{ linea.producto.ingredientes }}</td>
+                <td>{{ linea.precio|floatformat:2 }} €</td>
+                <td>{{ linea.subtotal|floatformat:2 }} €</td>
+                <td>
+                    <a href="{% url 'sumar_editar' linea.id %}" class="btn btn-success btn-sm">+</a>
+                    <a href="{% url 'restar_editar' linea.id %}" class="btn btn-warning btn-sm">-</a>
+                    <a href="{% url 'quitar_editar' linea.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="4" class="text-end"><strong>Total:</strong></td>
+                <td colspan="2"><strong>{{ total|floatformat:2 }} €</strong></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{% url 'lista_pedidos' %}" class="btn btn-secondary">Volver</a>
 </div>
 {% endblock %}

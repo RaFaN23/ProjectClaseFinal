@@ -15,3 +15,25 @@ for model in apps.get_models():
 
 
     pip install django-bootstrap-icons esos son iconos
+
+
+
+
+    ✅ Consulta SQL en Oracle para obtener las ventas totales del día
+Aquí tienes el comando:
+
+sql
+
+SELECT
+    TO_CHAR(FECHA, 'YYYY-MM-DD') AS DIA,
+    COUNT(*) AS NUMERO_PEDIDOS,
+    SUM(PRECIO_TOTAL) AS DINERO_RECAUDADO
+FROM
+    PIZZAAPP_PEDIDO
+WHERE
+    TRUNC(FECHA) = TRUNC(SYSDATE)
+GROUP BY
+    TO_CHAR(FECHA, 'YYYY-MM-DD');
+
+
+GROUP BY TO_CHAR(FECHA, 'YYYY-MM-DD'): agrupa por día (aunque hoy solo devuelve una fila).
