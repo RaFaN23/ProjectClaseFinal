@@ -54,6 +54,13 @@
                             <hr class="dropdown-divider">
                         </li>
                         <li><a class="dropdown-item" href="{% url 'pedidos_antiguos' %}">Pedidos anteriores</a></li>
+                        <li>
+                            {% if user.rol == 'admin' %}
+                                    <button class="boton-añadir">
+                                        <a class="item" href="{% url 'pedidos_todos'  %}">Pedidos antiguos</a>
+                                    </button>
+                            {% endif %}
+                        </li>
                     </ul>
                 </li>
 

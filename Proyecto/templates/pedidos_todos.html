@@ -1,0 +1,33 @@
+{% extends 'basehtml.html' %}
+{% block title %}Todos los Pedidos{% endblock %}
+
+{% block content %}
+<div class="contenedor_admin_pedidos">
+    <h1>Todos los Pedidos de Clientes</h1>
+
+    {% if pedidos %}
+        {% for pedido in pedidos %}
+            <div class="pedido">
+                <h2>Pedido: {{ pedido.codigo }}</h2>
+                <p><strong>Cliente:</strong> {{ pedido.usuario.nombre }} {{ pedido.usuario.apellidos }} ({{ pedido.usuario.email }})</p>
+                <p><strong>Fecha:</strong> {{ pedido.fecha }}</p>
+                <p><strong>Total:</strong> {{ pedido.precio_total }} €</p>
+
+                <h3>Productos:</h3>
+                <ul>
+                    {% for linea in pedido.lineapedido_set.all %}
+                        <li>
+                            <strong>{{ linea.producto.nombre }}</strong> – 
+                            Cantidad: {{ linea.cantidad }} – 
+                            Precio unitario: {{ linea.precio }} €
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <hr>
+        {% endfor %}
+    {% else %}
+        <p>No hay pedidos registrados.</p>
+    {% endif %}
+</div>
+{% endblock %}
