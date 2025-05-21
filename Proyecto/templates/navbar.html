@@ -44,29 +44,37 @@
                 <li class="nav-item">
                     <a class="nav-link cambio" href="{% url 'carta' %}">Menú</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link cambio" href="{% url 'mostrar_mesas' %}">Reserva aqui</a>
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle cambio" href="#" role="button" data-bs-toggle="dropdown"
-                       aria-expanded="false">Nosotros</a>
+                       aria-expanded="false">Pedidos</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{% url 'carta' %}">Carta</a></li>
+                        <li><a class="dropdown-item" href="{% url 'ver_carrito' %}">Carrito</a></li>
 
 
 
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="{% url 'mostrar_mesas' %}">Reserva aqui</a></li>
+                        <li><a class="dropdown-item" href="{% url 'pedidos_antiguos' %}">Pedidos anteriores</a></li>
+                        <li>
+                            {% if user.rol == 'admin' %}
+                                    <button class="boton-añadir">
+                                        <a class="item" href="{% url 'pedidos_todos'  %}">Pedidos antiguos</a>
+                                    </button>
+                            {% endif %}
+                        </li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link cambio" href="{% url 'ver_carrito' %}">Carrito</a>
-                </li>
+
             </ul>
 
                
             <button id="modo-oscuro-toggle" class="btn btn-outline-dark me-2">🌙</button>
             {% if user.is_authenticated %}
-                <a class="btn btn-primary me-2" href="#">Mi cuenta</a>
+
                 <form id="logout-form" action="{% url 'cerrarSesion' %}" method="POST" style="display: none;">
                     {% csrf_token %}
                 </form>
