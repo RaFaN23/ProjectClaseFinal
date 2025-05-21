@@ -39,9 +39,14 @@
                 <li class="nav-item">
                     <a class="nav-link cambio" href="{% url 'carta' %}">Menú</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link cambio" href="{% url 'mostrar_mesas' %}">Reserva aqui</a>
-                </li>
+
+                {% if user.is_authenticated and user.rol == "camarero" and "admin" %}
+                    <li class="nav-item">
+                        <a class="nav-link cambio" href="{% url 'mostrar_mesas' %}">Reserva aqui</a>
+                    </li>
+                {% endif %}
+
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle cambio" href="#" role="button" data-bs-toggle="dropdown"
                        aria-expanded="false">Pedidos</a>

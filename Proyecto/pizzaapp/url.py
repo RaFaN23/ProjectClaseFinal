@@ -34,14 +34,20 @@ urlpatterns = [
     path('formulario_carta/borrar/<int:id>', eliminar_carta, name='eliminar_carta'),
 
     # MESAS
-    path('mesas/', views.mostrar_mesas, name='mostrar_mesas'),
-    path('asignar/<int:mesa_id>/', views.asignar_mesa, name='asignar_mesa'),
+    path('mesas/', mostrar_mesas, name='mostrar_mesas'),
+    path('asignar/<int:mesa_id>/', asignar_mesa, name='asignar_mesa'),
+    path('carta/<int:mesa_id>/', go_carta, name='carta'),
+    path('historial_mesa/<int:mesa_id>/', historial_mesa, name='historial_mesa'),
+
 
     # CARRITO
     path('carrito/', go_carrito, name='carrito'),
-    path('ver_carrito/', go_carrito, name='ver_carrito'),
-    path('carrito/add/<int:id>/', add_carrito, name='add_carrito'),
+    # urls.py
+    path('carrito/<int:mesa_id>/', go_carrito, name='ver_carrito'),
+    path('add_carrito/<int:producto_id>/', add_carrito, name='add_carrito'),
     path('carrito/sumar/<int:id>/', sumar_carrito, name='sumar_carrito'),
+    path('carrito/', ver_carrito, name='ver_carrito'),
+    path('crear_pedido/<int:mesa_id>/', crear_pedido, name='crear_pedido'),
     path('carrito/restar/<int:id>/', restar_carrito, name='restar_carrito'),
     path('carrito/quitar/<int:id>/', quitar_de_carrito, name='quitar_de_carrito'),
     path('carrito/limpiar/', limpiar, name='limpiar'),
