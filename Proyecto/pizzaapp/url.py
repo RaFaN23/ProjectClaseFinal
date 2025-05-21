@@ -52,4 +52,7 @@ urlpatterns = [
     path('peidos_antiguos/', pedidos_antiguos, name='pedidos_antiguos'),
 
     path('crear_pedido/', crear_pedido, name='crear_pedido'),
+
+    path('pedidos_todos/', pedidos_todos, name='pedidos_todos'),
+
 ]

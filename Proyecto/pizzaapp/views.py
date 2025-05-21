@@ -350,3 +350,10 @@ def crear_pedido(request):
 def pedidos_antiguos(request):
     pedidos = Pedido.objects.filter(usuario=request.user).order_by('-fecha')
     return render(request, 'pedidos_antiguos.html', {'pedidos': pedidos})
+
+
+
+@solo_admin
+def pedidos_todos(request):
+    pedidos = Pedido.objects.all().order_by('-fecha')
+    return render(request, 'pedidos_todos.html', {'pedidos': pedidos})
