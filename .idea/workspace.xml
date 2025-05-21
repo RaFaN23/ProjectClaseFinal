@@ -7,10 +7,6 @@
     <list default="true" id="f6300454-35ea-4f74-81eb-b0dd0fe99bd2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/Consejos" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/pizzaapp/Consejos" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/pizzaapp/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/pizzaapp/url.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/pizzaapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/editar_pedido.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/editar_pedido.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,6 +131,7 @@
       <workItem from="1747694299172" duration="2132000" />
       <workItem from="1747747602260" duration="1359000" />
       <workItem from="1747759341809" duration="5516000" />
+      <workItem from="1747846919596" duration="960000" />
     </task>
     <servers />
   </component>

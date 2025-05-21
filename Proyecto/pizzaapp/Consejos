@@ -19,21 +19,29 @@ for model in apps.get_models():
 
 
 
-    ✅ Consulta SQL en Oracle para obtener las ventas totales del día
+    ✅ procedure SQL en Oracle para obtener las ventas totales del día
 Aquí tienes el comando:
 
 sql
 
-SELECT
-    TO_CHAR(FECHA, 'YYYY-MM-DD') AS DIA,
-    COUNT(*) AS NUMERO_PEDIDOS,
-    SUM(PRECIO_TOTAL) AS DINERO_RECAUDADO
-FROM
-    PIZZAAPP_PEDIDO
-WHERE
-    TRUNC(FECHA) = TRUNC(SYSDATE)
-GROUP BY
-    TO_CHAR(FECHA, 'YYYY-MM-DD');
+create or replace PROCEDURE calcular_ventas_hoy IS
+    total_ventas NUMBER := 0;
+    total_pedidos NUMBER := 0;
+BEGIN
+    SELECT
+        COUNT(*),
+        NVL(SUM(PRECIO_TOTAL), 0)
+    INTO
+        total_pedidos,
+        total_ventas
+    FROM
+        PIZZAAPP_PEDIDO
+    WHERE
+        TRUNC(FECHA) = TRUNC(SYSDATE);
 
+    DBMS_OUTPUT.PUT_LINE('Fecha: ' || TO_CHAR(SYSDATE, 'YYYY-MM-DD'));
+    DBMS_OUTPUT.PUT_LINE('Total pedidos: ' || total_pedidos);
+    DBMS_OUTPUT.PUT_LINE('Total ventas €: ' || total_ventas);
 
-GROUP BY TO_CHAR(FECHA, 'YYYY-MM-DD'): agrupa por día (aunque hoy solo devuelve una fila).
+END;
+
