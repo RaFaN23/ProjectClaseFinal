@@ -8,7 +8,7 @@ from django.shortcuts import render, redirect
 
 from .forms import *
 from .forms import PizzaForm, RegistroFormulario
-from .models import cartao, LineaPedido, Pedido
+from .models import cartao, LineaPedido, Pedido, EstadoPedido, EstadoPedidoCamarero
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Mesa
 from django.shortcuts import render
@@ -34,6 +34,8 @@ def solo_camarero(view_func):
 def solo_cliente(view_func):
     return user_passes_test(lambda u: u.is_authenticated and u.rol == 'cliente')(view_func)
 
+def solo_camarero_cocinero(view_func):
+    return user_passes_test(lambda u: u.is_authenticated and u.rol == 'camarero' or 'cocinero')(view_func)
 
 def go_home(request):
     response = render(request, 'home.html')
@@ -423,3 +425,29 @@ def pedidos_antiguos(request):
 def pedidos_todos(request):
     pedidos = Pedido.objects.all().order_by('-fecha')
     return render(request, 'pedidos_todos.html', {'pedidos': pedidos})
+
+
+@solo_camarero_cocinero
+def pedidos_todos(request):
+    pedidos = Pedido.objects.all().order_by('-fecha')
+    return render(request, 'pedidos_todos.html', {'pedidos': pedidos})
+
+
+
+def cambiar_estado_pedido(request, pedido_id):
+    pedido = get_object_or_404(Pedido, id=pedido_id)
+    if pedido.estado == EstadoPedido.PREPARANDO:
+        pedido.estado = EstadoPedido.TERMINADO
+    else:
+        pedido.estado = EstadoPedido.PREPARANDO
+    pedido.save()
+    return redirect('pedidos_todos')
+
+def cambiar_estado_pedido_camarero(request, pedido_id):
+    pedido = get_object_or_404(Pedido, id=pedido_id)
+    if pedido.estado_camarero == EstadoPedidoCamarero.EN_PROCESO:
+        pedido.estado_camarero = EstadoPedidoCamarero.FINALIZADO
+    else:
+        pedido.estado_camarero = EstadoPedidoCamarero.FINALIZADO
+    pedido.save()
+    return redirect('pedidos_todos')    
