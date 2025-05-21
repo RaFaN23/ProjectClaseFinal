@@ -1,21 +1,15 @@
 {% extends 'basehtml.html' %}
-{% load static %}
-{% block title %}Mis Pedidos{% endblock %}
-
-{% block extra_css %}
-    <link rel="stylesheet" href="{% static 'css/pedidos_antiguos.css' %}">
-    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
-    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
-{% endblock %}
+{% block title %}Todos los Pedidos{% endblock %}
 
 {% block content %}
-<div class="contenedor_pedidos">
-    <h1>Mis Pedidos</h1>
+<div class="contenedor_admin_pedidos">
+    <h1>Todos los Pedidos de Clientes</h1>
 
     {% if pedidos %}
         {% for pedido in pedidos %}
             <div class="pedido">
                 <h2>Pedido: {{ pedido.codigo }}</h2>
+                <p><strong>Cliente:</strong> {{ pedido.usuario.nombre }} {{ pedido.usuario.apellidos }} ({{ pedido.usuario.email }})</p>
                 <p><strong>Fecha:</strong> {{ pedido.fecha }}</p>
                 <p><strong>Total:</strong> {{ pedido.precio_total }} €</p>
 
@@ -33,7 +27,7 @@
             <hr>
         {% endfor %}
     {% else %}
-        <p>No tienes pedidos registrados.</p>
+        <p>No hay pedidos registrados.</p>
     {% endif %}
 </div>
 {% endblock %}

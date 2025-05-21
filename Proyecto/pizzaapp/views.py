@@ -1,5 +1,6 @@
-from datetime import datetime
-
+import uuid
+from datetime import datetime, timezone
+from django.utils import timezone
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render
 from django.shortcuts import render, redirect
@@ -7,7 +8,7 @@ from django.shortcuts import render, redirect
 
 from .forms import *
 from .forms import PizzaForm, RegistroFormulario
-from .models import cartao, LineaPedido
+from .models import cartao, LineaPedido, Pedido
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Mesa
 from django.shortcuts import render
@@ -30,6 +31,8 @@ def solo_camarero_admin(view_func):
 def solo_camarero(view_func):
     return user_passes_test(lambda u: u.is_authenticated and u.rol == 'camarero')(view_func)
 
+def solo_cliente(view_func):
+    return user_passes_test(lambda u: u.is_authenticated and u.rol == 'cliente')(view_func)
 
 
 def go_home(request):
@@ -291,3 +294,66 @@ def borrar_empleado(request, pk):
 
 def ver_pedidos_antiguos(request):
     return render(request,'pedidos_antiguos.html')
+
+
+
+
+
+
+
+def crear_pedido(request):
+    carrito = request.session.get('carrito', {})
+    usuario = request.user
+
+    if not carrito or not usuario.is_authenticated:
+        return redirect('home')
+
+    total = 0
+
+    pedido = Pedido.objects.create(
+        codigo=str(uuid.uuid4())[:8],
+        fecha=timezone.now(),
+        usuario=usuario,
+        precio_total=0
+    )
+
+    for producto_id_str, cantidad in carrito.items():
+        try:
+            producto_id = int(producto_id_str)
+            producto = cartao.objects.get(id=producto_id)
+        except (ValueError, cartao.DoesNotExist):
+            continue
+
+        subtotal = cantidad * producto.precio
+        total += subtotal
+
+        LineaPedido.objects.create(
+            pedido=pedido,
+            producto=producto,
+            cantidad=cantidad,
+            precio=producto.precio
+        )
+
+
+    pedido.precio_total = total
+    pedido.save()
+
+
+    if 'carrito' in request.session:
+        del request.session['carrito']
+
+    return redirect('home')
+
+
+
+@solo_cliente
+def pedidos_antiguos(request):
+    pedidos = Pedido.objects.filter(usuario=request.user).order_by('-fecha')
+    return render(request, 'pedidos_antiguos.html', {'pedidos': pedidos})
+
+
+
+@solo_admin
+def pedidos_todos(request):
+    pedidos = Pedido.objects.all().order_by('-fecha')
+    return render(request, 'pedidos_todos.html', {'pedidos': pedidos})
