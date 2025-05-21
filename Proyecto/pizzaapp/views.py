@@ -265,7 +265,6 @@ def limpiar(request):
     request.session.modified = True
     return redirect('ver_carrito')
 @solo_admin
-@solo_admin
 def lista_empleados(request):
     empleados = Usuario.objects.all()  # o filtra solo clientes: .filter(rol='cliente')
     return render(request, 'Gestion_empleados.html', {'empleados': empleados})
