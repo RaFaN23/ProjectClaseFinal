@@ -55,4 +55,8 @@ urlpatterns = [
 
     path('pedidos_todos/', pedidos_todos, name='pedidos_todos'),
 
+    path('pedido/<int:pedido_id>/cambiar_estadoCocinero/', cambiar_estado_pedido, name='cambiar_estado_pedido'),
+
+    path('pedido/<int:pedido_id>/cambiar_estadoCamarero/', cambiar_estado_pedido_camarero, name='cambiar_estado_pedido_camarero'),
+
 ]
