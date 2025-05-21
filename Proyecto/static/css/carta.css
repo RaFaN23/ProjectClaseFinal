@@ -65,12 +65,7 @@
     border: none !important;
     border-radius: 8px;
 }
-.editar_eliminar:hover {
-    color: #F65047 !important;
-    background-color: white !important;
-    border: 2px solid #F65047 !important;
-    border-radius: 8px;
-}
+
 .editar_eliminar:visited{
     color: inherit;
     text-decoration: none;

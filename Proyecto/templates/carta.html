@@ -48,9 +48,15 @@
                     </div>
                 {% endfor %}
             </div>
+
             {% if user.rol == 'admin' %}
                 <button class="boton-añadir">
                     <a class="enlace_formulario_carta" href="{% url 'formulario_carta' id=0 %}">Añadir</a>
+                </button>
+            {% endif %}
+            {% if user.rol == 'cliente' %}
+                <button class="boton-añadir">
+                    <a class="enlace_formulario_carta" href="{% url 'carrito'  %}">Ver Carrito</a>
                 </button>
             {% endif %}
         </div>
