@@ -60,7 +60,19 @@ body{
     color: white;
 }
 
+
+
 .btn-historial, .btn-hacer-pedido {
     background-color: #ddd;
     color: #555;
 }
+
+.btn-hacer-pedido.verde {
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+
+}
+
+
+
