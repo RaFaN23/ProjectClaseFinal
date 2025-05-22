@@ -17,54 +17,62 @@ body{
     to { background-position: 500px;}
 }
 
-.grid {
+body {
+    font-family: 'Arial Black', sans-serif;
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
     justify-content: center;
+
 }
 
-.mesa-contenedor {
-    border: 2px solid #ccc;
-    border-radius: 12px;
-    padding: 16px;
-    width: 200px;
+.container {
     text-align: center;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-.disponible {
-    background-color: #e0ffe0;
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 40px;
+    justify-content: center;
+    margin-bottom: 40px;
 }
 
-.ocupada {
-    background-color: #ffe0e0;
-}
-
-.mesa-info {
-    margin-bottom: 12px;
-}
-
-.mesa-botones button {
-    display: block;
-    width: 100%;
-    margin-bottom: 8px;
-    padding: 8px;
-    border-radius: 6px;
+.mesa {
+    width: 100px;
+    height: 100px;
     border: none;
+    font-weight: bold;
+    font-size: 12px;
     cursor: pointer;
 }
 
-.btn-asignar {
-    background-color: #4CAF50;
-    color: white;
+.disponible {
+    background-color: #a86f35;
+    color: black;
 }
 
+<<<<<<< HEAD
 
 
 .btn-historial, .btn-hacer-pedido {
     background-color: #ddd;
     color: #555;
+=======
+.ocupada {
+    background-color: #8c8c8c;
+    color: black;
+    cursor: not-allowed;
+}
+
+.botones button {
+    background-color: #f04d3d;
+    color: white;
+    font-weight: bold;
+    margin: 0 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: not-allowed;
+>>>>>>> parent of 8c75259 (cambios botones mesas)
 }
 
 .btn-hacer-pedido.verde {

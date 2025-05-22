@@ -1,14 +1,19 @@
 {% extends 'basehtml.html' %}
 {% load static %}
 
+
 {% block title %}Registro De Tarjeta{% endblock %}
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'css/Mesas.css' %}">
+
+
 {% endblock %}
+
 
 {% block content %}
 <body>
+<<<<<<< HEAD
     <div class="container">
         <div class="grid">
             {% for mesa in mesas %}
@@ -57,7 +62,33 @@
                     </div>
                 </div>
             {% endfor %}
+=======
+        <div class="container">
+
+            <div class="grid">
+                {% for mesa in mesas %}
+                <form method="post" action="{% url 'asignar_mesa' mesa.id %}">
+                    {% csrf_token %}
+                    <button type="submit"
+                            class="mesa {% if mesa.estado == 'LIBRE' %}disponible{% else %}ocupada{% endif %}">
+                        MESA {{ mesa.numero }}<br>
+                        {{ mesa.estado }}
+                    </button>
+                </form>
+                {% endfor %}
+            </div>
+
+            <div class="botones">
+                <button disabled>ASIGNAR MESA</button>
+                <button disabled>HISTORIAL DE PEDIDOS</button>
+                <button disabled>HACER PEDIDO</button>
+            </div>
+>>>>>>> parent of 8c75259 (cambios botones mesas)
         </div>
-    </div>
 </body>
+
+
 {% endblock %}
+
+
+
