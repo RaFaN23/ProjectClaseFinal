@@ -22,6 +22,8 @@ from django.shortcuts import get_object_or_404, redirect
 from .models import Pedido, LineaPedido
 import random
 import string
+from django.db.models import Sum
+
 
 
 
@@ -178,6 +180,29 @@ def historial_mesa(request, mesa_id):
     return render(request, 'historial_mesa.html', {'pedidos': pedidos, 'mesa_id': mesa_id})
 
 
+def historial_pedidos(request, mesa_id):
+    mesa = get_object_or_404(Mesa, id=mesa_id)
+
+    # Obtener todos los pedidos relacionados con esta mesa
+    pedidos = Pedido.objects.filter(mesa_id=mesa.id).order_by('-id')
+
+    # Para cada pedido, obtener sus líneas de pedido
+    historial = []
+    for pedido in pedidos:
+        lineas = LineaPedido.objects.filter(pedido=pedido)
+        historial.append({
+            'pedido': pedido,
+            'lineas': lineas,
+            'total': lineas.aggregate(total=Sum('producto__precio'))['total']
+        })
+
+    context = {
+        'mesa': mesa,
+        'historial': historial
+    }
+
+    return render(request, 'pizzaapp/historial_pedidos.html', context)
+
 
 
 def add_carrito(request, producto_id):
@@ -214,24 +239,44 @@ def ver_carrito(request):
     carrito = request.session.get('carrito', {}).get(f"mesa_{mesa_id}", {})
     return render(request, 'carrito.html', {'carrito': carrito, 'mesa_id': mesa_id})
 
+def carrito_general(request):
+    productos = cartao.objects.all()
+    context = {
+        'productos': productos,
+        'carrito_tipo': 'general'
+    }
+    return render(request, 'pizzaapp/carrito_general.html', context)
+
+def carrito_por_mesa(request, mesa_id):
+    mesa = get_object_or_404(Mesa, id=mesa_id)
+
+    productos = cartao.objects.all()
+    context = {
+        'productos': productos,
+        'mesa': mesa,
+        'carrito_tipo': 'mesa'
+    }
+    return render(request, 'pizzaapp/carrito_por_mesa.html', context)
 
 
-
-def go_carrito(request, mesa_id):
+def go_carrito(request):
     carrito = {}
     total = 0.0
-    mesa_key = f"mesa_{mesa_id}"
-    carrito_session = request.session.get('carrito', {}).get(mesa_key, {})
+
+    carrito_session = request.session.get('carrito', {})
 
     for k, v in carrito_session.items():
-        producto = cartao.objects.get(id=k)
-        carrito[producto] = v['cantidad']
-        total += producto.precio * v['cantidad']
+        try:
+            producto = cartao.objects.get(id=int(k))
+            carrito[producto] = v
+            total += producto.precio * v
+        except cartao.DoesNotExist:
+            continue
 
     return render(request, 'carrito.html', {
         'carrito': carrito,
         'total': total,
-        'mesa_id': mesa_id  # <-- AÑADIDO
+
     })
 
 
@@ -330,47 +375,51 @@ def ver_pedidos_antiguos(request):
     return render(request,'pedidos_antiguos.html')
 
 
-
-
-
-
-
 def crear_pedido(request, mesa_id):
-    if not mesa_id:
-        return redirect('mesas')
-
     mesa_key = f"mesa_{mesa_id}"
-    carrito_sesion = request.session.get('carrito', {})
-    carrito = carrito_sesion.get(mesa_key, {})
+    carrito_general = request.session.get('carrito', {})
+    carrito_session = carrito_general.get(mesa_key, {})
 
-    if not carrito:
-        return redirect('ver_carrito')
+    if not carrito_session:
+        return redirect('mostrar_mesas')  # o alguna página de error/mensaje
 
-    total = sum(item['precio'] * item['cantidad'] for item in carrito.values())
-    codigo = ''.join(random.choices(string.ascii_uppercase + string.digits, k=8))
-
+    total = 0
     pedido = Pedido.objects.create(
-        codigo=codigo,
-        fecha=timezone.now(),
-        usuario=request.user,
-        precio_total=total
+        usuario=request.user,  # Si estás usando autenticación
+        codigo=str(uuid.uuid4())[:8],
+        precio_total=0,  # Se actualizará después
+        mesa=Mesa.objects.get(id=mesa_id),
+        fecha=timezone.now()
     )
 
-    for producto_id, item in carrito.items():
-        producto = cartao.objects.get(id=int(producto_id))
+    for k, v in carrito_session.items():
+        producto = cartao.objects.get(id=k)
+        cantidad = v['cantidad']
+        subtotal = producto.precio * cantidad
+
         LineaPedido.objects.create(
             pedido=pedido,
             producto=producto,
-            cantidad=item['cantidad'],
-            precio=item['precio']
+            cantidad=cantidad,
+            precio=subtotal
         )
 
-    carrito_sesion.pop(mesa_key, None)
-    request.session['carrito'] = carrito_sesion
+        total += subtotal
 
-    return redirect('mesas')
+    # Actualizamos el total del pedido
+    pedido.precio_total = total
+    pedido.save()
 
+    # Cambiar estado de la mesa
+    pedido.mesa.estado = 'OCUPADO'
+    pedido.mesa.save()
 
+    # Limpiar carrito de la sesión para esa mesa
+    del carrito_general[mesa_key]
+    request.session['carrito'] = carrito_general
+    request.session.modified = True
+
+    return redirect('ver_mesas')
 
 
 @solo_cliente

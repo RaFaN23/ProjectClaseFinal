@@ -24,7 +24,7 @@ urlpatterns = [
 
     # PEDIDOS
     path('hacer_pedido/', go_pedido, name='Hacer_Pedido'),
-
+    
     # CONTACTO
     path('contacto/', contacto_view, name='contacto'),
 
@@ -38,16 +38,18 @@ urlpatterns = [
     path('asignar/<int:mesa_id>/', asignar_mesa, name='asignar_mesa'),
     path('carta/<int:mesa_id>/', go_carta, name='carta'),
     path('historial_mesa/<int:mesa_id>/', historial_mesa, name='historial_mesa'),
-
+    path('mesa/<int:mesa_id>/historial/', historial_pedidos, name='historial_pedidos'),
+    path('crear_pedido/<int:mesa_id>/', crear_pedido, name='crear_pedido'),
 
     # CARRITO
     path('carrito/', go_carrito, name='carrito'),
+    path('carrito/mesa/<int:mesa_id>/', carrito_por_mesa, name='carrito_por_mesa'),
+
     # urls.py
     path('carrito/<int:mesa_id>/', go_carrito, name='ver_carrito'),
     path('add_carrito/<int:producto_id>/', add_carrito, name='add_carrito'),
     path('carrito/sumar/<int:id>/', sumar_carrito, name='sumar_carrito'),
     path('carrito/', ver_carrito, name='ver_carrito'),
-    path('crear_pedido/<int:mesa_id>/', crear_pedido, name='crear_pedido'),
     path('carrito/restar/<int:id>/', restar_carrito, name='restar_carrito'),
     path('carrito/quitar/<int:id>/', quitar_de_carrito, name='quitar_de_carrito'),
     path('carrito/limpiar/', limpiar, name='limpiar'),

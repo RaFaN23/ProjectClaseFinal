@@ -41,10 +41,10 @@
                                 {% if mesa.pedido_set.all %}
                                     {% for pedido in mesa.pedido_set.all %}
                                         <div class="mb-2">
-                                            <strong>Pedido {{ pedido.codigo }}</strong> — {{ pedido.fecha|date:"d/m/Y H:i" }} — Total: {{ pedido.precio_total }} €
+                                            <strong>Pedido {{ pedido.codigo }}</strong> — {{ pedido.fecha|date:"d/m/Y H:i" }} — Total: {{ pedido.total }} €
                                             <ul>
                                                 {% for linea in pedido.lineapedido_set.all %}
-                                                    <li>{{ linea.producto.nombre }} x{{ linea.cantidad }} — {{ linea.precio }} €</li>
+                                                    <li>{{ linea.producto.nombre }} x{{ linea.cantidad }} — {{ linea.producto.precio|floatformat:2 }} €</li>
                                                 {% endfor %}
                                             </ul>
                                         </div>

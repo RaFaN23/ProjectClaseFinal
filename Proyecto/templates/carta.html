@@ -59,6 +59,10 @@
                     <a class="enlace_formulario_carta" href="{% url 'carrito'  %}">Ver Carrito</a>
                 </button>
             {% endif %}
+
+            <a href="{% url 'ver_carrito' mesa_id %}">
+                <button class="btn btn-primary">Ver Carrito</button>
+            </a>
         </div>
     </div>
 

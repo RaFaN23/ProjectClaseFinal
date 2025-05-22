@@ -99,7 +99,7 @@ class Pedido(models.Model):
     fecha = models.DateTimeField()
     usuario = models.ForeignKey('Usuario', on_delete=models.DO_NOTHING, related_name='pedidos')
     precio_total = models.FloatField(default=0)
-    mesa = models.ForeignKey('Mesa', on_delete=models.SET_NULL, null=True, blank=True, related_name='pedidos')
+    mesa = models.ForeignKey(Mesa, on_delete=models.CASCADE, null=True, blank=True)
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     fecha_modificacion = models.DateTimeField(auto_now=True)
 
