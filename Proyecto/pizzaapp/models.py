@@ -71,7 +71,11 @@ class Mesa(models.Model):
     estado = models.CharField(
         max_length=10,
         choices=EstadoMesa.choices,
+<<<<<<< HEAD
         default=EstadoMesa.LIBRE
+=======
+        default=EstadoMesa.LIBRE  # 👈 Esto es lo importante
+>>>>>>> parent of f4fb683 (cambios mesas)
     )
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     fecha_modificacion = models.DateTimeField(auto_now=True)
