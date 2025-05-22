@@ -58,14 +58,21 @@
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="{% url 'pedidos_antiguos' %}">Pedidos anteriores</a></li>
                         <li>
-                            {% if user.rol == 'admin' %}
-                                    <button class="boton-añadir">
-                                        <a class="item" href="{% url 'pedidos_todos'  %}">Pedidos antiguos</a>
-                                    </button>
-                            {% endif %}
+                        {% if user.rol == 'cliente' %}
+                            <a class="dropdown-item" href="{% url 'pedidos_antiguos' %}">Pedidos anteriores</a></li>
+                        {% endif %}
+                        <li>
+                        {% if user.rol == 'admin' %}
+                            <a class="dropdown-item" href="{% url 'pedidos_todos'  %}">Ver todos los pedidos</a>
+                        {% endif %}
                         </li>
+                        <li>
+                        {% if user.rol == 'camarero' or user.rol == 'cocinero' %}
+                            <a class="dropdown-item" href="{% url 'pedidos_todos'  %}">Ver todos los pedidos</a>
+                        {% endif %}
+                        </li>
+
                     </ul>
                 </li>
 

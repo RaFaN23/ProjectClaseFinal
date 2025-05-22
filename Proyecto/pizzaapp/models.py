@@ -94,6 +94,12 @@ class cartao(models.Model):
 
 
 # Pedidos
+class EstadoPedido(models.TextChoices):
+    PREPARANDO = 'PREPARANDO', 'Preparando'
+    TERMINADO = 'TERMINADO', 'Terminado'
+class EstadoPedidoCamarero(models.TextChoices):
+    EN_PROCESO = 'EN_PROCESO', 'En proceso'
+    FINALIZADO = 'FINALIZADO', 'Finalizado'
 class Pedido(models.Model):
     codigo = models.CharField(max_length=50)
     fecha = models.DateTimeField()
