@@ -95,22 +95,32 @@ class cartao(models.Model):
 
 # Pedidos
 class EstadoPedido(models.TextChoices):
-    PREPARANDO = 'PREPARANDO', 'Preparando'
-    TERMINADO = 'TERMINADO', 'Terminado'
+   PREPARANDO = 'PREPARANDO', 'Preparando'
+   TERMINADO = 'TERMINADO', 'Terminado'
 class EstadoPedidoCamarero(models.TextChoices):
-    EN_PROCESO = 'EN_PROCESO', 'En proceso'
-    FINALIZADO = 'FINALIZADO', 'Finalizado'
+   EN_PROCESO = 'EN_PROCESO', 'En proceso'
+   FINALIZADO = 'FINALIZADO', 'Finalizado'
 class Pedido(models.Model):
-    codigo = models.CharField(max_length=50)
-    fecha = models.DateTimeField()
-    usuario = models.ForeignKey('Usuario', on_delete=models.DO_NOTHING, related_name='pedidos')
-    precio_total = models.FloatField(default=0)
-    mesa = models.ForeignKey('Mesa', on_delete=models.SET_NULL, null=True, blank=True, related_name='pedidos')
-    fecha_creacion = models.DateTimeField(auto_now_add=True)
-    fecha_modificacion = models.DateTimeField(auto_now=True)
+   codigo = models.CharField(max_length=50)
+   fecha = models.DateTimeField()
+   usuario = models.ForeignKey('Usuario', on_delete=models.DO_NOTHING, related_name='pedidos')
+   precio_total = models.FloatField(default=0)
+   estado = models.CharField(
+       max_length=20,
+       choices=EstadoPedido.choices,
+       default=EstadoPedido.PREPARANDO
+   )
+   estado_camarero = models.CharField(
+       max_length=20,
+       choices=EstadoPedidoCamarero.choices,
+       default=EstadoPedidoCamarero.EN_PROCESO
+   )
+   fecha_creacion = models.DateTimeField(auto_now_add=True)
+   fecha_modificacion = models.DateTimeField(auto_now=True)
 
-    def __str__(self):
-        return self.codigo
+
+   def __str__(self):
+       return self.codigo
 
 
 class LineaPedido(models.Model):
