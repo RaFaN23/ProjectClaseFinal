@@ -5,11 +5,9 @@ from pizzaapp.views import *
 
 urlpatterns = [
 
-
     # HOME
     path('', go_home, name='home_vacio'),
     path('home/', go_home, name='home'),
-
 
     # LOGIN Y REGISTRO
     path('registro_tarjeta/', go_registro, name='registro'),
@@ -24,7 +22,13 @@ urlpatterns = [
 
     # PEDIDOS
     path('hacer_pedido/', go_pedido, name='Hacer_Pedido'),
-    
+    path('pedidos/', lista_pedidos, name='lista_pedidos'),
+    path('pedido/editar/<int:pk>/', editar_pedido, name='editar_pedido'),
+    path('pedido/linea/<int:id>/restar/', restar_editar, name='restar_editar'),
+    path('editar_pedido/sumar/<int:id>/', sumar_editar, name='sumar_editar'),
+    path('editar_pedido/QUITAR/<int:id>/', quitar_editar, name='quitar_editar'),
+
+    path('pedido/borrar/<int:pk>/', borrar_pedido, name='borrar_pedido'),
     # CONTACTO
     path('contacto/', contacto_view, name='contacto'),
 
@@ -55,7 +59,8 @@ urlpatterns = [
     path('carrito/limpiar/', limpiar, name='limpiar'),
     path('completar_compra/', comprar, name='comprar'),
 
-    #pedidos antiguos
+    # Error
+    # pedidos antiguos
 
     path('peidos_antiguos/', pedidos_antiguos, name='pedidos_antiguos'),
 

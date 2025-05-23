@@ -36,6 +36,11 @@
                         <a class="nav-link cambio" href="{% url 'Usuarios' %}">Gestión de Usuarios</a>
                     </li>
                 {% endif %}
+              {% if user.is_authenticated and user.rol == "camarero" %}
+                    <li class="nav-item">
+                        <a class="nav-link cambio" href="{% url 'lista_pedidos' %}">Gestión de Pedidos</a>
+                    </li>
+                {% endif %}
                 <li class="nav-item">
                     <a class="nav-link cambio" href="{% url 'carta' %}">Menú</a>
                 </li>

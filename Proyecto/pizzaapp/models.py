@@ -32,7 +32,7 @@ class Usuario(AbstractUser, PermissionsMixin):
 
     email = models.EmailField(max_length=250, unique=True)
     nombre = models.CharField(max_length=250)
-    apellidos = models.CharField(max_length=250)
+    apellidos = models.CharField(max_length=251)
     rol = models.CharField(max_length=25, choices=ROLES, default='cliente')
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)

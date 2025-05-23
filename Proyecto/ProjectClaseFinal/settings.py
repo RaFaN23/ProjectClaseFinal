@@ -139,3 +139,12 @@ AUTH_USER_MODEL = 'pizzaapp.Usuario'
 #Redireccion despues de cerrar sesion
 LOGOUT_REDIRECT_URL = 'InicioSesion'
 
+# Redirección cuando se requiere login
+
+
+#Gestion de errores
+HANDLER403 = 'pizzaapp.views.error'
+
+
+
+

@@ -15,7 +15,7 @@ from django.shortcuts import render
 from .models import Usuario
 # Create your views here.
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseForbidden
 from django.contrib.auth.decorators import user_passes_test
 from .models import Mesa, EstadoMesa
 from django.shortcuts import get_object_or_404, redirect
@@ -25,6 +25,7 @@ import string
 from django.db.models import Sum
 
 
+from django.shortcuts import redirect, render
 
 
 def solo_admin(view_func):
@@ -67,9 +68,6 @@ def go_crearCuenta(request):
 def go_iniciarSesion(request):
     form = LoginFormulario()
     return render(request, 'InicioSesion.html', {'form': form})
-
-
-
 
 
 def go_contacto(request):
@@ -207,13 +205,10 @@ def historial_pedidos(request, mesa_id):
 
 
 
-def add_carrito(request, producto_id):
-    mesa_id = request.session.get('mesa_id')
-    if not mesa_id:
-        return redirect('mesas')
 
-    producto = cartao.objects.get(id=producto_id)
+def add_carrito(request, id):
     carrito = request.session.get('carrito', {})
+    producto_en_carrito = carrito.get(str(id), 0)
 
     mesa_key = f"mesa_{mesa_id}"
     if mesa_key not in carrito:
@@ -222,48 +217,24 @@ def add_carrito(request, producto_id):
     if str(producto_id) in carrito[mesa_key]:
         carrito[mesa_key][str(producto_id)]['cantidad'] += 1
     else:
-        carrito[mesa_key][str(producto_id)] = {
-            'nombre': producto.nombre,
-            'precio': float(producto.precio),
-            'cantidad': 1
-        }
+        carrito[str(id)] += 1
 
     request.session['carrito'] = carrito
     return redirect('carta', mesa_id=mesa_id)
 
 
-
-def ver_carrito(request):
-    mesa_id = request.session.get('mesa_id')
-    if not mesa_id:
-        return redirect('mesas')
-
-    carrito = request.session.get('carrito', {}).get(f"mesa_{mesa_id}", {})
-    return render(request, 'carrito.html', {'carrito': carrito, 'mesa_id': mesa_id})
-
-def carrito_general(request):
-    productos = cartao.objects.all()
-    context = {
-        'productos': productos,
-        'carrito_tipo': 'general'
-    }
-    return render(request, 'pizzaapp/carrito_general.html', context)
-
-def carrito_por_mesa(request, mesa_id):
-    mesa = get_object_or_404(Mesa, id=mesa_id)
-
-    productos = cartao.objects.all()
-    context = {
-        'productos': productos,
-        'mesa': mesa,
-        'carrito_tipo': 'mesa'
-    }
-    return render(request, 'pizzaapp/carrito_por_mesa.html', context)
-
-
 def go_carrito(request):
     carrito = {}
     total = 0.0
+    carrito_session = request.session.get('carrito', {})
+
+    for k, v in carrito_session.items():
+        try:
+            producto = cartao.objects.get(id=int(k))
+            carrito[producto] = v
+            total += producto.precio * v
+        except cartao.DoesNotExist:
+            continue  # si el producto no existe, lo ignoramos
 
     carrito_session = request.session.get('carrito', {})
 
@@ -284,8 +255,6 @@ def go_carrito(request):
 
 
 
-
-
 def restar_carrito(request, id):
     carrito = request.session.get('carrito', {})
     producto_id = str(id)
@@ -299,6 +268,17 @@ def restar_carrito(request, id):
     request.session['carrito'] = carrito
     return redirect('ver_carrito')
 
+def restar_editar(request, id):
+    linea_pedido = get_object_or_404(LineaPedido, id=id)
+    pedido_id = linea_pedido.pedido.id
+
+    if linea_pedido.cantidad > 1:
+        linea_pedido.cantidad -= 1
+        linea_pedido.save()
+    else:
+        linea_pedido.delete()
+
+    return redirect('editar_pedido', pk=pedido_id)
 
 def sumar_carrito(request, id):
     carrito = request.session.get('carrito', {})
@@ -310,6 +290,22 @@ def sumar_carrito(request, id):
     return redirect('ver_carrito')
 
 
+
+
+
+def sumar_editar(request, id):
+    linea_pedido = get_object_or_404(LineaPedido, id=id)
+    pedido_id = linea_pedido.pedido.id
+
+    linea_pedido.cantidad += 1
+    linea_pedido.save()
+
+    return redirect('editar_pedido', pk=pedido_id)
+
+
+
+
+
 def quitar_de_carrito(request, id):
     carrito = request.session.get('carrito', {})
     producto_id = str(id)
@@ -318,6 +314,14 @@ def quitar_de_carrito(request, id):
 
     request.session['carrito'] = carrito
     return redirect('ver_carrito')
+
+def quitar_editar(request, id):
+    linea_pedido = get_object_or_404(LineaPedido, id=id)
+    pedido_id = linea_pedido.pedido.id
+
+    linea_pedido.delete()
+
+    return redirect('editar_pedido', pk=pedido_id)
 
 
 def comprar(request):
@@ -345,9 +349,11 @@ def limpiar(request):
         del request.session['carrito']
     request.session.modified = True
     return redirect('ver_carrito')
+
+
 @solo_admin
 def lista_empleados(request):
-    empleados = Usuario.objects.all()  # o filtra solo clientes: .filter(rol='cliente')
+    empleados = Usuario.objects.all()
     return render(request, 'Gestion_empleados.html', {'empleados': empleados})
 
 
@@ -370,8 +376,45 @@ def borrar_empleado(request, pk):
     return render(request, 'confirmar_borrado.html', {'empleado': empleado})
 
 
+def lista_pedidos(request):
+    pedidos = Pedido.objects.all()
+    return render(request, 'Gestion_pedidos.html', {'pedidos': pedidos})
 
 
+def editar_pedido(request, pk):
+    pedido = get_object_or_404(Pedido, pk=pk)
+    lineas = LineaPedido.objects.filter(pedido=pedido).select_related('producto')
+
+    total = 0
+    for linea in lineas:
+        linea.subtotal = linea.cantidad * linea.precio
+        total += linea.subtotal
+
+    if request.method == 'POST':
+        form = PedidoForm(request.POST, instance=pedido)
+        if form.is_valid():
+            form.save()
+            return redirect('lista_pedidos')
+    else:
+        form = PedidoForm(instance=pedido)
+
+    context = {
+        'pedido': pedido,
+        'form': form,
+        'lineas': lineas,
+        'total': total,
+    }
+    return render(request, 'editar_pedido.html', context)
+
+
+
+
+def borrar_pedido(request, pk):
+    pedido = get_object_or_404(Pedido, pk=pk)
+    if request.method == 'POST':
+        pedido.delete()
+        return redirect('lista_pedidos')
+    return render(request, 'confirmar_borrado_pedido.html', {'pedido': pedido})
 def ver_pedidos_antiguos(request):
     return render(request,'pedidos_antiguos.html')
 
