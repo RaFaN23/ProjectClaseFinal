@@ -176,7 +176,6 @@ def asignar_mesa(request, mesa_id):
     return redirect('mostrar_mesas')
 
 
-@solo_camarero_admin
 def historial_mesa(request, mesa_id):
     pedidos = Pedido.objects.filter(mesa_id=mesa_id).order_by('-fecha')
     return render(request, 'historial_mesa.html', {'pedidos': pedidos, 'mesa_id': mesa_id})
