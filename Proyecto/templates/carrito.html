@@ -72,7 +72,7 @@
 
         </tbody>
 
-        <form method="post" action="{% url 'crear_pedido' mesa_id %}">
+        <form method="post" action="{% url 'crear_pedido'  %}">
             {% csrf_token %}
             <button type="submit" class="boton_carrito_pedir">
                 <i class="bi bi-clipboard-plus"></i> Finalizar Pedido
