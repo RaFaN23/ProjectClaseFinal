@@ -7,6 +7,8 @@
     <list default="true" id="f6300454-35ea-4f74-81eb-b0dd0fe99bd2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/73abfdb0-9823-45e6-979c-b6bf00ba6ae5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/73abfdb0-9823-45e6-979c-b6bf00ba6ae5.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/pizzaapp/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/pizzaapp/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
