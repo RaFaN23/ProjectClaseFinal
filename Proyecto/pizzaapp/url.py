@@ -38,14 +38,15 @@ urlpatterns = [
     path('formulario_carta/borrar/<int:id>', eliminar_carta, name='eliminar_carta'),
 
     # MESAS
-    #  path('mesas/', mostrar_mesas, name='mostrar_mesas'),
-    #  path('asignar/<int:mesa_id>/', asignar_mesa, name='asignar_mesa'),
-  #  path('carta/<int:mesa_id>/', go_carta, name='carta'),
-    # path('historial_mesa/<int:mesa_id>/', historial_mesa, name='historial_mesa'),
+    path('mesas/', mostrar_mesas, name='mostrar_mesas'),
+    path('asignar/<int:mesa_id>/', asignar_mesa, name='asignar_mesa'),
+    path('carta/<int:mesa_id>/', go_carta, name='carta'),
+
 
     # CARRITO
-    path('carrito/', ver_carrito, name='ver_carrito'),
-    path('add_carrito/<int:producto_id>/', add_carrito, name='add_carrito'),
+    path('carrito/', go_carrito, name='carrito'),
+    path('ver_carrito/', go_carrito, name='ver_carrito'),
+    path('carrito/add/<int:id>/', add_carrito, name='add_carrito'),
     path('carrito/sumar/<int:id>/', sumar_carrito, name='sumar_carrito'),
     path('carrito/restar/<int:id>/', restar_carrito, name='restar_carrito'),
     path('carrito/quitar/<int:id>/', quitar_de_carrito, name='quitar_de_carrito'),
@@ -54,15 +55,15 @@ urlpatterns = [
 
     # Error
 
-
     # PEDIDOS
-    path('crear_pedido/', crear_pedido, name='crear_pedido'),
     path('peidos_antiguos/', pedidos_antiguos, name='pedidos_antiguos'),
+
+    path('crear_pedido/', crear_pedido, name='crear_pedido'),
 
     path('pedidos_todos/', pedidos_todos, name='pedidos_todos'),
 
     path('pedido/<int:pedido_id>/cambiar_estadoCocinero/', cambiar_estado_pedido, name='cambiar_estado_pedido'),
 
-    path('pedido/<int:pedido_id>/cambiar_estadoCamarero/', cambiar_estado_pedido_camarero, name='cambiar_estado_pedido_camarero'),
-
+    path('pedido/<int:pedido_id>/cambiar_estadoCamarero/', cambiar_estado_pedido_camarero,
+         name='cambiar_estado_pedido_camarero'),
 ]

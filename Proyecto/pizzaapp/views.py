@@ -30,7 +30,7 @@ def solo_admin(view_func):
 
 
 def solo_camarero_admin(view_func):
-    return user_passes_test(lambda u: u.is_authenticated and u.rol == 'camarero' and 'admin')(view_func)
+    return user_passes_test(lambda u: u.is_authenticated and u.rol in ('camarero', 'admin'))(view_func)
 
 
 def solo_camarero(view_func):
@@ -124,136 +124,108 @@ def logout_usuario(request):
 
 
 def go_carta(request):
-    lista_carta = cartao.objects.all()
-    return render(request, 'carta.html', {'carta': lista_carta})
+   lista_carta = cartao.objects.all()
+   return render(request, 'carta.html', {'carta': lista_carta})
 
 
 
 def go_formulario_carta(request, id):
-    plato = cartao.objects.filter(id=id)
+   plato = cartao.objects.filter(id=id)
 
-    if len(plato) == 0:
-        nuevo_plato = cartao()
-    else:
-        nuevo_plato = plato[0]
 
-    if request.method == 'POST':
+   if len(plato) == 0:
+       nuevo_plato = cartao()
+   else:
+       nuevo_plato = plato[0]
 
-        nuevo_plato.nombre = request.POST['nombre']
-        nuevo_plato.ingredientes = request.POST['ingredientes']
-        nuevo_plato.precio = request.POST['precio']
-        nuevo_plato.imagen = request.POST['imagen']
 
-        nuevo_plato.save()
-        return redirect('carta')
+   if request.method == 'POST':
 
-    else:
-        return render(request, 'formularioCarta.html', {'plato': nuevo_plato})
+
+       nuevo_plato.nombre = request.POST['nombre']
+       nuevo_plato.ingredientes = request.POST['ingredientes']
+       nuevo_plato.precio = request.POST['precio']
+       nuevo_plato.imagen = request.POST['imagen']
+
+
+       nuevo_plato.save()
+       return redirect('carta')
+
+
+   else:
+       return render(request, 'formularioCarta.html', {'plato': nuevo_plato})
 
 
 def eliminar_carta(request, id):
-    plato_eliminar = cartao.objects.filter(id=id)
-    if len(plato_eliminar) != 0:
-        plato_eliminar[0].delete()
-        return redirect('carta')
-
+   plato_eliminar = cartao.objects.filter(id=id)
+   if len(plato_eliminar) != 0:
+       plato_eliminar[0].delete()
+       return redirect('carta')
 
 def mostrar_mesas(request):
-    mesas = Mesa.objects.all().order_by('numero')
-    return render(request, 'Mesas.html', {'mesas': mesas})
-
+   mesas = Mesa.objects.all().order_by('numero')
+   return render(request, 'Mesas.html', {'mesas': mesas})
 
 @solo_camarero_admin
 def asignar_mesa(request, mesa_id):
-    mesa = get_object_or_404(Mesa, id=mesa_id)
-
-    if mesa.estado == EstadoMesa.LIBRE:
-        mesa.estado = EstadoMesa.OCUPADO
-    elif mesa.estado == EstadoMesa.OCUPADO:
-        mesa.estado = EstadoMesa.LIBRE
-
-    mesa.save()
-    return redirect('mostrar_mesas')
+   mesa = get_object_or_404(Mesa, id=mesa_id)
 
 
-@solo_camarero_admin
-def historial_mesa(request, mesa_id):
-    pedidos = Pedido.objects.filter(mesa_id=mesa_id).order_by('-fecha')
-    return render(request, 'historial_mesa.html', {'pedidos': pedidos, 'mesa_id': mesa_id})
+   if mesa.estado == EstadoMesa.LIBRE:
+       mesa.estado = EstadoMesa.OCUPADO
+   elif mesa.estado == EstadoMesa.OCUPADO:
+       mesa.estado = EstadoMesa.LIBRE
 
 
+   mesa.save()
+   return redirect('mostrar_mesas')
 
 
 
 # views.py
-def add_carrito(request, producto_id):
-    producto = get_object_or_404(cartao, id=producto_id)
-    ...
-
-
-    # Obtén el carrito de la sesión, o crea uno nuevo si no existe
+def add_carrito(request, id):
     carrito = request.session.get('carrito', {})
 
-    id_str = str(producto.id)
-
-    # Añadir o aumentar la cantidad del producto
-    if id_str in carrito:
-        carrito[id_str]['cantidad'] += 1
+    if str(id) in carrito:
+        carrito[str(id)] += 1  # sumar cantidad
     else:
-        carrito[id_str] = {
-            'nombre': producto.nombre,
-            'precio': producto.precio,
-            'cantidad': 1,
-        }
+        carrito[str(id)] = 1   # agregar producto con cantidad 1
 
-    # Guardar el carrito actualizado en la sesión
     request.session['carrito'] = carrito
+    return redirect('carta')
 
-    return redirect('carta')  # Puedes cambiar esto por 'ver_carrito' si prefieres
 
 
-def ver_carrito(request):
-    carrito_ids = request.session.get('carrito', {})
-    carrito = {}
-    total = 0
-    for id, cantidad in carrito_ids.items():
-        try:
-            producto = cartao.objects.get(id=int(id))
-            carrito[producto] = cantidad
-            total += producto.precio * cantidad
-        except cartao.DoesNotExist:
-            continue
-    return render(request, 'carrito.html', {'carrito': carrito, 'total': total})
 
 
 
 def go_carrito(request):
-    carrito = {}
-    total = 0.0
-    carrito_session = request.session.get('carrito', {})
+   carrito = {}
+   total = 0.0
+   carrito_session = request.session.get('carrito', {})
+   #recuperar productos
+   for k, v in carrito_session.items():
+       producto = cartao.objects.get(id=k)
+       carrito[producto] = v
+       total += producto.precio * v
 
-    for k, v in carrito_session.items():
-        try:
-            producto = cartao.objects.get(id=int(k))
-            carrito[producto] = v
-            total += producto.precio * v
-        except cartao.DoesNotExist:
-            continue  # si el producto no existe, lo ignoramos
-    return render(request, 'carrito.html', {'carrito': carrito, 'total': total})
 
+   return render(request, 'carrito.html', {'carrito': carrito, 'total': total})
 
 def restar_carrito(request, id):
-    carrito = request.session.get('carrito', {})
-    producto_id = str(id)
+   carrito = request.session.get('carrito', {})
+   producto_id = str(id)
 
-    if producto_id in carrito:
-        if carrito[producto_id] > 1:
-            carrito[producto_id] -= 1
-        else:
-            del carrito[producto_id]
 
-    request.session['carrito'] = carrito
-    return redirect('ver_carrito')
+   if producto_id in carrito:
+       if carrito[producto_id] > 1:
+           carrito[producto_id] -= 1
+       else:
+           del carrito[producto_id]
+
+
+   request.session['carrito'] = carrito
+   return redirect('ver_carrito')
 
 
 def restar_editar(request, id):
@@ -270,13 +242,15 @@ def restar_editar(request, id):
 
 
 def sumar_carrito(request, id):
-    carrito = request.session.get('carrito', {})
-    producto_id = str(id)
+   carrito = request.session.get('carrito', {})
+   producto_id = str(id)
 
-    carrito[producto_id] = carrito.get(producto_id, 0) + 1
 
-    request.session['carrito'] = carrito
-    return redirect('ver_carrito')
+   carrito[producto_id] = carrito.get(producto_id, 0) + 1
+
+
+   request.session['carrito'] = carrito
+   return redirect('ver_carrito')
 
 
 def sumar_editar(request, id):
@@ -290,13 +264,15 @@ def sumar_editar(request, id):
 
 
 def quitar_de_carrito(request, id):
-    carrito = request.session.get('carrito', {})
-    producto_id = str(id)
+   carrito = request.session.get('carrito', {})
+   producto_id = str(id)
 
-    del carrito[producto_id]
 
-    request.session['carrito'] = carrito
-    return redirect('ver_carrito')
+   del carrito[producto_id]
+
+
+   request.session['carrito'] = carrito
+   return redirect('ver_carrito')
 
 
 def quitar_editar(request, id):
@@ -309,30 +285,35 @@ def quitar_editar(request, id):
 
 
 def comprar(request):
-    nuevo_pedido = cartao()
-    nuevo_pedido.codigo = 'CP0001'
-    nuevo_pedido.fecha = datetime.now()
-    nuevo_pedido.hermano = request.user
+   nuevo_pedido = cartao()
+   nuevo_pedido.codigo = 'CP0001'
+   nuevo_pedido.fecha = datetime.now()
+   nuevo_pedido.hermano = request.user
 
-    carrito_session = request.session.get('carrito', {})
 
-    for k, v in carrito_session.items():
-        linea_pedido = LineaPedido()
-        producto = cartao.objects.get(id=k)
-        linea_pedido.producto = producto
-        linea_pedido.precio = producto.precio
-        linea_pedido.cantidad = v
-        linea_pedido.pedido = nuevo_pedido
-        linea_pedido.save()
+   carrito_session = request.session.get('carrito', {})
 
-    nuevo_pedido.save()
+
+   for k, v in carrito_session.items():
+       linea_pedido = LineaPedido()
+       producto = cartao.objects.get(id=k)
+       linea_pedido.producto = producto
+       linea_pedido.precio = producto.precio
+       linea_pedido.cantidad = v
+       linea_pedido.pedido = nuevo_pedido
+       linea_pedido.save()
+
+
+   nuevo_pedido.save()
+
+
 
 
 def limpiar(request):
-    if 'carrito' in request.session:
-        del request.session['carrito']
-    request.session.modified = True
-    return redirect('ver_carrito')
+   if 'carrito' in request.session:
+       del request.session['carrito']
+   request.session.modified = True
+   return redirect('ver_carrito')
 
 
 @solo_admin
