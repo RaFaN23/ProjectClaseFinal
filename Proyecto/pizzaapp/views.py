@@ -20,13 +20,17 @@ from django.contrib.auth.decorators import user_passes_test
 from .models import Mesa, EstadoMesa
 from django.shortcuts import get_object_or_404, redirect
 from django.shortcuts import redirect, render
+from .models import Pedido, LineaPedido
+import random
+import string
+
 
 
 def solo_admin(view_func):
     return user_passes_test(lambda u: u.is_authenticated and u.rol == 'admin')(view_func)
 
 def solo_camarero_admin(view_func):
-    return user_passes_test(lambda u: u.is_authenticated and u.rol == 'camarero' or 'admin')(view_func)
+    return user_passes_test(lambda u: u.is_authenticated and u.rol == 'camarero' and 'admin')(view_func)
 
 def solo_camarero(view_func):
     return user_passes_test(lambda u: u.is_authenticated and u.rol == 'camarero')(view_func)
@@ -115,9 +119,10 @@ def logout_usuario(request):
     return redirect('InicioSesion')
 
 
-def go_carta(request):
+def go_carta(request, mesa_id):
     lista_carta = cartao.objects.all()
-    return render(request, 'carta.html', {'carta': lista_carta})
+    request.session['mesa_id'] = int(mesa_id)
+    return render(request, 'carta.html', {'carta': lista_carta, 'mesa_id': mesa_id})
 
 
 def go_formulario_carta(request, id):
@@ -154,6 +159,7 @@ def mostrar_mesas(request):
     return render(request, 'Mesas.html', {'mesas': mesas})
 
 
+
 @solo_camarero_admin
 def asignar_mesa(request, mesa_id):
     mesa = get_object_or_404(Mesa, id=mesa_id)
@@ -166,21 +172,36 @@ def asignar_mesa(request, mesa_id):
     mesa.save()
     return redirect('mostrar_mesas')
 
+@solo_camarero_admin
+def historial_mesa(request, mesa_id):
+    pedidos = Pedido.objects.filter(mesa_id=mesa_id).order_by('-fecha')
+    return render(request, 'historial_mesa.html', {'pedidos': pedidos, 'mesa_id': mesa_id})
 
 def add_carrito(request, id):
     carrito = request.session.get('carrito', {})
     producto_en_carrito = carrito.get(str(id), 0)
 
-    if producto_en_carrito == 0:
+    mesa_key = f"mesa_{mesa_id}"
+    if mesa_key not in carrito:
+        carrito[mesa_key] = {}
 
-        carrito[str(id)] = 1
-
+    if str(producto_id) in carrito[mesa_key]:
+        carrito[mesa_key][str(producto_id)]['cantidad'] += 1
     else:
         carrito[str(id)] += 1
 
     request.session['carrito'] = carrito
+    return redirect('carta', mesa_id=mesa_id)
 
-    return redirect('carta')
+
+
+def ver_carrito(request):
+    mesa_id = request.session.get('mesa_id')
+    if not mesa_id:
+        return redirect('mesas')
+
+    carrito = request.session.get('carrito', {}).get(f"mesa_{mesa_id}", {})
+    return render(request, 'carrito.html', {'carrito': carrito, 'mesa_id': mesa_id})
 
 
 def go_carrito(request):
@@ -196,7 +217,6 @@ def go_carrito(request):
         except cartao.DoesNotExist:
             continue  # si el producto no existe, lo ignoramos
 
-    return render(request, 'carrito.html', {'carrito': carrito, 'total': total})
 
 
 
@@ -369,48 +389,41 @@ def ver_pedidos_antiguos(request):
 
 
 
-def crear_pedido(request):
-    carrito = request.session.get('carrito', {})
-    usuario = request.user
+def crear_pedido(request, mesa_id):
+    if not mesa_id:
+        return redirect('mesas')
 
-    if not carrito or not usuario.is_authenticated:
-        return redirect('home')
+    mesa_key = f"mesa_{mesa_id}"
+    carrito_sesion = request.session.get('carrito', {})
+    carrito = carrito_sesion.get(mesa_key, {})
 
-    total = 0
+    if not carrito:
+        return redirect('ver_carrito')
+
+    total = sum(item['precio'] * item['cantidad'] for item in carrito.values())
+    codigo = ''.join(random.choices(string.ascii_uppercase + string.digits, k=8))
 
     pedido = Pedido.objects.create(
-        codigo=str(uuid.uuid4())[:8],
+        codigo=codigo,
         fecha=timezone.now(),
-        usuario=usuario,
-        precio_total=0
+        usuario=request.user,
+        precio_total=total
     )
 
-    for producto_id_str, cantidad in carrito.items():
-        try:
-            producto_id = int(producto_id_str)
-            producto = cartao.objects.get(id=producto_id)
-        except (ValueError, cartao.DoesNotExist):
-            continue
-
-        subtotal = cantidad * producto.precio
-        total += subtotal
-
+    for producto_id, item in carrito.items():
+        producto = cartao.objects.get(id=int(producto_id))
         LineaPedido.objects.create(
             pedido=pedido,
             producto=producto,
-            cantidad=cantidad,
-            precio=producto.precio
+            cantidad=item['cantidad'],
+            precio=item['precio']
         )
 
+    carrito_sesion.pop(mesa_key, None)
+    request.session['carrito'] = carrito_sesion
 
-    pedido.precio_total = total
-    pedido.save()
+    return redirect('mesas')
 
-
-    if 'carrito' in request.session:
-        del request.session['carrito']
-
-    return redirect('home')
 
 
 
