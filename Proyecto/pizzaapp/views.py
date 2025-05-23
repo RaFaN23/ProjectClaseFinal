@@ -182,12 +182,34 @@ def historial_mesa(request, mesa_id):
     return render(request, 'historial_mesa.html', {'pedidos': pedidos, 'mesa_id': mesa_id})
 
 
-def add_carrito(request, id):
-    carrito = request.session.get('carrito', {})
-    carrito[str(id)] = carrito.get(str(id), 0) + 1
-    request.session['carrito'] = carrito
-    return redirect('carta')
 
+
+
+# views.py
+def add_carrito(request, producto_id):
+    producto = get_object_or_404(cartao, id=producto_id)
+    ...
+
+
+    # Obtén el carrito de la sesión, o crea uno nuevo si no existe
+    carrito = request.session.get('carrito', {})
+
+    id_str = str(producto.id)
+
+    # Añadir o aumentar la cantidad del producto
+    if id_str in carrito:
+        carrito[id_str]['cantidad'] += 1
+    else:
+        carrito[id_str] = {
+            'nombre': producto.nombre,
+            'precio': producto.precio,
+            'cantidad': 1,
+        }
+
+    # Guardar el carrito actualizado en la sesión
+    request.session['carrito'] = carrito
+
+    return redirect('carta')  # Puedes cambiar esto por 'ver_carrito' si prefieres
 
 
 def ver_carrito(request):

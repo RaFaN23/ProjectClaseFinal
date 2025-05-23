@@ -38,10 +38,10 @@ urlpatterns = [
     path('formulario_carta/borrar/<int:id>', eliminar_carta, name='eliminar_carta'),
 
     # MESAS
-    path('mesas/', mostrar_mesas, name='mostrar_mesas'),
-    path('asignar/<int:mesa_id>/', asignar_mesa, name='asignar_mesa'),
-    path('carta/<int:mesa_id>/', go_carta, name='carta'),
-    path('historial_mesa/<int:mesa_id>/', historial_mesa, name='historial_mesa'),
+    #  path('mesas/', mostrar_mesas, name='mostrar_mesas'),
+    #  path('asignar/<int:mesa_id>/', asignar_mesa, name='asignar_mesa'),
+  #  path('carta/<int:mesa_id>/', go_carta, name='carta'),
+    # path('historial_mesa/<int:mesa_id>/', historial_mesa, name='historial_mesa'),
 
     # CARRITO
     path('carrito/', ver_carrito, name='ver_carrito'),
