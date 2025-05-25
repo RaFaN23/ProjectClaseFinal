@@ -70,3 +70,10 @@ body{
     background-color: transparent;
     border: none;
 }
+
+
+.ajustes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

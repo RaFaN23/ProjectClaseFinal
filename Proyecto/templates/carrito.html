@@ -11,94 +11,68 @@
 
 
 {% block content %}
-<div class="tabla_carrito">
-   <h1 class="titulo_carrito">Carrito de la Compra</h1>
+<div class="ajustes">
+    <div class="tabla_carrito">
+        <h1 class="titulo_carrito">Carrito de la Compra</h1>
 
+        <div class="tabla_wrapper">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th></th>
+                        <th>Cantidad</th>
+                        <th>Descripción</th>
+                        <th>Precio Ud</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for k, v in carrito.items %}
+                        <tr>
+                            <td>{{ k.nombre }}</td>
+                            <td></td>
+                            <td class="cantidad">
+                                <a href="{% url 'restar_carrito' k.id %}">
+                                    <button class="botonescarrito" type="button">
+                                        <img class="png" src="{% static 'img/restar.png' %}" alt="Restar cantidad">
+                                    </button>
+                                </a>
 
+                                {{ v }}
 
+                                <a href="{% url 'sumar_carrito' k.id %}">
+                                    <button class="botonescarrito" type="button">
+                                        <img class="png" src="{% static 'img/mas.png' %}" alt="Sumar cantidad">
+                                    </button>
+                                </a>
+                            </td>
+                            <td>{{ k.ingredientes }}</td>
+                            <td>
+                                {{ k.precio }} €
+                                <a href="{% url 'quitar_de_carrito' k.id %}">
+                                    <button class="botonescarrito" type="button">
+                                        <img class="png" src="{% static 'img/compartimiento.png' %}" alt="Quitar del carrito">
+                                    </button>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
 
-   <table class="table">
-       <thead>
-       <tr>
-           <th scope="col">Nombre</th>
-           <th scope="col"></th>
-           <th scope="col">Cantidad</th>
-           <th scope="col">Descripcion</th>
-           <th scope="col">Precio Ud</th>
-       </tr>
-       </thead>
-       <tbody>
+                    <!-- Total -->
+                    <tr>
+                        <td colspan="3"></td>
+                        <td><strong>TOTAL DE LA COMPRA</strong></td>
+                        <td>{{ total }} €</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-
-       {% for k,v in carrito.items %}
-           <tr>
-
-
-               <th>{{ k.nombre }}</th>
-               <th></th>
-               <th>
-
-
-
-
-                   <a href="{% url 'restar_carrito' k.id %}">
-                       <button class="botonescarrito" type="button">
-                           <img class="png" src="{% static 'img/restar.png' %}" alt="">
-                       </button>
-                   </a>
-
-
-                   {{ v }}
-
-
-                   <a href="{% url 'sumar_carrito' k.id %}">
-                       <button class="botonescarrito" type="button">
-                           <img class="png" src="{% static 'img/mas.png' %}" alt="">
-                       </button>
-                   </a>
-
-
-                   </th>
-                   <th>{{ k.ingredientes }}</th>
-                   <th>
-                       {{ k.precio }} €
-                       <a href="{% url 'quitar_de_carrito' k.id %}">
-                           <button class="botonescarrito" type="button">
-                               <img class="png" src="{% static 'img/compartimiento.png' %}" alt="">
-                           </button>
-                       </a>
-                   </th>
-
-
-           </tr>
-
-
-       {% endfor %}
-       <tr>
-           <th></th>
-           <th></th>
-           <th></th>
-           <th><b>TOTAL DE LA COMPRA</b></th>
-           <th>{{ total }} €</th>
-       </tr>
-
-
-
-
-       </tbody>
-   </table>
-   <a href="{% url 'crear_pedido' %}">
-       <button class="boton_carrito_pedir">
-           <i class="bi bi-clipboard-plus"></i> Completar Compra
-       </button>
-   </a>
+        <a href="{% url 'crear_pedido' %}">
+            <button class="boton_carrito_pedir">
+                <i class="bi bi-clipboard-plus"></i> Completar Compra
+            </button>
+        </a>
+    </div>
 </div>
-
-
-
-
-
-
-
-
 {% endblock %}
