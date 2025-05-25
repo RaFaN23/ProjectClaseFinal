@@ -326,9 +326,15 @@ def lista_empleados(request):
 def editar_empleado(request, pk):
     empleado = get_object_or_404(Usuario, pk=pk)
     form = EmpleadoForm(request.POST or None, instance=empleado)
+
     if request.method == 'POST' and form.is_valid():
-        form.save()
+        empleado = form.save(commit=False)
+        nueva_contraseña = form.cleaned_data.get('password')
+        if nueva_contraseña:
+            empleado.set_password(nueva_contraseña)
+        empleado.save()
         return redirect('Usuarios')
+
     return render(request, 'editar_empleado.html', {'form': form})
 
 
