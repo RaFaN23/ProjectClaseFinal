@@ -19,29 +19,26 @@ for model in apps.get_models():
 
 
 
-    ✅ procedure SQL en Oracle para obtener las ventas totales del día
-Aquí tienes el comando:
-
-sql
-
-create or replace PROCEDURE calcular_ventas_hoy IS
-    total_ventas NUMBER := 0;
-    total_pedidos NUMBER := 0;
+CREATE OR REPLACE TRIGGER TRG_PIZZAAPP_USUARIO_CREACION
+BEFORE INSERT ON PIZZAAPP_USUARIO
+FOR EACH ROW
 BEGIN
-    SELECT
-        COUNT(*),
-        NVL(SUM(PRECIO_TOTAL), 0)
-    INTO
-        total_pedidos,
-        total_ventas
-    FROM
-        PIZZAAPP_PEDIDO
-    WHERE
-        TRUNC(FECHA) = TRUNC(SYSDATE);
-
-    DBMS_OUTPUT.PUT_LINE('Fecha: ' || TO_CHAR(SYSDATE, 'YYYY-MM-DD'));
-    DBMS_OUTPUT.PUT_LINE('Total pedidos: ' || total_pedidos);
-    DBMS_OUTPUT.PUT_LINE('Total ventas €: ' || total_ventas);
-
+    IF :NEW.FECHA_CREACION IS NULL THEN
+        :NEW.FECHA_CREACION := SYSTIMESTAMP;
+    END IF;
+    -- También inicializamos FECHA_MODIFICACION con la misma fecha al insertar
+    :NEW.FECHA_MODIFICACION := SYSTIMESTAMP;
 END;
+
+
+-- Trigger para actualizar FECHA_MODIFICACION en update
+CREATE OR REPLACE TRIGGER TRG_PIZZAAPP_USUARIO_MODIFICACION
+BEFORE UPDATE ON PIZZAAPP_USUARIO
+FOR EACH ROW
+BEGIN
+    :NEW.FECHA_MODIFICACION := SYSTIMESTAMP;
+END;
+
+
+
 

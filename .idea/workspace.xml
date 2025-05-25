@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6300454-35ea-4f74-81eb-b0dd0fe99bd2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/pizzaapp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/pizzaapp/url.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/pizzaapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/carrito.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/carrito.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/carta.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/carta.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/Consejos" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/pizzaapp/Consejos" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/templates/Mesas.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/Mesas.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +43,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/RaFaN23/ProjectClaseFinal.git&quot;,
-    &quot;accountId&quot;: &quot;0000970a-105e-45ad-a370-5424ac2519d3&quot;
+    &quot;accountId&quot;: &quot;6545fdfa-3c6e-469f-bd42-00922dc7b551&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -60,30 +57,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Django Server.ProjectClaseFinal.executor": "Run",
-    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "django.template.preview.state": "SHOW_EDITOR_AND_PREVIEW",
-    "git-widget-placeholder": "RamaMassi",
-    "last_opened_file_path": "C:/Users/maxtr/Documents/GitHub/ProjectClaseFinal0",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Django Server.ProjectClaseFinal.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;RamaMassi&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/maxtr/Documents/GitHub/ProjectClaseFinal0&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "oracle"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;oracle&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="ProjectClaseFinal" type="Python.DjangoServer" factoryName="Django server">
       <module name="ProjectClaseFinal" />
@@ -113,8 +110,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PY-242.26775.22" />
-        <option value="bundled-python-sdk-9f73701ac511-399fe30bd8c1-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.26775.22" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PY-242.23339.19" />
+        <option value="bundled-python-sdk-0029f7779945-399fe30bd8c1-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.23339.19" />
       </set>
     </attachedChunks>
   </component>
@@ -138,6 +135,8 @@
       <workItem from="1747771739335" duration="1605000" />
       <workItem from="1747775639768" duration="103000" />
       <workItem from="1747775821443" duration="286000" />
+      <workItem from="1748018361205" duration="5087000" />
+      <workItem from="1748046343093" duration="47000" />
     </task>
     <servers />
   </component>
