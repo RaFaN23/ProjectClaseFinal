@@ -28,7 +28,7 @@
                                <p class="card-text">{{ c.ingredientes }}</p>
                                <p class="card-text fw-bold">{{ c.precio }} €</p>
                            </div>
-                           {% if user.rol == 'admin' %}
+                           {% if user.rol == 'admin'  %}
                                <div class="botonescosas">
                                    <button class="editar_eliminar">
                                        <a class="enlace_formulario_carta colorboton"
@@ -43,7 +43,7 @@
 
                                </div>
                            {% endif %}
-                           {% if user.rol == 'cliente' %}
+                           {% if user.rol == 'cliente' or user.rol == 'camarero'%}
                                <button class="editar_eliminar">
                                    <a class="enlace_formulario_carta colorboton"
                                       href="{% url 'add_carrito' id=c.id %}">Añadir Carrito</a>
