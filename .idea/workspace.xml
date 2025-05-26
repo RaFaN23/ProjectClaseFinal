@@ -6,8 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="f6300454-35ea-4f74-81eb-b0dd0fe99bd2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/pizzaapp/migrations/0001_initial.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/pizzaapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/pizzaapp/url.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/pizzaapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/templates/carrito.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/carrito.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/templates/carta.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/carta.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/navbar.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +46,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/RaFaN23/ProjectClaseFinal.git&quot;,
-    &quot;accountId&quot;: &quot;6545fdfa-3c6e-469f-bd42-00922dc7b551&quot;
+    &quot;accountId&quot;: &quot;0000970a-105e-45ad-a370-5424ac2519d3&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -63,7 +67,7 @@
     "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "django.template.preview.state": "SHOW_EDITOR",
+    "django.template.preview.state": "SHOW_EDITOR_AND_PREVIEW",
     "git-widget-placeholder": "RamaMassi",
     "last_opened_file_path": "C:/Users/maxtr/Documents/GitHub/ProjectClaseFinal0",
     "node.js.detected.package.eslint": "true",
@@ -74,12 +78,12 @@
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
     "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;oracle&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "oracle"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="ProjectClaseFinal" type="Python.DjangoServer" factoryName="Django server">
       <module name="ProjectClaseFinal" />
@@ -131,9 +135,9 @@
       <workItem from="1747600655117" duration="2937000" />
       <workItem from="1747694299172" duration="2132000" />
       <workItem from="1747747602260" duration="1359000" />
-      <workItem from="1747759341809" duration="5516000" />
-      <workItem from="1747846919596" duration="960000" />
-      <workItem from="1748005753488" duration="319000" />
+      <workItem from="1747771739335" duration="1605000" />
+      <workItem from="1747775639768" duration="103000" />
+      <workItem from="1747775821443" duration="286000" />
     </task>
     <servers />
   </component>

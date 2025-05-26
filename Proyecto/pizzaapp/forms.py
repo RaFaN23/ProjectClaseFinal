@@ -35,6 +35,7 @@ class LoginFormulario(AuthenticationForm):
 
 
 class EmpleadoForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput, required=False)
     class Meta:
         model = Usuario
         fields = ['nombre', 'apellidos', 'rol', 'password']

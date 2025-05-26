@@ -3,7 +3,7 @@ body, html {
     padding: 0;
     width: 100%;
     overflow-x: hidden;
-    background-color: #e7cabf !important;
+    background-color: #e7cabf ;
 }
 
 .container {

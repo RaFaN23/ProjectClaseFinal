@@ -41,27 +41,21 @@ urlpatterns = [
     path('mesas/', mostrar_mesas, name='mostrar_mesas'),
     path('asignar/<int:mesa_id>/', asignar_mesa, name='asignar_mesa'),
     path('carta/<int:mesa_id>/', go_carta, name='carta'),
-    path('historial_mesa/<int:mesa_id>/', historial_mesa, name='historial_mesa'),
-    path('mesa/<int:mesa_id>/historial/', historial_pedidos, name='historial_pedidos'),
-    path('crear_pedido/<int:mesa_id>/', crear_pedido, name='crear_pedido'),
+
 
     # CARRITO
     path('carrito/', go_carrito, name='carrito'),
-    path('carrito/mesa/<int:mesa_id>/', carrito_por_mesa, name='carrito_por_mesa'),
-
-    # urls.py
-    path('carrito/<int:mesa_id>/', go_carrito, name='ver_carrito'),
-    path('add_carrito/<int:producto_id>/', add_carrito, name='add_carrito'),
+    path('ver_carrito/', go_carrito, name='ver_carrito'),
+    path('carrito/add/<int:id>/', add_carrito, name='add_carrito'),
     path('carrito/sumar/<int:id>/', sumar_carrito, name='sumar_carrito'),
-    path('carrito/', ver_carrito, name='ver_carrito'),
     path('carrito/restar/<int:id>/', restar_carrito, name='restar_carrito'),
     path('carrito/quitar/<int:id>/', quitar_de_carrito, name='quitar_de_carrito'),
     path('carrito/limpiar/', limpiar, name='limpiar'),
     path('completar_compra/', comprar, name='comprar'),
 
     # Error
-    # pedidos antiguos
 
+    # PEDIDOS
     path('peidos_antiguos/', pedidos_antiguos, name='pedidos_antiguos'),
 
     path('crear_pedido/', crear_pedido, name='crear_pedido'),
@@ -70,6 +64,6 @@ urlpatterns = [
 
     path('pedido/<int:pedido_id>/cambiar_estadoCocinero/', cambiar_estado_pedido, name='cambiar_estado_pedido'),
 
-    path('pedido/<int:pedido_id>/cambiar_estadoCamarero/', cambiar_estado_pedido_camarero, name='cambiar_estado_pedido_camarero'),
-
+    path('pedido/<int:pedido_id>/cambiar_estadoCamarero/', cambiar_estado_pedido_camarero,
+         name='cambiar_estado_pedido_camarero'),
 ]
