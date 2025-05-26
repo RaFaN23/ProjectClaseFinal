@@ -1,0 +1,14 @@
+{% extends 'basehtml.html' %}
+
+{% block title %}Confirmar Borrado{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h3>¿Estás seguro de que deseas borrar a {{ empleado.nombre }}?</h3>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Sí, borrar</button>
+        <a href="{% url 'Pedido' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+{% endblock %}

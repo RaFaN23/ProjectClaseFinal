@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6300454-35ea-4f74-81eb-b0dd0fe99bd2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/73abfdb0-9823-45e6-979c-b6bf00ba6ae5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/73abfdb0-9823-45e6-979c-b6bf00ba6ae5.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/pizzaapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/pizzaapp/url.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/pizzaapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/pizzaapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/templates/carrito.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/carrito.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/templates/carta.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/carta.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/navbar.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,12 +24,17 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -37,7 +47,6 @@
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/RaFaN23/ProjectClaseFinal.git&quot;,
     &quot;accountId&quot;: &quot;0000970a-105e-45ad-a370-5424ac2519d3&quot;
-    &quot;accountId&quot;: &quot;6545fdfa-3c6e-469f-bd42-00922dc7b551&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -59,7 +68,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "django.template.preview.state": "SHOW_EDITOR_AND_PREVIEW",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "RamaMassi",
     "last_opened_file_path": "C:/Users/maxtr/Documents/GitHub/ProjectClaseFinal0",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -104,8 +113,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PY-242.23339.19" />
-        <option value="bundled-python-sdk-0029f7779945-399fe30bd8c1-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.23339.19" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PY-242.26775.22" />
+        <option value="bundled-python-sdk-9f73701ac511-399fe30bd8c1-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.26775.22" />
       </set>
     </attachedChunks>
   </component>
@@ -126,6 +135,9 @@
       <workItem from="1747600655117" duration="2937000" />
       <workItem from="1747694299172" duration="2132000" />
       <workItem from="1747747602260" duration="1359000" />
+      <workItem from="1747771739335" duration="1605000" />
+      <workItem from="1747775639768" duration="103000" />
+      <workItem from="1747775821443" duration="286000" />
     </task>
     <servers />
   </component>

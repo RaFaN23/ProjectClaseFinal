@@ -36,12 +36,27 @@
                         <a class="nav-link cambio" href="{% url 'Usuarios' %}">Gestión de Usuarios</a>
                     </li>
                 {% endif %}
+                {% if user.is_authenticated and user.rol == "camarero" %}
+                    <li class="nav-item">
+                        <a class="nav-link cambio" href="{% url 'lista_pedidos' %}">Gestión de Pedidos</a>
+                    </li>
+                {% endif %}
                 <li class="nav-item">
                     <a class="nav-link cambio" href="{% url 'carta' %}">Menú</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link cambio" href="{% url 'mostrar_mesas' %}">Reserva aqui</a>
-                </li>
+
+                {% if user.is_authenticated %}
+                    {% if user.rol == "camarero" or user.rol == "admin" %}
+                        <li class="nav-item">
+                            <a class="nav-link cambio" href="{% url 'mostrar_mesas' %}">Reserva aqui</a>
+                        </li>
+                    {% endif %}
+                {% endif %}
+
+
+
+
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle cambio" href="#" role="button" data-bs-toggle="dropdown"
                        aria-expanded="false">Pedidos</a>
@@ -49,23 +64,22 @@
                         <li><a class="dropdown-item" href="{% url 'ver_carrito' %}">Carrito</a></li>
 
 
-
                         <li>
                             <hr class="dropdown-divider">
                         </li>
                         <li>
-                        {% if user.rol == 'cliente' %}
-                            <a class="dropdown-item" href="{% url 'pedidos_antiguos' %}">Pedidos anteriores</a></li>
-                        {% endif %}
+                            {% if user.rol == 'cliente' %}
+                                <a class="dropdown-item" href="{% url 'pedidos_antiguos' %}">Pedidos anteriores</a></li>
+                            {% endif %}
                         <li>
-                        {% if user.rol == 'admin' %}
-                            <a class="dropdown-item" href="{% url 'pedidos_todos'  %}">Ver todos los pedidos</a>
-                        {% endif %}
+                            {% if user.rol == 'admin' %}
+                                <a class="dropdown-item" href="{% url 'pedidos_todos' %}">Ver todos los pedidos</a>
+                            {% endif %}
                         </li>
                         <li>
-                        {% if user.rol == 'camarero' or user.rol == 'cocinero' %}
-                            <a class="dropdown-item" href="{% url 'pedidos_todos'  %}">Ver todos los pedidos</a>
-                        {% endif %}
+                            {% if user.rol == 'camarero' or user.rol == 'cocinero' %}
+                                <a class="dropdown-item" href="{% url 'pedidos_todos' %}">Ver todos los pedidos</a>
+                            {% endif %}
                         </li>
 
                     </ul>
@@ -73,7 +87,7 @@
 
             </ul>
 
-               
+
             <button id="modo-oscuro-toggle" class="btn btn-outline-dark me-2">🌙</button>
             {% if user.is_authenticated %}
 

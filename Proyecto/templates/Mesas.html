@@ -12,21 +12,19 @@
     <div class="container">
         <div class="grid">
             {% for mesa in mesas %}
-            <div class="mesa-contenedor {% if mesa.estado == 'LIBRE' %}disponible{% else %}ocupada{% endif %}">
-                <div class="mesa-info">
-                    <p><strong>MESA {{ mesa.numero }}</strong></p>
-                    <p>Estado: {{ mesa.estado }}</p>
-                </div>
+                <div class="mesa-contenedor {% if mesa.estado == 'LIBRE' %}disponible{% else %}ocupada{% endif %}">
+                    <div class="mesa-info">
+                        <p><strong>MESA {{ mesa.numero }}</strong></p>
+                        <p>Estado: {{ mesa.estado }}</p>
+                    </div>
 
-                <div class="mesa-botones">
-                    <form method="post" action="{% url 'asignar_mesa' mesa.id %}">
-                        {% csrf_token %}
-                        <button type="submit" class="btn-asignar">Asignar Mesa</button>
-                    </form>
-                    <button class="btn-historial" disabled>Historial de Pedidos</button>
-                    <button class="btn-hacer-pedido" disabled>Hacer Pedido</button>
+                    <div class="mesa-botones">
+                        <form method="post" action="{% url 'asignar_mesa' mesa.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn-asignar">Asignar Mesa</button>
+                        </form>
+                    </div>
                 </div>
-            </div>
             {% endfor %}
         </div>
     </div>

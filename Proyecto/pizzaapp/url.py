@@ -5,11 +5,9 @@ from pizzaapp.views import *
 
 urlpatterns = [
 
-
     # HOME
     path('', go_home, name='home_vacio'),
     path('home/', go_home, name='home'),
-
 
     # LOGIN Y REGISTRO
     path('registro_tarjeta/', go_registro, name='registro'),
@@ -24,7 +22,13 @@ urlpatterns = [
 
     # PEDIDOS
     path('hacer_pedido/', go_pedido, name='Hacer_Pedido'),
+    path('pedidos/', lista_pedidos, name='lista_pedidos'),
+    path('pedido/editar/<int:pk>/', editar_pedido, name='editar_pedido'),
+    path('pedido/linea/<int:id>/restar/', restar_editar, name='restar_editar'),
+    path('editar_pedido/sumar/<int:id>/', sumar_editar, name='sumar_editar'),
+    path('editar_pedido/QUITAR/<int:id>/', quitar_editar, name='quitar_editar'),
 
+    path('pedido/borrar/<int:pk>/', borrar_pedido, name='borrar_pedido'),
     # CONTACTO
     path('contacto/', contacto_view, name='contacto'),
 
@@ -34,8 +38,10 @@ urlpatterns = [
     path('formulario_carta/borrar/<int:id>', eliminar_carta, name='eliminar_carta'),
 
     # MESAS
-    path('mesas/', views.mostrar_mesas, name='mostrar_mesas'),
-    path('asignar/<int:mesa_id>/', views.asignar_mesa, name='asignar_mesa'),
+    path('mesas/', mostrar_mesas, name='mostrar_mesas'),
+    path('asignar/<int:mesa_id>/', asignar_mesa, name='asignar_mesa'),
+    path('carta/<int:mesa_id>/', go_carta, name='carta'),
+
 
     # CARRITO
     path('carrito/', go_carrito, name='carrito'),
@@ -47,8 +53,9 @@ urlpatterns = [
     path('carrito/limpiar/', limpiar, name='limpiar'),
     path('completar_compra/', comprar, name='comprar'),
 
-    #pedidos antiguos
+    # Error
 
+    # PEDIDOS
     path('peidos_antiguos/', pedidos_antiguos, name='pedidos_antiguos'),
 
     path('crear_pedido/', crear_pedido, name='crear_pedido'),
@@ -57,6 +64,6 @@ urlpatterns = [
 
     path('pedido/<int:pedido_id>/cambiar_estadoCocinero/', cambiar_estado_pedido, name='cambiar_estado_pedido'),
 
-    path('pedido/<int:pedido_id>/cambiar_estadoCamarero/', cambiar_estado_pedido_camarero, name='cambiar_estado_pedido_camarero'),
-
+    path('pedido/<int:pedido_id>/cambiar_estadoCamarero/', cambiar_estado_pedido_camarero,
+         name='cambiar_estado_pedido_camarero'),
 ]

@@ -32,7 +32,7 @@ class Usuario(AbstractUser, PermissionsMixin):
 
     email = models.EmailField(max_length=250, unique=True)
     nombre = models.CharField(max_length=250)
-    apellidos = models.CharField(max_length=250)
+    apellidos = models.CharField(max_length=251)
     rol = models.CharField(max_length=25, choices=ROLES, default='cliente')
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
@@ -95,31 +95,32 @@ class cartao(models.Model):
 
 # Pedidos
 class EstadoPedido(models.TextChoices):
-    PREPARANDO = 'PREPARANDO', 'Preparando'
-    TERMINADO = 'TERMINADO', 'Terminado'
+   PREPARANDO = 'PREPARANDO', 'Preparando'
+   TERMINADO = 'TERMINADO', 'Terminado'
 class EstadoPedidoCamarero(models.TextChoices):
-    EN_PROCESO = 'EN_PROCESO', 'En proceso'
-    FINALIZADO = 'FINALIZADO', 'Finalizado'
+   EN_PROCESO = 'EN_PROCESO', 'En proceso'
+   FINALIZADO = 'FINALIZADO', 'Finalizado'
 class Pedido(models.Model):
-    codigo = models.CharField(max_length=50)
-    fecha = models.DateTimeField()
-    usuario = models.ForeignKey('Usuario', on_delete=models.DO_NOTHING, related_name='pedidos')
-    precio_total = models.FloatField(default=0)
-    estado = models.CharField(
-        max_length=20,
-        choices=EstadoPedido.choices,
-        default=EstadoPedido.PREPARANDO
-    )
-    estado_camarero = models.CharField(
-        max_length=20,
-        choices=EstadoPedidoCamarero.choices,
-        default=EstadoPedidoCamarero.EN_PROCESO
-    )
-    fecha_creacion = models.DateTimeField(auto_now_add=True)
-    fecha_modificacion = models.DateTimeField(auto_now=True)
+   codigo = models.CharField(max_length=50)
+   fecha = models.DateTimeField()
+   usuario = models.ForeignKey('Usuario', on_delete=models.DO_NOTHING, related_name='pedidos')
+   precio_total = models.FloatField(default=0)
+   estado = models.CharField(
+       max_length=20,
+       choices=EstadoPedido.choices,
+       default=EstadoPedido.PREPARANDO
+   )
+   estado_camarero = models.CharField(
+       max_length=20,
+       choices=EstadoPedidoCamarero.choices,
+       default=EstadoPedidoCamarero.EN_PROCESO
+   )
+   fecha_creacion = models.DateTimeField(auto_now_add=True)
+   fecha_modificacion = models.DateTimeField(auto_now=True)
 
-    def __str__(self):
-        return self.codigo
+
+   def __str__(self):
+       return self.codigo
 
 
 class LineaPedido(models.Model):

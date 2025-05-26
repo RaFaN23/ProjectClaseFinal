@@ -15,3 +15,33 @@ for model in apps.get_models():
 
 
     pip install django-bootstrap-icons esos son iconos
+
+
+
+
+    ✅ procedure SQL en Oracle para obtener las ventas totales del día
+Aquí tienes el comando:
+
+sql
+
+create or replace PROCEDURE calcular_ventas_hoy IS
+    total_ventas NUMBER := 0;
+    total_pedidos NUMBER := 0;
+BEGIN
+    SELECT
+        COUNT(*),
+        NVL(SUM(PRECIO_TOTAL), 0)
+    INTO
+        total_pedidos,
+        total_ventas
+    FROM
+        PIZZAAPP_PEDIDO
+    WHERE
+        TRUNC(FECHA) = TRUNC(SYSDATE);
+
+    DBMS_OUTPUT.PUT_LINE('Fecha: ' || TO_CHAR(SYSDATE, 'YYYY-MM-DD'));
+    DBMS_OUTPUT.PUT_LINE('Total pedidos: ' || total_pedidos);
+    DBMS_OUTPUT.PUT_LINE('Total ventas €: ' || total_ventas);
+
+END;
+
