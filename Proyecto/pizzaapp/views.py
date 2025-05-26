@@ -36,6 +36,9 @@ def solo_camarero_admin(view_func):
 def solo_camarero(view_func):
     return user_passes_test(lambda u: u.is_authenticated and u.rol == 'camarero')(view_func)
 
+def solo_camarero_cliente(view_func):
+    return user_passes_test(lambda u: u.is_authenticated and u.rol in ('camarero', 'cliente'))(view_func)
+
 
 def solo_cliente(view_func):
     return user_passes_test(lambda u: u.is_authenticated and u.rol == 'cliente')(view_func)
@@ -323,12 +326,19 @@ def lista_empleados(request):
 
 
 @solo_admin
+
 def editar_empleado(request, pk):
     empleado = get_object_or_404(Usuario, pk=pk)
     form = EmpleadoForm(request.POST or None, instance=empleado)
+
     if request.method == 'POST' and form.is_valid():
-        form.save()
+        empleado = form.save(commit=False)
+        nueva_contraseña = form.cleaned_data.get('password')
+        if nueva_contraseña:
+            empleado.set_password(nueva_contraseña)
+        empleado.save()
         return redirect('Usuarios')
+
     return render(request, 'editar_empleado.html', {'form': form})
 
 
@@ -411,11 +421,12 @@ def crear_pedido(request):
     pedido.save()
 
     del request.session['carrito']
-    return redirect('pedidos_antiguos')
+    return redirect('home')
 
 
 
 @solo_cliente
+@solo_camarero_cliente
 def pedidos_antiguos(request):
     pedidos = Pedido.objects.filter(usuario=request.user).order_by('-fecha')
     return render(request, 'pedidos_antiguos.html', {'pedidos': pedidos})
@@ -451,3 +462,18 @@ def cambiar_estado_pedido_camarero(request, pedido_id):
         pedido.estado_camarero = EstadoPedidoCamarero.FINALIZADO
     pedido.save()
     return redirect('pedidos_todos')
+
+@solo_admin
+def editar_empleado(request, pk):
+    empleado = get_object_or_404(Usuario, pk=pk)
+    form = EmpleadoForm(request.POST or None, instance=empleado)
+
+    if request.method == 'POST' and form.is_valid():
+        empleado = form.save(commit=False)
+        nueva_contraseña = form.cleaned_data.get('password')
+        if nueva_contraseña:
+            empleado.set_password(nueva_contraseña)
+        empleado.save()
+        return redirect('Usuarios')
+
+    return render(request, 'editar_empleado.html', {'form': form})

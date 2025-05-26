@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block content %}
-<body>
+    <body>
     <div class="container">
         <div class="grid">
             {% for mesa in mesas %}
@@ -23,30 +23,10 @@
                             {% csrf_token %}
                             <button type="submit" class="btn-asignar">Asignar Mesa</button>
                         </form>
-
-                        
-                        <div class="collapse mt-2" id="historial-{{ mesa.id }}">
-                            <div class="card card-body">
-                                {% if mesa.pedido_set.all %}
-                                    {% for pedido in mesa.pedido_set.all %}
-                                        <div class="mb-2">
-                                            <strong>Pedido {{ pedido.codigo }}</strong> — {{ pedido.fecha|date:"d/m/Y H:i" }} — Total: {{ pedido.precio_total }} €
-                                            <ul>
-                                                {% for linea in pedido.lineapedido_set.all %}
-                                                    <li>{{ linea.producto.nombre }} x{{ linea.cantidad }} — {{ linea.precio }} €</li>
-                                                {% endfor %}
-                                            </ul>
-                                        </div>
-                                    {% endfor %}
-                                {% else %}
-                                    <p class="text-muted">No hay pedidos para esta mesa.</p>
-                                {% endif %}
-                            </div>
-                        </div>
                     </div>
                 </div>
             {% endfor %}
         </div>
     </div>
-</body>
+    </body>
 {% endblock %}

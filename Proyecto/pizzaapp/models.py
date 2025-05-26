@@ -1,6 +1,8 @@
 from django.contrib.auth.base_user import BaseUserManager
 from django.contrib.auth.models import PermissionsMixin, AbstractUser, UserManager
+from django.core.exceptions import ValidationError
 from django.db import models
+
 
 # LOGIN Y REGISTRO
 class UsuarioManager(BaseUserManager):
@@ -66,6 +68,7 @@ class EstadoMesa(models.TextChoices):
     LIBRE = 'LIBRE', 'Libre'
     RESERVADO = 'RESERVADO', 'Reservado'
 
+
 class Mesa(models.Model):
     numero = models.PositiveIntegerField(unique=True)
     estado = models.CharField(
@@ -95,32 +98,35 @@ class cartao(models.Model):
 
 # Pedidos
 class EstadoPedido(models.TextChoices):
-   PREPARANDO = 'PREPARANDO', 'Preparando'
-   TERMINADO = 'TERMINADO', 'Terminado'
+    PREPARANDO = 'PREPARANDO', 'Preparando'
+    TERMINADO = 'TERMINADO', 'Terminado'
+
+
 class EstadoPedidoCamarero(models.TextChoices):
-   EN_PROCESO = 'EN_PROCESO', 'En proceso'
-   FINALIZADO = 'FINALIZADO', 'Finalizado'
+    EN_PROCESO = 'EN_PROCESO', 'En proceso'
+    FINALIZADO = 'FINALIZADO', 'Finalizado'
+
+
 class Pedido(models.Model):
-   codigo = models.CharField(max_length=50)
-   fecha = models.DateTimeField()
-   usuario = models.ForeignKey('Usuario', on_delete=models.DO_NOTHING, related_name='pedidos')
-   precio_total = models.FloatField(default=0)
-   estado = models.CharField(
-       max_length=20,
-       choices=EstadoPedido.choices,
-       default=EstadoPedido.PREPARANDO
-   )
-   estado_camarero = models.CharField(
-       max_length=20,
-       choices=EstadoPedidoCamarero.choices,
-       default=EstadoPedidoCamarero.EN_PROCESO
-   )
-   fecha_creacion = models.DateTimeField(auto_now_add=True)
-   fecha_modificacion = models.DateTimeField(auto_now=True)
+    codigo = models.CharField(max_length=50)
+    fecha = models.DateTimeField()
+    usuario = models.ForeignKey('Usuario', on_delete=models.DO_NOTHING, related_name='pedidos')
+    precio_total = models.FloatField(default=0)
+    estado = models.CharField(
+        max_length=20,
+        choices=EstadoPedido.choices,
+        default=EstadoPedido.PREPARANDO
+    )
+    estado_camarero = models.CharField(
+        max_length=20,
+        choices=EstadoPedidoCamarero.choices,
+        default=EstadoPedidoCamarero.EN_PROCESO
+    )
+    fecha_creacion = models.DateTimeField(auto_now_add=True)
+    fecha_modificacion = models.DateTimeField(auto_now=True)
 
-
-   def __str__(self):
-       return self.codigo
+    def __str__(self):
+        return self.codigo
 
 
 class LineaPedido(models.Model):
@@ -133,3 +139,17 @@ class LineaPedido(models.Model):
 
     def __str__(self):
         return f"{self.producto.nombre} - {self.precio}"
+
+
+class Pizza(models.Model):
+    quesos = (
+        ('c', 'Cheddar'),
+        ('e', 'elemental'),
+
+    )
+    Tipo_queso = models.CharField(max_length=50,choices=quesos)
+    Extra_queso =  models.BooleanField(default=False)
+
+    def clean(self):
+        if self.quesos == 'cheddar' and self.Extra_queso:
+            raise ValidationError("No se permite extra cheddar.")

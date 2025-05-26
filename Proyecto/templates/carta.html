@@ -43,7 +43,7 @@
 
                                </div>
                            {% endif %}
-                           {% if user.rol == 'cliente' %}
+                           {% if user.rol == 'camarero' or user.rol == 'cliente' %}
                                <button class="editar_eliminar">
                                    <a class="enlace_formulario_carta colorboton"
                                       href="{% url 'add_carrito' id=c.id %}">Añadir Carrito</a>
