@@ -1,0 +1,32 @@
+{% extends 'basehtml.html' %}
+{% load static %}
+{% block title %}Mis Pedidos{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/pedidos_antiguos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="contenedor_resenas">
+    <h1>Mis reseñas</h1>
+
+    {% if resenas %}
+        {% for resena in resenas %}
+            <div class="resena">
+                <p><strong>Puntuación:</strong> {{ resena.puntuacion }} / 5</p>
+                <p><strong>Comentario:</strong> {{ resena.comentario }}</p>
+                <p><strong>Fecha:</strong> {{ resena.fecha_creacion|date:"d/m/Y H:i" }}</p>
+
+                <a href="{% url 'editar_resena' resena.id %}">Editar</a> |
+                <a href="{% url 'eliminar_resena' resena.id %}">Eliminar</a>
+            </div>
+            <hr>
+        {% endfor %}
+    {% else %}
+        <p>No tienes reseñas registradas.</p>
+    {% endif %}
+</div>
+{% endblock %}
+

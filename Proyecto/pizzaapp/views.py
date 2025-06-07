@@ -457,3 +457,39 @@ def cambiar_estado_pedido_camarero(request, pedido_id):
         pedido.estado_camarero = EstadoPedidoCamarero.FINALIZADO
     pedido.save()
     return redirect('pedidos_todos')
+
+
+
+
+
+def crear_o_editar_resena(request, resena_id=None):
+    if resena_id:
+        resena_obj = get_object_or_404(resena, id=resena_id, usuario=request.user)
+    else:
+        resena_obj = None
+
+    if request.method == 'POST':
+        form = form_resena(request.POST, instance=resena_obj)
+        if form.is_valid():
+            nueva_resena = form.save(commit=False)
+            nueva_resena.usuario = request.user
+            nueva_resena.save()
+            return redirect('lista_resenas')  # <- Redirige a la vista que renderiza resena.html
+    else:
+        form = form_resena(instance=resena_obj)
+
+    contexto = {
+        'form': form,
+        'es_edicion': resena_obj is not None
+    }
+    return render(request, 'formulario_resena.html', contexto)
+
+def eliminar_resena(request, resena_id):
+    resena_eliminar = resena.objects.filter(id=resena_id, usuario=request.user)
+    if len(resena_eliminar) != 0:
+        resena_eliminar[0].delete()
+    return redirect('lista_resenas')
+
+def go_resena(request):
+    resenas = resena.objects.filter(usuario=request.user).order_by('-fecha_creacion')
+    return render(request, 'resena.html', {'resenas': resenas})

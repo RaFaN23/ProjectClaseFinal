@@ -45,6 +45,10 @@
                     <a class="nav-link cambio" href="{% url 'carta' %}">Menú</a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link cambio" href="{% url 'lista_resenas' %}">reseñas</a>
+                </li>
+
                 {% if user.is_authenticated %}
                     {% if user.rol == "camarero" or user.rol == "admin" %}
                         <li class="nav-item">

@@ -64,6 +64,13 @@ urlpatterns = [
 
     path('pedido/<int:pedido_id>/cambiar_estadoCocinero/', cambiar_estado_pedido, name='cambiar_estado_pedido'),
 
-    path('pedido/<int:pedido_id>/cambiar_estadoCamarero/', cambiar_estado_pedido_camarero,
-         name='cambiar_estado_pedido_camarero'),
+    path('pedido/<int:pedido_id>/cambiar_estadoCamarero/', cambiar_estado_pedido_camarero,name='cambiar_estado_pedido_camarero'),
+
+    #reseña
+    path('resena/', crear_o_editar_resena, name='crear_resena'),
+    path('resena/<int:resena_id>/', crear_o_editar_resena, name='editar_resena'),
+    path('resena/eliminar/<int:resena_id>/', eliminar_resena, name='eliminar_resena'),
+    path('mis-resenas/', go_resena, name='lista_resenas'),
+
 ]
+

@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
-from .models import Contacto, Usuario, Pedido, LineaPedido
+from .models import Contacto, Usuario, Pedido, LineaPedido, resena
 
 
 class PizzaForm(forms.ModelForm):
@@ -66,3 +66,14 @@ class PedidoForm(forms.ModelForm):
     class Meta:
         model = LineaPedido
         fields = ['pedido', 'producto', 'cantidad', 'precio']
+
+
+
+
+class form_resena(forms.ModelForm):
+    puntuacion = forms.IntegerField(min_value=1,max_value=5,label="Puntuación (1 a 5)")
+    comentario = forms.CharField(widget=forms.Textarea,label="Comentario")
+
+    class Meta:
+        model = resena
+        fields = ['puntuacion', 'comentario']  # usuario se asigna en la vista

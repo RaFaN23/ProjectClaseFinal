@@ -135,3 +135,10 @@ class LineaPedido(models.Model):
         return f"{self.producto.nombre} - {self.precio}"
 
 
+
+
+class resena(models.Model):
+    usuario = models.ForeignKey('Usuario', on_delete=models.DO_NOTHING)
+    puntuacion = models.IntegerField()
+    comentario = models.TextField()
+    fecha_creacion = models.DateTimeField(auto_now_add=True)
