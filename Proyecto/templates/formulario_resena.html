@@ -1,53 +1,38 @@
 {% extends 'basehtml.html' %}
 {% load static %}
 
-
-{% block title %}Registro De Tarjeta{% endblock %}
+{% block title %}Reseña{% endblock %}
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'css/Crearcuenta.css' %}">
-
-
 {% endblock %}
 
-
 {% block content %}
-<body>
-
-<form method="post">
-   <div class="caja">
-        <div class="titulo">
-            <strong><h1>Crear una cuenta</h1></strong>
-            <br>
-            <strong><h3>Registrate para realizar pedidos y acceder a ofertas exclusivas</h3></strong>
-            <br>
-        </div>
-        <div class="cosasCaj">
-            <div class="nomb">
-                <form method="post">
-                    {% csrf_token %}
-                    <div class="nomb2">
-                        {% for field in form %}
-                            <p>
-                                {{ field.label_tag }}<br>
-                                {{ field }}
-                                {% if field.errors %}
-                                    <br><span style="color: red;">{{ field.errors }}</span>
-                                {% endif %}
-                            </p>
-                        {% endfor %}
-                        <button type="submit" class="boton">enviar</button>
-                    </div>
-                </form>
-
-
-            </div>
-
-        </div>
-
+<div class="caja">
+    <div class="titulo">
+        {% if resena.id %}
+            <h1>Editar Reseña</h1>
+        {% else %}
+            <h1>Crear Reseña</h1>
+        {% endif %}
+        <h3>Tu opinión nos importa</h3>
     </div>
-</form>
-</body>
 
-
+    <div class="cosasCaj">
+        <form method="post">
+            {% csrf_token %}
+            <div class="nomb2">
+                <p>
+                    <label for="puntuacion">Puntuación (1 a 5):</label><br>
+                    <input type="number" name="puntuacion" min="1" max="5" value="{{ resena.puntuacion|default_if_none:'' }}">
+                </p>
+                <p>
+                    <label for="comentario">Comentario:</label><br>
+                    <textarea name="comentario" rows="4" cols="50">{{ resena.comentario|default_if_none:'' }}</textarea>
+                </p>
+                <button type="submit" class="boton">Enviar</button>
+            </div>
+        </form>
+    </div>
+</div>
 {% endblock %}

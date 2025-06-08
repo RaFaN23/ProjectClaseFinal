@@ -483,7 +483,6 @@ def crear_o_editar_resena(request, resena_id=None):
         'es_edicion': resena_obj is not None
     }
     return render(request, 'formulario_resena.html', contexto)
-
 def eliminar_resena(request, resena_id):
     resena_eliminar = resena.objects.filter(id=resena_id, usuario=request.user)
     if len(resena_eliminar) != 0:

@@ -11,7 +11,7 @@
 {% block content %}
 <div class="contenedor_resenas">
     <h1>Mis reseñas</h1>
-
+    <a href="{% url 'crear_resena'  %}">añadir</a>
     {% if resenas %}
         {% for resena in resenas %}
             <div class="resena">
