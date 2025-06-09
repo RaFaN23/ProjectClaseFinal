@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
-from .models import Contacto, Usuario, Pedido, LineaPedido, resena
+from .models import Contacto, Usuario, Pedido, LineaPedido, resena, Reserva
 
 
 class PizzaForm(forms.ModelForm):
@@ -77,3 +77,16 @@ class form_resena(forms.ModelForm):
     class Meta:
         model = resena
         fields = ['puntuacion', 'comentario']  # usuario se asigna en la vista
+
+
+
+class reservaForm(forms.ModelForm):
+    numero_personas = forms.IntegerField(min_value=1, max_value=20, label="Numero de personas")
+    class Meta:
+        model = Reserva
+
+        fields = ['fecha_reserva', 'hora_reserva', 'numero_personas']
+        widgets = {
+            'fecha_reserva': forms.DateInput(attrs={'type': 'date'}),
+            'hora_reserva': forms.TimeInput(attrs={'type': 'time'}),
+        }

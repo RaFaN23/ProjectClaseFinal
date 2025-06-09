@@ -142,3 +142,18 @@ class resena(models.Model):
     puntuacion = models.IntegerField()
     comentario = models.TextField()
     fecha_creacion = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.usuario} - {self.puntuacion}"
+
+
+class Reserva(models.Model):
+    usuario = models.ForeignKey('Usuario', on_delete=models.CASCADE)
+    fecha_reserva = models.DateField()
+    hora_reserva = models.TimeField()
+    numero_personas = models.IntegerField()
+    fecha_creacion = models.DateTimeField(auto_now_add=True)
+
+
+    def __str__(self):
+        return f"{self.usuario} - {self.hora_reserva}"

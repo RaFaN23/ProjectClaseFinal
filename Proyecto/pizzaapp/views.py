@@ -492,3 +492,39 @@ def eliminar_resena(request, resena_id):
 def go_resena(request):
     resenas = resena.objects.filter(usuario=request.user).order_by('-fecha_creacion')
     return render(request, 'resena.html', {'resenas': resenas})
+
+
+
+
+
+def go_formulario_reserva(request, id=None):
+    reservas = Reserva.objects.filter(id=id, usuario=request.user)
+
+    if len(reservas) == 0:
+        reserva = Reserva()
+    else:
+        reserva = reservas[0]
+
+    if request.method == 'POST':
+        form = reservaForm(request.POST, instance=reserva)
+        if form.is_valid():
+            nueva_reserva = form.save(commit=False)
+            nueva_reserva.usuario = request.user
+            nueva_reserva.save()
+            return redirect('lista_reservas')
+    else:
+        form = reservaForm(instance=reserva)
+
+    return render(request, 'formulario_reserva.html', {'form': form})
+
+
+def eliminar_reserva(request, id):
+    reserva = Reserva.objects.filter(id=id, usuario=request.user)
+    if reserva.exists():
+        reserva.first().delete()
+    return redirect('lista_reservas')
+
+
+def lista_reservas(request):
+    reservas = Reserva.objects.filter(usuario=request.user).order_by('-fecha_creacion')
+    return render(request, 'resumen_reservas.html', {'reservas': reservas})

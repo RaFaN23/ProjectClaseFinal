@@ -72,5 +72,12 @@ urlpatterns = [
     path('resena/eliminar/<int:resena_id>/', eliminar_resena, name='eliminar_resena'),
     path('mis-resenas/', go_resena, name='lista_resenas'),
 
+
+    #reservas
+    path('reserva/', go_formulario_reserva, name='nueva_reserva'),  # Crear
+    path('reserva/<int:id>/', go_formulario_reserva, name='go_formulario_reserva'),  # Editar
+    path('eliminar_reserva/<int:id>/', eliminar_reserva, name='eliminar_reserva'),
+    path('reservas/',lista_reservas, name='lista_reservas'),
+
 ]
 

@@ -1,0 +1,23 @@
+{% extends 'basehtml.html' %}
+
+{% block title %}Mis Reservas{% endblock %}
+
+{% block content %}
+<h2>Mis Reservas</h2>
+<a href="{% url 'nueva_reserva' %}">Añadir reserva</a>
+
+<ul>
+    {% for reserva in reservas %}
+        <li>
+            Fecha: {{ reserva.fecha_reserva }} |
+            Hora: {{ reserva.hora_reserva }} |
+            Personas: {{ reserva.numero_personas }}
+            <br>
+            <a href="{% url 'go_formulario_reserva' reserva.id %}">Editar</a>
+            <a href="{% url 'eliminar_reserva' reserva.id %}">Eliminar</a>
+        </li>
+    {% empty %}
+        <p>No tienes reservas.</p>
+    {% endfor %}
+</ul>
+{% endblock %}
