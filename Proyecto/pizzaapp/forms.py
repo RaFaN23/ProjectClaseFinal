@@ -90,3 +90,99 @@ class reservaForm(forms.ModelForm):
             'fecha_reserva': forms.DateInput(attrs={'type': 'date'}),
             'hora_reserva': forms.TimeInput(attrs={'type': 'time'}),
         }
+
+
+#
+# widgets = {
+#     # 📅 Selector de fecha
+#     'fecha_reserva': forms.DateInput(
+#         attrs={'type': 'date', 'class': 'form-control'}
+#     ),  # Para seleccionar una fecha (usa calendario del navegador)
+#
+#     # 🕒 Selector de hora
+#     'hora_reserva': forms.TimeInput(
+#         attrs={'type': 'time', 'class': 'form-control'}
+#     ),  # Para seleccionar hora exacta
+#
+#     # 🔡 Campo de texto normal
+#     'nombre': forms.TextInput(
+#         attrs={'placeholder': 'Tu nombre completo', 'class': 'form-control'}
+#     ),  # Para nombres, títulos o texto corto
+#
+#     # ✉️ Campo de email
+#     'correo': forms.EmailInput(
+#         attrs={'placeholder': 'ejemplo@correo.com', 'class': 'form-control'}
+#     ),  # Valida formato de email automáticamente
+#
+#     # 🔒 Campo de contraseña
+#     'contrasena': forms.PasswordInput(
+#         attrs={'class': 'form-control'}
+#     ),  # Oculta el texto al escribir
+#
+#     # 🧾 Área de texto para comentarios o descripciones
+#     'comentario': forms.Textarea(
+#         attrs={'rows': 4, 'cols': 40, 'placeholder': 'Escribe tu mensaje...', 'class': 'form-control'}
+#     ),  # Para escribir textos largos
+#
+#     # 🔢 Campo numérico
+#     'numero_personas': forms.NumberInput(
+#         attrs={'min': 1, 'max': 20, 'class': 'form-control'}
+#     ),  # Solo permite números dentro del rango
+#
+#     # 📂 Subida de archivo
+#     'imagen': forms.ClearableFileInput(
+#         attrs={'class': 'form-control-file'}
+#     ),  # Para subir imágenes, permite eliminar si ya hay una
+#
+#     # ✅ Casilla de verificación
+#     'acepta_terminos': forms.CheckboxInput(
+#         attrs={'class': 'form-check-input'}
+#     ),  # Ideal para aceptar términos y condiciones
+#
+#     # 🔽 Menú desplegable (solo una opción)
+#     'tipo_reserva': forms.Select(
+#         attrs={'class': 'form-select'}
+#     ),  # Úsalo si tienes un `choices=` en el modelo
+#
+#     # 🔘 Botones de radio (una sola opción)
+#     'opciones_pago': forms.RadioSelect(
+#         attrs={'class': 'form-check-input'}
+#     ),  # Otra forma visual de elegir una opción
+#
+#     # 🔽🔍 ComboBox (desplegable con búsqueda)
+#     'categoria': forms.Select(
+#         attrs={
+#             'class': 'form-select select2'  # Usa Select2 (requiere JS y jQuery) para búsqueda
+#         }
+#     ),  # Para elegir de una lista larga (ej. ciudades, categorías)
+# }
+#
+#
+#
+# class ReservaForm(forms.ModelForm):
+#     class Meta:
+#         model = Reserva
+#         fields = ['estado', 'numero_personas', 'fecha_reserva', 'hora_reserva']
+#         widgets = {
+#             'fecha_reserva': forms.DateInput(attrs={'type': 'date'}),
+#             'hora_reserva': forms.TimeInput(attrs={'type': 'time'}),
+# #         }
+# su view
+# def crear_reserva(request):
+#     reserva_obj = None  # En este caso solo se crea, no se edita
+#
+#     if request.method == 'POST':
+#         form = ReservaForm(request.POST, instance=reserva_obj)
+#         if form.is_valid():
+#             nueva_reserva = form.save(commit=False)
+#             nueva_reserva.usuario = request.user  # Asumiendo que usas autenticación
+#             nueva_reserva.save()
+#             return redirect('reserva_exitosa')  # Redirige a donde necesites
+#     else:
+#         form = ReservaForm(instance=reserva_obj)
+#
+#     contexto = {
+#         'form': form,
+#         'es_edicion': reserva_obj is not None
+#     }
+#     return render(request, 'reservas/crear_reserva.html', contexto)

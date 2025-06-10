@@ -157,3 +157,19 @@ class Reserva(models.Model):
 
     def __str__(self):
         return f"{self.usuario} - {self.hora_reserva}"
+
+
+
+# class Reserva(models.Model):
+#     ESTADOS_CHOICES = [
+#         ('pendiente', 'Pendiente'),
+#         ('confirmada', 'Confirmada'),
+#         ('cancelada', 'Cancelada'),
+#     ]
+#
+#     usuario = models.ForeignKey('Usuario', on_delete=models.CASCADE)
+#     fecha_reserva = models.DateField()
+#     hora_reserva = models.TimeField()
+#     numero_personas = models.IntegerField()
+#     estado = models.CharField(max_length=20, choices=ESTADOS_CHOICES, default='pendiente')
+#     fecha_creacion = models.DateTimeField(auto_now_add=True)
